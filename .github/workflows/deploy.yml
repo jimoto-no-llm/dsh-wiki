@@ -30,9 +30,21 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # Secrets are absent until CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID
+      # are added to the repository; skip instead of failing the workflow.
+      - name: Check Cloudflare secrets
+        id: secrets
+        env:
+          CF_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: echo "present=$([ -n "$CF_TOKEN" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
       - name: Deploy to Cloudflare Workers
+        if: steps.secrets.outputs.present == 'true'
         uses: cloudflare/wrangler-action@v3
         with:
+          wranglerVersion: 4.155.0
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           command: deploy
+      - name: Notice
+        if: steps.secrets.outputs.present == 'false'
+        run: echo "CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID 未設定のためデプロイをスキップしました。"
