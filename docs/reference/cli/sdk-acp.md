@@ -8,7 +8,7 @@ DSH では SDK と ACP は独立した公開バイナリではなく、プロフ
 
 Python 向け実行ランタイムの wheel パッケージは、この同じ `dsh` コマンドを同梱します。SDK の既定は `sdk` プロファイルで、最小構成のサンプルは `sdk-minimal` を選択します。
 
-<a id="dsh-sdk"></a>
+
 ## `dsh sdk`
 
 同じヘルプが `dsh sdk --help` と `dsh --profile sdk --help` のどちらでも表示されます。
@@ -27,7 +27,7 @@ Example:
 
 訳: stdio JSON-RPC で DeepSeek Harness SDK クライアントにサービスを提供します。例は「1つの SDK ランタイムを、クライアントが切断するまで提供する」です。
 
-<a id="dsh-sdk-minimal"></a>
+
 ## `dsh sdk-minimal`
 
 同じヘルプが `dsh sdk-minimal --help` と `dsh --profile sdk-minimal --help` のどちらでも表示されます。
@@ -46,7 +46,7 @@ Example:
 
 `sdk` との差分そのものはヘルプ上に現れませんが、ランチャーのヘルプでは `sdk-minimal` は「スタンドアロンの最小エージェントツリー」と説明されています。
 
-<a id="dsh-acp"></a>
+
 ## `dsh acp`
 
 同じヘルプが `dsh acp --help` と `dsh --profile acp --help` のどちらでも表示されます。
@@ -67,9 +67,9 @@ Example:
 
 ## ふるまいの要点
 
-- `sdk`・`sdk-minimal`・`acp` の各プロファイルは、初回使用時に同梱テンプレートから自動初期化されます（[behaviors](./behaviors.md)）。
-- `sdk` は JSON-RPC stdio で SDK クライアントにサービスを提供し、シャットダウンまたは切断まで続きます（[launcher](./launcher.md) のエントリーモード表）。
-- 起動時のカレントディレクトリが既定のワークスペースルートになります（[behaviors](./behaviors.md)）。
+- `sdk`・`sdk-minimal`・`acp` の各プロファイルは、初回使用時に同梱テンプレートから自動初期化されます（[behaviors](/reference/cli/behaviors.md)）。
+- `sdk` は JSON-RPC stdio で SDK クライアントにサービスを提供し、シャットダウンまたは切断まで続きます（[launcher](/reference/cli/launcher.md) のエントリーモード表）。
+- 起動時のカレントディレクトリが既定のワークスペースルートになります（[behaviors](/reference/cli/behaviors.md)）。
 
 ## 出典
 

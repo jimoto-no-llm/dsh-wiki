@@ -25,7 +25,7 @@ dsh rescue --from-default-profile web
 | `--dump-config-schema` | マウントせずに、プロファイルエントリとパッチの JSON Schema を出力します |
 | `--dump-default-config` | ユーザーレイヤーと `--patch` オーバーレイを含まないプロファイルツリーを出力して終了します |
 
-ひとつのプロファイルツリーは、空のルートの上に次の順で合成されます（出典・詳細は [behaviors](./behaviors.md)）。
+ひとつのプロファイルツリーは、空のルートの上に次の順で合成されます（出典・詳細は [behaviors](/reference/cli/behaviors.md)）。
 
 - `dsh.profile.bundles` の順序で、各バンドルのパッチ
 - その後でプロファイルの `cordis.patch.yml`、続いてホームレベルの `$DSH_HOME/cordis.patch.yml`
@@ -53,7 +53,7 @@ dsh rescue --from-default-profile web
 
 - `desktop` という名前は Electron 所有のプロファイル向けに予約されており、CLI はこの名前への起動と設定ダンプの両方を拒否します。
 - `--from-default-profile` による置き換えはカスタムプロファイル向けの操作です。`web`・`headless`・`sdk`・`sdk-minimal`・`acp` は初回使用時に自動初期化されます。
-- ダンプ系オプションの一覧は [launcher](./launcher.md) のオプション表にも含まれます。
+- ダンプ系オプションの一覧は [launcher](/reference/cli/launcher.md) のオプション表にも含まれます。
 
 ## 出典
 

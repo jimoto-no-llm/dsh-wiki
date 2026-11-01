@@ -10,7 +10,7 @@ dsh web --no-open        # ブラウザを開かず起動
 dsh web --port 8080      # 別ポートで配信
 ```
 
-起動時に URL が表示され、ローカル起動なら既定のブラウザで開きます。既定ポートは 3080 です。起動方法の詳細は[はじめに](./getting-started.md)と[CLI リファレンス](./cli.md)を見てください。
+起動時に URL が表示され、ローカル起動なら既定のブラウザで開きます。既定ポートは 3080 です。起動方法の詳細は[はじめに](/guide/getting-started.md)と[CLI リファレンス](/guide/cli.md)を見てください。
 
 ## Settings → Models で API キーを登録する
 

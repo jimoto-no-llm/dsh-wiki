@@ -58,9 +58,9 @@ dsh --profile headless --permission-mode workspace-write --add-dir /repo/.git "c
 
 ## ふるまいの要点
 
-- `headless` プロファイルは、初回使用時に同梱テンプレートから自動初期化されます（[behaviors](./behaviors.md)）。
-- 起動時のカレントディレクトリが、既定のワークスペースルートになります（[behaviors](./behaviors.md)）。
-- `dsh --profile headless "job"` は新しい永続化セッションを1つ実行し、最終回答を出力して終了します（[launcher](./launcher.md)）。
+- `headless` プロファイルは、初回使用時に同梱テンプレートから自動初期化されます（[behaviors](/reference/cli/behaviors.md)）。
+- 起動時のカレントディレクトリが、既定のワークスペースルートになります（[behaviors](/reference/cli/behaviors.md)）。
+- `dsh --profile headless "job"` は新しい永続化セッションを1つ実行し、最終回答を出力して終了します（[launcher](/reference/cli/launcher.md)）。
 
 ## 出典
 

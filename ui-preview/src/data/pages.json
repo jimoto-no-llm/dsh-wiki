@@ -1,5 +1,176 @@
 [
   {
+    "slug": "deep/api-gateway",
+    "name": "APIゲートウェイ",
+    "cat": "deep",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep/cordis-primer",
+    "name": "Cordisの基礎",
+    "cat": "deep",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep/deepseek-llm-api-wire-extensions",
+    "name": "DeepSeek LLM APIのワイヤ拡張",
+    "cat": "deep",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep/rescope",
+    "name": "rescope の仕組み",
+    "cat": "deep",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep/agent-lifecycle",
+    "name": "エージェントライフサイクル",
+    "cat": "deep",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep/graph-atlas",
+    "name": "依存グラフの構造",
+    "cat": "deep",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep/glossary",
+    "name": "用語集",
+    "cat": "deep",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep/testing",
+    "name": "開発のテスト",
+    "cat": "deep",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep/development",
+    "name": "開発の流れ",
+    "cat": "deep",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop/adding-an-llm-adapter",
+    "name": "LLM アダプタ追加ガイド",
+    "cat": "develop",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop/adding-a-plugin-preview",
+    "name": "Plugin feature preview 追加ガイド",
+    "cat": "develop",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop/adding-a-remote-api",
+    "name": "Remote API 追加ガイド",
+    "cat": "develop",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop/adding-a-session-format-version",
+    "name": "Session ログフォーマットバージョン追加ガイド",
+    "cat": "develop",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop/adding-a-vendored-package",
+    "name": "Vendored パッケージ追加ガイド",
+    "cat": "develop",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop/reviewing-persistence-type-changes",
+    "name": "persistence 型変更 review ガイド",
+    "cat": "develop",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop/adding-a-tool",
+    "name": "ツール実装リファレンス",
+    "cat": "develop",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop/adding-a-settings-card",
+    "name": "ライブ設定フォーム（settings card）追加ガイド",
+    "cat": "develop",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop/adding-a-package",
+    "name": "ワークスペースパッケージ追加ガイド",
+    "cat": "develop",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop/extension-cookbook",
+    "name": "拡張プラグインの形態ガイド",
+    "cat": "develop",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
     "slug": "guide/cli",
     "name": "CLI リファレンス",
     "cat": "guide",
@@ -521,6 +692,114 @@
     "rev": 1
   },
   {
+    "slug": "rdsh/dw2/rust-migration",
+    "name": "JS→Rustの段階的移行",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/pr-workflow",
+    "name": "PR対応フロー",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/webui-asset-cache",
+    "name": "Webシェル資産キャッシュ — 実装契約",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/scoped-stop",
+    "name": "スコープ付き段階停止 (Scoped staged stop)",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/projects",
+    "name": "プロジェクト管理 (Projects)",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/mobile-overview",
+    "name": "モバイル向けプロジェクト・タスク概要",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/project-setup",
+    "name": "リポジトリ設定 (Project settings)",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/releasing",
+    "name": "リリース手順 (Releasing)",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/roadmap",
+    "name": "ロードマップ",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/worker-workspaces",
+    "name": "ワーカースコープとworktreeのリース",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/budget-control",
+    "name": "予算アドミッション制御（#45）",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw2/question-contracts",
+    "name": "版付き質問カード (Versioned question cards)",
+    "cat": "rdsh-dw2",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
     "slug": "reference/faq",
     "name": "FAQ",
     "cat": "reference",
@@ -620,6 +899,114 @@
     "rev": 1
   },
   {
+    "slug": "reference/config/dsh-compaction-basic",
+    "name": "`@deepseek-ai/dsh-compaction-basic` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-fs-local",
+    "name": "`@deepseek-ai/dsh-fs-local` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-goal",
+    "name": "`@deepseek-ai/dsh-goal` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-hmr",
+    "name": "`@deepseek-ai/dsh-hmr` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-jobs-local",
+    "name": "`@deepseek-ai/dsh-jobs-local` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-llm-pi-ai",
+    "name": "`@deepseek-ai/dsh-llm-pi-ai` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-mcp-client",
+    "name": "`@deepseek-ai/dsh-mcp-client` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-plugin-manager",
+    "name": "`@deepseek-ai/dsh-plugin-manager` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-schedule",
+    "name": "`@deepseek-ai/dsh-schedule` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-web-app",
+    "name": "`@deepseek-ai/dsh-web-app` の設定（`dsh-web` シームを含む）",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/worktrees",
+    "name": "Git Worktrees",
+    "cat": "subsystems",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/mcp",
+    "name": "MCP",
+    "cat": "subsystems",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
     "slug": "subsystems/todo",
     "name": "TODO",
     "cat": "subsystems",
@@ -633,6 +1020,24 @@
     "name": "Web UIのSlots",
     "cat": "subsystems",
     "desc": "UI型システム",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/agent-team",
+    "name": "エージェントチーム（Agent Teams）",
+    "cat": "subsystems",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/client-resources",
+    "name": "クライアントリソース",
+    "cat": "subsystems",
+    "desc": "",
     "updated": "2026-11-01",
     "by": "wiki",
     "rev": 1
@@ -701,6 +1106,51 @@
     "rev": 1
   },
   {
+    "slug": "subsystems/plan",
+    "name": "プランモード",
+    "cat": "subsystems",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/boot",
+    "name": "プロファイル管理（Boot）",
+    "cat": "subsystems",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/feedback",
+    "name": "メッセージフィードバック",
+    "cat": "subsystems",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/approval",
+    "name": "ユーザー承認",
+    "cat": "subsystems",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/credentials",
+    "name": "ユーザー認証情報（Credentials）",
+    "cat": "subsystems",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
     "slug": "subsystems/user-questions",
     "name": "ユーザー質問",
     "cat": "subsystems",
@@ -714,6 +1164,33 @@
     "name": "ワークフロー",
     "cat": "subsystems",
     "desc": "宣言的な進行枠",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/commands",
+    "name": "人間コマンド",
+    "cat": "subsystems",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/conversation",
+    "name": "会話組み立て（Conversation Assembly）",
+    "cat": "subsystems",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/attachment",
+    "name": "恒久アタッチメント（Durable Attachments）",
+    "cat": "subsystems",
+    "desc": "",
     "updated": "2026-11-01",
     "by": "wiki",
     "rev": 1

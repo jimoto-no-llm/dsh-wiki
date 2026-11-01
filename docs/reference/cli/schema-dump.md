@@ -1,6 +1,6 @@
 # 設定スキーマダンプの安全作法
 
-`--dump-config-schema` は、起動せずにプロファイルが宣言するプラグイン設定の JSON Schema を出力するダンプモードです。この記事はダンプ表面のオプション紹介を [rescue-dump](./rescue-dump.md) に譲り、上流 CLI behavior reference の schema-dump セクションに書かれた安全性・診断・文書構造を詳述します。上流は信頼できない（untrusted）プラグインを含むツリーを検査する前に、この「schema-dump safety and scope」を読むことを明示的に求めています。
+`--dump-config-schema` は、起動せずにプロファイルが宣言するプラグイン設定の JSON Schema を出力するダンプモードです。この記事はダンプ表面のオプション紹介を [rescue-dump](/reference/cli/rescue-dump.md) に譲り、上流 CLI behavior reference の schema-dump セクションに書かれた安全性・診断・文書構造を詳述します。上流は信頼できない（untrusted）プラグインを含むツリーを検査する前に、この「schema-dump safety and scope」を読むことを明示的に求めています。
 
 ## 実行条件と基本の振る舞い
 
@@ -130,7 +130,7 @@
 
 ## 関連ドキュメント
 
-- ダンプフラグの一覧と使い分けは [rescue-dump](./rescue-dump.md)。レイヤーの合成順序は [behaviors](./behaviors.md)、プロファイル起動の全体像は [launcher](./launcher.md)
+- ダンプフラグの一覧と使い分けは [rescue-dump](/reference/cli/rescue-dump.md)。レイヤーの合成順序は [behaviors](/reference/cli/behaviors.md)、プロファイル起動の全体像は [launcher](/reference/cli/launcher.md)
 
 ## 出典
 

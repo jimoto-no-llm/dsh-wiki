@@ -47,14 +47,14 @@ dsh plugin --profile tui add ＼package］    install a plugin into the tui prof
 - `package.json` — ツリー外プラグインの依存関係と、順序付き `bundles` リストを持つプロファイルマニフェスト `dsh.profile`
 - `cordis.patch.yml` — ユーザー自身のパッチレイヤー
 
-pnpm がインストールしたツリー外プラグインは、プロファイル自身の `node_modules` に置かれます。全体のレイヤー合成順序は [behaviors](./behaviors.md) を参照してください。
+pnpm がインストールしたツリー外プラグインは、プロファイル自身の `node_modules` に置かれます。全体のレイヤー合成順序は [behaviors](/reference/cli/behaviors.md) を参照してください。
 ## ふるまいの要点
 
 - `web`・`headless`・`sdk`・`sdk-minimal`・`acp` 以外のベースに紐づくプロファイルは、`dsh plugin` 経由でも初期化できます。
 - プラグイン管理は Plugin Manager とパッケージ操作とプロファイルの書き込みロックを共有します。パッケージ更新は、無効化されたバンドル選択を保持します。
 - CLI のパッケージコマンドは、認証変数と端末ディスクリプタ（対話的なビルド承認を含む）を継承します。サービス呼び出しは、消毒（スクラブ）済みの環境と取り込まれた診断情報を保持します。
 - `desktop` プロファイルへのプラグイン管理要求は、npm CLI では拒否されます。Desktop インストール版のコマンドは、そのインストール固有のランタイムを使って、初期化済み Desktop プロファイルを管理できます。
-- ランチャーとプロファイル全体の構成は [launcher](./launcher.md)、共通のふるまいは [behaviors](./behaviors.md) を参照してください。
+- ランチャーとプロファイル全体の構成は [launcher](/reference/cli/launcher.md)、共通のふるまいは [behaviors](/reference/cli/behaviors.md) を参照してください。
 
 ## 出典
 

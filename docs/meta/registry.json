@@ -322,5 +322,217 @@
   "guide/getting-started": {
     "t": "getting-started",
     "d": ""
+  },
+  "develop/adding-a-package": {
+    "t": "ワークスペースパッケージ追加ガイド",
+    "d": ""
+  },
+  "develop/adding-a-plugin-preview": {
+    "t": "Plugin feature preview 追加ガイド",
+    "d": ""
+  },
+  "develop/adding-a-remote-api": {
+    "t": "Remote API 追加ガイド",
+    "d": ""
+  },
+  "develop/adding-a-session-format-version": {
+    "t": "Session ログフォーマットバージョン追加ガイド",
+    "d": ""
+  },
+  "develop/adding-a-settings-card": {
+    "t": "ライブ設定フォーム（settings card）追加ガイド",
+    "d": ""
+  },
+  "develop/adding-a-tool": {
+    "t": "ツール実装リファレンス",
+    "d": ""
+  },
+  "develop/adding-a-vendored-package": {
+    "t": "Vendored パッケージ追加ガイド",
+    "d": ""
+  },
+  "develop/adding-an-llm-adapter": {
+    "t": "LLM アダプタ追加ガイド",
+    "d": ""
+  },
+  "develop/extension-cookbook": {
+    "t": "拡張プラグインの形態ガイド",
+    "d": ""
+  },
+  "develop/reviewing-persistence-type-changes": {
+    "t": "persistence 型変更 review ガイド",
+    "d": ""
+  },
+  "subsystems/agent-team": {
+    "t": "エージェントチーム（Agent Teams）",
+    "d": ""
+  },
+  "subsystems/approval": {
+    "t": "ユーザー承認",
+    "d": ""
+  },
+  "subsystems/attachment": {
+    "t": "恒久アタッチメント（Durable Attachments）",
+    "d": ""
+  },
+  "subsystems/boot": {
+    "t": "プロファイル管理（Boot）",
+    "d": ""
+  },
+  "subsystems/client-resources": {
+    "t": "クライアントリソース",
+    "d": ""
+  },
+  "subsystems/commands": {
+    "t": "人間コマンド",
+    "d": ""
+  },
+  "subsystems/conversation": {
+    "t": "会話組み立て（Conversation Assembly）",
+    "d": ""
+  },
+  "subsystems/credentials": {
+    "t": "ユーザー認証情報（Credentials）",
+    "d": ""
+  },
+  "subsystems/feedback": {
+    "t": "メッセージフィードバック",
+    "d": ""
+  },
+  "subsystems/mcp": {
+    "t": "MCP",
+    "d": ""
+  },
+  "subsystems/plan": {
+    "t": "プランモード",
+    "d": ""
+  },
+  "subsystems/worktrees": {
+    "t": "Git Worktrees",
+    "d": ""
+  },
+  "deep/agent-lifecycle": {
+    "t": "エージェントライフサイクル",
+    "d": ""
+  },
+  "deep/api-gateway": {
+    "t": "APIゲートウェイ",
+    "d": ""
+  },
+  "deep/cordis-primer": {
+    "t": "Cordisの基礎",
+    "d": ""
+  },
+  "deep/deepseek-llm-api-wire-extensions": {
+    "t": "DeepSeek LLM APIのワイヤ拡張",
+    "d": ""
+  },
+  "deep/development": {
+    "t": "開発の流れ",
+    "d": ""
+  },
+  "deep/glossary": {
+    "t": "用語集",
+    "d": ""
+  },
+  "deep/graph-atlas": {
+    "t": "依存グラフの構造",
+    "d": ""
+  },
+  "deep/rescope": {
+    "t": "rescope の仕組み",
+    "d": ""
+  },
+  "deep/testing": {
+    "t": "開発のテスト",
+    "d": ""
+  },
+  "rdsh/dw2/budget-control": {
+    "t": "予算アドミッション制御（#45）",
+    "d": ""
+  },
+  "rdsh/dw2/mobile-overview": {
+    "t": "モバイル向けプロジェクト・タスク概要",
+    "d": ""
+  },
+  "rdsh/dw2/pr-workflow": {
+    "t": "PR対応フロー",
+    "d": ""
+  },
+  "rdsh/dw2/project-setup": {
+    "t": "リポジトリ設定 (Project settings)",
+    "d": ""
+  },
+  "rdsh/dw2/projects": {
+    "t": "プロジェクト管理 (Projects)",
+    "d": ""
+  },
+  "rdsh/dw2/question-contracts": {
+    "t": "版付き質問カード (Versioned question cards)",
+    "d": ""
+  },
+  "rdsh/dw2/releasing": {
+    "t": "リリース手順 (Releasing)",
+    "d": ""
+  },
+  "rdsh/dw2/roadmap": {
+    "t": "ロードマップ",
+    "d": ""
+  },
+  "rdsh/dw2/rust-migration": {
+    "t": "JS→Rustの段階的移行",
+    "d": ""
+  },
+  "rdsh/dw2/scoped-stop": {
+    "t": "スコープ付き段階停止 (Scoped staged stop)",
+    "d": ""
+  },
+  "rdsh/dw2/webui-asset-cache": {
+    "t": "Webシェル資産キャッシュ — 実装契約",
+    "d": ""
+  },
+  "rdsh/dw2/worker-workspaces": {
+    "t": "ワーカースコープとworktreeのリース",
+    "d": ""
+  },
+  "reference/config/dsh-compaction-basic": {
+    "t": "`@deepseek-ai/dsh-compaction-basic` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-fs-local": {
+    "t": "`@deepseek-ai/dsh-fs-local` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-goal": {
+    "t": "`@deepseek-ai/dsh-goal` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-hmr": {
+    "t": "`@deepseek-ai/dsh-hmr` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-jobs-local": {
+    "t": "`@deepseek-ai/dsh-jobs-local` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-llm-pi-ai": {
+    "t": "`@deepseek-ai/dsh-llm-pi-ai` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-mcp-client": {
+    "t": "`@deepseek-ai/dsh-mcp-client` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-plugin-manager": {
+    "t": "`@deepseek-ai/dsh-plugin-manager` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-schedule": {
+    "t": "`@deepseek-ai/dsh-schedule` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-web-app": {
+    "t": "`@deepseek-ai/dsh-web-app` の設定（`dsh-web` シームを含む）",
+    "d": ""
   }
 }

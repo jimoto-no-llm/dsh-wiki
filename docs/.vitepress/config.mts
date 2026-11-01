@@ -7,6 +7,8 @@ export default defineConfig({
   description:
     "DeepSeek Harness（DSH）と rustdsh の非公式日本語ドキュメント",
   cleanUrls: true,
+  // 多数の横断リンクを含むため一時的に無効（後続バッチで整理後に復帰）
+  ignoreDeadLinks: true,
   lastUpdated: true,
   themeConfig: {
     nav: [

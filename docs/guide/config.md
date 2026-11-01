@@ -25,7 +25,7 @@ DSH の設定は、プロファイルごとのパッチ層と credential ファ�
 3. `$DSH_HOME/cordis.patch.yml`
 4. `--patch` オーバーレイ
 
-後ろの層ほど優先します。詳しくは[プロファイル](./profiles.md)を見てください。
+後ろの層ほど優先します。詳しくは[プロファイル](/guide/profiles.md)を見てください。
 
 ## 合成結果を確かめる
 

@@ -4,12 +4,12 @@
 
 このページはランチャー本体の文法とオプションを扱います。サブモードの詳細は各専用ページを参照してください。
 
-- [headless](./headless.md) — タスクを1つ実行して終了
-- [web](./web.md) — ブラウザ UI
-- [sdk-acp](./sdk-acp.md) — SDK / ACP サーバー
-- [plugin](./plugin.md) — プラグイン管理
-- [rescue-dump](./rescue-dump.md) — プロファイルの再作成と設定ダンプ
-- [behaviors](./behaviors.md) — 終了コードなど共通のふるまい
+- [headless](/reference/cli/headless.md) — タスクを1つ実行して終了
+- [web](/reference/cli/web.md) — ブラウザ UI
+- [sdk-acp](/reference/cli/sdk-acp.md) — SDK / ACP サーバー
+- [plugin](/reference/cli/plugin.md) — プラグイン管理
+- [rescue-dump](/reference/cli/rescue-dump.md) — プロファイルの再作成と設定ダンプ
+- [behaviors](/reference/cli/behaviors.md) — 終了コードなど共通のふるまい
 
 ## 文法
 

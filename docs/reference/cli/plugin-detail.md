@@ -1,6 +1,6 @@
 # プラグイン管理の詳細仕様
 
-`dsh plugin` は、プロファイルディレクトリに置かれた pnpm へ残りの引数を転送し、プロファイルのプラグインを管理します。構文とオプション表は [plugin](./plugin.md) に譲り、この記事では上流 CLI 関係資料に書かれた深い挙動 — 初期化、転送とヘルプの解釈、バンドルスタックの調整（reconcile）、ロックと環境、対話ビルド承認、再起動の境界 — を表で扱います。
+`dsh plugin` は、プロファイルディレクトリに置かれた pnpm へ残りの引数を転送し、プロファイルのプラグインを管理します。構文とオプション表は [plugin](/reference/cli/plugin.md) に譲り、この記事では上流 CLI 関係資料に書かれた深い挙動 — 初期化、転送とヘルプの解釈、バンドルスタックの調整（reconcile）、ロックと環境、対話ビルド承認、再起動の境界 — を表で扱います。
 
 ## コマンドの位置づけと初期化
 
@@ -100,7 +100,7 @@ dsh --profile tui
 
 | 項目 | 内容 |
 | --- | --- |
-| npm CLI | `desktop` という名前（Electron 所有のプロファイル）へのプラグイン管理要求を拒否する。起動と設定ダンプの拒否と合わせて [rescue-dump](./rescue-dump.md) にもある |
+| npm CLI | `desktop` という名前（Electron 所有のプロファイル）へのプラグイン管理要求を拒否する。起動と設定ダンプの拒否と合わせて [rescue-dump](/reference/cli/rescue-dump.md) にもある |
 | Desktop インストール版 | Desktop の carrier は、初期化済み Desktop プロファイルへのプラグイン操作を有効にする。導入パッケージ固有の環境はプラグインのパッケージ操作にのみ効く |
 | バージョン検査 | 導入時とプロファイル起動時に、宣言された `engines.dsh` の範囲（無い場合は DSH peer 範囲）を `dsh --version` と同じランタイム版で検査する。互換の無いプラグインは、明示的に承認した正確な版の免除（exemption）を要求する |
 
@@ -112,7 +112,7 @@ CLI はパッチレイヤーから使える依存パッケージとして `@deep
 
 ## 関連ドキュメント
 
-- 構文・オプション表は [plugin](./plugin.md)。バンドルのレイヤー合成順序は [behaviors](./behaviors.md)、起動は [launcher](./launcher.md)
+- 構文・オプション表は [plugin](/reference/cli/plugin.md)。バンドルのレイヤー合成順序は [behaviors](/reference/cli/behaviors.md)、起動は [launcher](/reference/cli/launcher.md)
 
 ## 出典
 

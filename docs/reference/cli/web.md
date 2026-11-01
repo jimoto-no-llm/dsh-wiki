@@ -53,8 +53,8 @@ dsh --profile web --tls-cert ./server-chain.pem --tls-key ./server-key.pem
 
 ## ふるまいの要点
 
-- `web` プロファイルは、初回使用時に同梱テンプレートから自動初期化されます（[behaviors](./behaviors.md)）。
-- `dsh web --help` は Web アプリ自身のフラグを表示します。ランチャー自身のヘルプは `dsh --help` です（[launcher](./launcher.md)）。
+- `web` プロファイルは、初回使用時に同梱テンプレートから自動初期化されます（[behaviors](/reference/cli/behaviors.md)）。
+- `dsh web --help` は Web アプリ自身のフラグを表示します。ランチャー自身のヘルプは `dsh --help` です（[launcher](/reference/cli/launcher.md)）。
 - 上流のテストでは、Web プロファイルに対して起動失敗とネイティブ設定 HMR（`awaitWriteFinish` 有効）を実 CLI 経由で走らせる「Web failure matrix」があり、モデル API 呼び出しなしで認証付き HTTP 応答・診断・復旧・プロセス終了・廃棄（disposal）を検証しています。起動受け入れテスト（startup acceptance）は、同梱の必須 Web 依存とポート競合もカバーします。
 
 ## 出典

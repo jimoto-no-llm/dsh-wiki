@@ -18,7 +18,7 @@ npx @deepseek-ai/dsh web
 - ローカル起動なら既定のブラウザで開き、SSH 経由なら URL の表示のみです
 - `--no-open` を付けるとブラウザを開かず、サーバだけ起動します
 
-起動オプションは [CLI リファレンス](./cli.md)にまとめています。ソースから起動する手順は上流 README の Run 節を見てください。
+起動オプションは [CLI リファレンス](/guide/cli.md)にまとめています。ソースから起動する手順は上流 README の Run 節を見てください。
 
 ## 初回セットアップ
 
@@ -26,7 +26,7 @@ npx @deepseek-ai/dsh web
 
 ### 1. モデルを設定する
 
-**Settings → Models** を開き、[DeepSeek API キー](https://platform.deepseek.com/)を入力して保存します。保存した時点でモデル経路が使えるようになり、サーバの再起動は不要です。他社プロバイダや OpenAI 互換エンドポイントの追加も同じ画面で行えます（[Web UI](./web.md)参照）。
+**Settings → Models** を開き、[DeepSeek API キー](https://platform.deepseek.com/)を入力して保存します。保存した時点でモデル経路が使えるようになり、サーバの再起動は不要です。他社プロバイダや OpenAI 互換エンドポイントの追加も同じ画面で行えます（[Web UI](/guide/web.md)参照）。
 
 ### 2. ワークスペースを選ぶ
 
@@ -42,10 +42,10 @@ npx @deepseek-ai/dsh web
 
 ## 次に読む
 
-- [プロファイル](./profiles.md) — 起動モードと設定の単位
-- [CLI リファレンス](./cli.md) — 起動文法とオプション
-- [Web UI](./web.md) — 画面の使い方
-- [設定](./config.md) — 設定ファイルの場所
+- [プロファイル](/guide/profiles.md) — 起動モードと設定の単位
+- [CLI リファレンス](/guide/cli.md) — 起動文法とオプション
+- [Web UI](/guide/web.md) — 画面の使い方
+- [設定](/guide/config.md) — 設定ファイルの場所
 
 ## 出典
 
