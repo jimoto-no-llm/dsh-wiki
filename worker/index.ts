@@ -46,7 +46,7 @@ function slugValid(slug: string): boolean {
 }
 
 function normSlug(raw: string): string {
-  const s = decodeURIComponent(raw).trim().replace(/\.md$/, "").replace(/\/+$/, "");
+  const s = decodeURIComponent(raw).trim().replace(/\.(md|html?)$/, "").replace(/\/+$/, "");
   return s.length ? s : "ホーム";
 }
 
@@ -82,11 +82,14 @@ function mdToHtml(src: string): string {
     s = s.replace(/(^|[^*])\*([^*\s][^*]*)\*/g, "$1<em>$2</em>");
     s = s.replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_m, txt: string, url: string) => {
       const u = url.trim();
-      let href: string;
+      let href: string | null = null;
       const ext = /^https?:\/\//i.test(u);
       if (ext) href = u;
-      else if (/^\/\//.test(u)) return txt;
+      else if (/^\/\//.test(u)) href = null;
+      // 危険なスキーム（javascript:, data:, vbscript: 等）を排除
+      else if (/^[A-Za-z][A-Za-z0-9+.\-]*:/i.test(u)) href = null;
       else href = u;
+      if (href === null) return txt;
       const attrs = ext ? ' rel="nofollow noopener" target="_blank"' : "";
       return '<a href="' + href + '"' + attrs + ">" + txt + "</a>";
     });
@@ -258,14 +261,16 @@ async function addToIndex(env: Env, slug: string): Promise<void> {
 
 async function doGet(req: Request, env: Env, url: URL): Promise<Response> {
   const path = url.pathname;
-  if (path === "/w" || path === "/w/") return indexPage(env);
+  // ルート「/」は匿名編集Wiki本体。/w/* と同じUIを出す
+  if (path === "/" || path === "/w" || path === "/w/") return indexPage(env);
+  if (!path.startsWith("/w")) return new Response(null, { status: 404 });
 
   const slug = normSlug(path.replace(/^\/w\/?/, ""));
   if (!slugValid(slug)) {
     return htmlResp("<h1>404</h1><p>不明なページ名です。</p>", "404", { status: 404 });
   }
   const q = url.searchParams;
-  if (q.has("edit")) return editPage(env, slug);
+  if (q.has("edit")) return editPage(env, slug, q.get("err") ?? "");
   if (q.has("history")) return historyPage(env, slug);
   const vn = q.get("v");
   if (vn) return revisionPage(env, slug, vn);
@@ -345,7 +350,7 @@ async function recentPage(env: Env): Promise<Response> {
   return htmlResp("<h1>最近の編集</h1><ul>" + list + "</ul>", "最近の編集");
 }
 
-async function editPage(env: Env, slug: string): Promise<Response> {
+async function editPage(env: Env, slug: string, err: string): Promise<Response> {
   const doc = await getDoc(env, slug);
   const locked = (await env.WIKI.get("lock:" + slug)) === "1";
   const content = doc ? doc.current.content : "";
@@ -356,11 +361,15 @@ async function editPage(env: Env, slug: string): Promise<Response> {
       { slug },
     );
   }
+  const errBox = err
+    ? '<div class="warning">保存できませんでした: ' + esc(err) + "。 内容を直して再度保存してください。</div>"
+    : "";
   const body =
     "<h1>" +
     (doc ? "編集: " : "新規作成: ") +
     esc(slug) +
     "</h1>" +
+    errBox +
     '<form method="post" action="/w/' +
     encodeURIComponent(slug) +
     '">' +
@@ -500,6 +509,14 @@ async function adminAction(req: Request, env: Env, url: URL): Promise<Response> 
   return jsonResp({ ok: false, error: "unknown action" }, 400);
 }
 
+// ブラウザフォームからの保存失敗は、JSONではなく編集フォームへ戻す（戻り先にメッセージ）
+function saveError(url: URL, slug: string, msg: string): Response {
+  return Response.redirect(
+    SITE + "/w/" + encodeURIComponent(slug) + "?edit&err=" + encodeURIComponent(msg),
+    303,
+  );
+}
+
 async function doPost(req: Request, env: Env, url: URL): Promise<Response> {
   const slug = normSlug(url.pathname.replace(/^\/w\/?/, ""));
   if (!slugValid(slug)) return jsonResp({ ok: false, error: "invalid slug" }, 400);
@@ -510,24 +527,31 @@ async function doPost(req: Request, env: Env, url: URL): Promise<Response> {
     return jsonResp({ ok: false, error: "bad origin" }, 403);
   }
 
+  // 本文サイズを formData 解析前にチェック（巨大リクエストのリソース消費防止）
+  const clen = Number(req.headers.get("content-length") ?? "0");
+  if (clen > MAX_BODY + 16_384) {
+    return saveError(url, slug, "リクエストが大きすぎます");
+  }
+
   const form = await req.formData();
   const content = String(form.get("content") ?? "");
   const by = String(form.get("by") ?? "").trim().slice(0, 40);
   const ip = await ipHash(req);
+  const browser = !!origin; // Origin あり=ブラウザフォーム。無しはAPIとしてJSONを返す
 
   // 1) 自動BAN
   if ((await env.WIKI.get("ban:" + ip)) === "1") {
-    return jsonResp({ ok: false, error: "temporarily banned" }, 403);
+    return browser ? saveError(url, slug, "一時的に保存が禁止されています（24時間）") : jsonResp({ ok: false, error: "temporarily banned" }, 403);
   }
   // 2) ページロック
   if ((await env.WIKI.get("lock:" + slug)) === "1") {
-    return jsonResp({ ok: false, error: "page is locked" }, 403);
+    return browser ? saveError(url, slug, "このページは編集停止中です") : jsonResp({ ok: false, error: "page is locked" }, 403);
   }
   // 3) 内容チェック（失敗したらレートを消費しない）
-  if (!content.trim()) return jsonResp({ ok: false, error: "empty" }, 400);
-  if (content.length > MAX_BODY) return jsonResp({ ok: false, error: "too long" }, 413);
+  if (!content.trim()) return browser ? saveError(url, slug, "本文が空です") : jsonResp({ ok: false, error: "empty" }, 400);
+  if (content.length > MAX_BODY) return browser ? saveError(url, slug, "本文が大きすぎます") : jsonResp({ ok: false, error: "too long" }, 413);
   if (countExternalLinks(content) > MAX_EXTERNAL_LINKS) {
-    return jsonResp({ ok: false, error: "too many external links (spam guard)" }, 400);
+    return browser ? saveError(url, slug, "外部リンクが多すぎます（スパムガード）") : jsonResp({ ok: false, error: "too many external links (spam guard)" }, 400);
   }
   // 4) レート制限（超過でストライク、3回で自動BAN）
   const bucket = Math.floor(Date.now() / RATE_WINDOW_MS);
@@ -571,7 +595,9 @@ async function doPost(req: Request, env: Env, url: URL): Promise<Response> {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const url = new URL(req.url);
-    if (!url.pathname.startsWith("/w")) return new Response(null, { status: 404 });
+    if (url.pathname !== "/" && !url.pathname.startsWith("/w")) {
+      return new Response(null, { status: 404 });
+    }
     try {
       if (req.method === "GET" || req.method === "HEAD") return await doGet(req, env, url);
       if (req.method === "POST") {

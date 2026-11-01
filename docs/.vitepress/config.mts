@@ -12,7 +12,7 @@ export default defineConfig({
       { text: "ホーム", link: "/" },
       { text: "DSH", link: "/guide/getting-started" },
       { text: "rustdsh", link: "/rdsh/overview" },
-      { text: "誰でも編集Wiki", link: "/w/" },
+      { text: "誰でも編集Wiki", link: "https://dsh.sahen.site/w/" },
       { text: "ライセンス", link: "/reference/license" },
     ],
     sidebar: [

@@ -14,7 +14,7 @@ hero:
       link: /rdsh/overview
     - theme: alt
       text: 誰でも編集できるWiki →
-      link: /w/
+      link: https://dsh.sahen.site/w/
 
 features:
   - title: DSH 本体
@@ -32,5 +32,5 @@ features:
 本サイトは DeepSeek / rustdsh の公式ドキュメントではなく、コミュニティによる日本語Wikiです。公式情報は
 [github.com/deepseek-ai/deepseek-harness](https://github.com/deepseek-ai/deepseek-harness) を参照してください。
 
-`/w/` 以下は**アカウント不要**で誰でも編集できます（保存すると即公開・履歴が残ります）。整備済みページはここに置いてあり、各ページ右下の「このページを編集」から匿名で直せます。
+**トップページ（https://dsh.sahen.site/）は[誰でも編集できるWiki](https://dsh.sahen.site/w/)そのものです**（アカウント不要・保存で即公開・履歴つき）。ここにある整備済みページも、各ページ右下の「このページを編集」から匿名で直せます。
 :::
