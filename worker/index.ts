@@ -186,28 +186,50 @@ function shell(title: string, bodyHtml: string, opts: { slug?: string } = {}): s
     '<meta name="robots" content="noindex, nofollow">\n' +
     "<title>" + esc(title) + " - DSH 日本語Wiki</title>\n" +
     '<style>:root{color-scheme:light dark}' +
-    "body{font-family:system-ui,-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;max-width:56rem;margin:0 auto;padding:1rem 1.2rem 3rem;line-height:1.75}" +
-    "header{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;border-bottom:1px solid #8884;padding-bottom:.5rem;margin-bottom:1rem}" +
-    "header .brand{font-weight:700;text-decoration:none;color:inherit}" +
-    "header .brand small{color:#888;font-weight:400}" +
-    ".actions{margin-left:auto;display:flex;gap:.5rem;flex-wrap:wrap}" +
-    '.btn{border:1px solid #8886;border-radius:.5rem;padding:.15rem .6rem;text-decoration:none;color:inherit;font-size:.9rem}' +
-    ".btn:hover{background:#8882}" +
-    "pre{background:#0001;border:1px solid #8884;border-radius:.5rem;padding:.8rem .9rem;overflow-x:auto}" +
-    "code{font-size:.92em}blockquote{border-left:3px solid #8886;margin:.5rem 0;padding:.1rem .9rem;color:#888}" +
-    ".warning{background:#f993;padding:.6rem .8rem;border-radius:.5rem;margin:1rem 0}" +
-    "footer{margin-top:2.5rem;border-top:1px solid #8884;padding-top:.7rem;color:#888;font-size:.85rem}" +
-    ".revlist{font-size:.9rem;color:#888}" +
+    "body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP',system-ui,sans-serif;font-size:.95rem;max-width:62rem;margin:0 auto;padding:0 1rem 3rem;line-height:1.7;color:#202122}" +
+    "a{color:#3366cc;text-decoration:none}a:hover{text-decoration:underline}" +
+    "header{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;border-bottom:1px solid #a2a9b1;padding:.55rem 0;margin-bottom:1rem}" +
+    "header .brand{font-weight:700;text-decoration:none;color:#202122;font-size:1.02rem}" +
+    "header .brand small{color:#72777d;font-weight:400;font-size:.78rem}" +
+    ".actions{margin-left:auto;display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}" +
+    ".actions form{display:flex;gap:.25rem}" +
+    '.btn{border:1px solid #a2a9b1;background:#f8f9fa;border-radius:2px;padding:.15rem .55rem;text-decoration:none;color:#202122;font-size:.85rem}' +
+    ".btn:hover{background:#eaecf0;text-decoration:none}" +
+    '.searchbox input[type=text]{border:1px solid #a2a9b1;padding:.2rem .45rem;width:10rem;background:#fff;color:#202122;font-size:.85rem}' +
+    '.searchbox button{border:1px solid #a2a9b1;background:#f8f9fa;padding:.2rem .55rem;font-size:.85rem;cursor:pointer}' +
+    "h1{font-size:1.6rem;border-bottom:1px solid #a2a9b1;padding-bottom:.25rem;margin:.4rem 0 .8rem;font-weight:400}" +
+    "h2{font-size:1.05rem;border-bottom:1px solid #c8ccd1;padding-bottom:.2rem;margin:1.2rem 0 .6rem;font-weight:700}" +
+    "h3{font-size:.95rem;margin:1rem 0 .4rem}" +
+    "pre{background:#f8f9fa;border:1px solid #eaecf0;border-radius:2px;padding:.7rem .9rem;overflow-x:auto}" +
+    "code{font-size:.9em}blockquote{border-left:3px solid #a2a9b1;margin:.5rem 0;padding:.05rem .9rem;color:#54595d}" +
+    ".warning{background:#fef6e7;border:1px solid #f0c67d;border-radius:2px;padding:.5rem .8rem;margin:.8rem 0;font-size:.9rem}" +
+    ".infobox{background:#f8f9fa;border:1px solid #a2a9b1;border-radius:2px;padding:.6rem .9rem;margin:.8rem 0;font-size:.88rem}" +
+    "footer{margin-top:2.6rem;border-top:1px solid #a2a9b1;padding-top:.6rem;color:#72777d;font-size:.8rem}" +
+    ".revlist{font-size:.85rem;color:#72777d}" +
+    ".mp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}" +
+    '@media (max-width:640px){.mp-grid{grid-template-columns:1fr}}' +
+    ".mp-box{border:1px solid #a2a9b1;background:#f8f9fa;border-radius:2px;padding:.5rem .9rem .7rem}" +
+    ".mp-box h2{border-bottom:1px solid #a2a9b1;font-size:.92rem;margin:.2rem 0 .5rem;padding:.15rem 0 .3rem;color:#202122}" +
+    ".mp-box ul{margin:.2rem 0 .2rem 1.1rem;padding:0}" +
+    ".mp-box li{margin:.25rem 0}" +
+    ".mp-box .sub{font-size:.8rem;color:#72777d}" +
+    ".mp-hero{border:1px solid #a2a9b1;background:#f8f9fa;border-radius:2px;padding:.9rem 1.1rem;margin:0 0 1rem;text-align:center}" +
+    ".mp-hero h1{border:none;font-size:1.7rem;margin:.1rem 0}" +
+    ".mp-hero p{margin:.25rem 0;font-size:.9rem;color:#54595d}" +
+    ".mp-hero .big{font-size:.95rem}" +
+    ".pagerow{display:flex;gap:.4rem;flex-wrap:wrap;align-items:baseline;margin:.35rem 0 .1rem}" +
+    '.pagerow .pname{font-size:1rem}' +
+    '.pagerow .pd{color:#54595d;font-size:.82rem;margin-left:.35rem}' +
     '</style>\n</head>\n<body>\n' +
-    '<header><a class="brand" href="/">DSH 日本語Wiki <small>非公式・誰でも編集可</small></a>' +
+    '<header><a class="brand" href="/">DSH 日本語Wiki</a> <small>非公式・誰でも編集できる</small>' +
     '<div class="actions">' +
     editLink +
-    '<a class="btn" href="/w/">ページ一覧</a>' +
+    '<div class="searchbox"><form method="get" action="/w/%E6%A4%9C%E7%B4%A2"><input type="text" name="q" placeholder="Wiki内を検索" aria-label="検索"><button type="submit">検索</button></form></div>' +
     '<a class="btn" href="/w/%E6%9C%80%E8%BF%91%E3%81%AE%E7%B7%A8%E9%9B%86">最近の編集</a>' +
     '</div></header>\n<main>' +
     bodyHtml +
     "</main>\n" +
-    '<footer>この /w/ 以下はアカウント不要で編集できます（歴史が残ります）。整備済みの静的ドキュメントは <a href="/">トップページ</a> へ。対象: DeepSeek Harness（DSH）・ rustdsh — どちらも MIT。</footer>\n' +
+    '<footer>このWikiはアカウント不要で誰でも編集できます（いたずら防止のため履歴と連投制限があります）。整備済みのリファレンスも将来はここへ取り込みます。対象: DeepSeek Harness（DSH）・ rustdsh — どちらも MIT。</footer>\n' +
     "</body>\n</html>"
   );
 }
@@ -264,10 +286,27 @@ async function doGet(req: Request, env: Env, url: URL): Promise<Response> {
   // ルート「/」は匿名編集Wiki本体。/w/* と同じUIを出す
   if (path === "/" || path === "/w" || path === "/w/") return indexPage(env);
   if (!path.startsWith("/w")) return new Response(null, { status: 404 });
+  // /go?p=名前 → 新規作成フォームへ（ポータルの作成ボックス用）
+  if (path === "/go") {
+    const name = url.searchParams.get("p") ?? "".trim();
+    const target = name.trim();
+    if (!target || !slugValid(target)) {
+      return htmlResp("<h1>ページ名を入力してください</h1><p>文字・数字・スペース、_ - . / が使えます。</p>", "ページ名エラー", { status: 400 });
+    }
+    return Response.redirect(SITE + "/w/" + encodeURIComponent(target) + "?edit", 303);
+  }
 
   const slug = normSlug(path.replace(/^\/w\/?/, ""));
   if (!slugValid(slug)) {
     return htmlResp("<h1>404</h1><p>不明なページ名です。</p>", "404", { status: 404 });
+  }
+  // 作成ボックス用: /w/作成?p=名前 → 新規ページの編集フォームへ
+  if (slug === "作成") {
+    const name = (url.searchParams.get("p") ?? "").trim();
+    if (!name || !slugValid(name)) {
+      return htmlResp("<h1>ページ名を入力してください</h1><p>文字・数字・スペース、_ - . / が使えます。</p>", "ページ名エラー", { status: 400 });
+    }
+    return Response.redirect(SITE + "/w/" + encodeURIComponent(name) + "?edit", 303);
   }
   const q = url.searchParams;
   if (q.has("edit")) return editPage(env, slug, q.get("err") ?? "");
@@ -276,6 +315,7 @@ async function doGet(req: Request, env: Env, url: URL): Promise<Response> {
   if (vn) return revisionPage(env, slug, vn);
 
   if (slug === "最近の編集") return recentPage(env);
+  if (slug === "検索") return searchPage(env, url.searchParams.get("q") ?? "");
 
   const doc = await getDoc(env, slug);
   if (!doc) {
@@ -301,24 +341,139 @@ async function doGet(req: Request, env: Env, url: URL): Promise<Response> {
   return htmlResp(body, slug, { slug });
 }
 
+/* ---------- ポータル（トップページ） ---------- */
+
+const PAGE_INFO: Record<string, string> = {
+  "guide/getting-started": "インストールから最初の会話まで",
+  "guide/profiles": "起動モードと設定のしくみ",
+  "guide/cli": "コマンドとオプション一覧",
+  "guide/plugins": "追加・削除・バージョン管理",
+  "guide/config": "設定ファイルの置き場所を解説",
+  "guide/web": "ブラウザから使う方法",
+  "guide/skills": "スキルとMCPの接続方法",
+  "rdsh/overview": "約98倍速い起動の仕組みと導入手順",
+  "rdsh/commands": "tokens・search・deps などのコマンド集",
+  "reference/faq": "困ったときにまず見るページ",
+  "reference/license": "MIT と商標ルールの整理",
+  "STATUS": "このWikiの現状メモ",
+  "index": "旧トップページの案内",
+};
+
+function pageLink(slug: string): string {
+  const title = PAGE_INFO[slug];
+  return (
+    '<li><a href="/w/' + encodeURIComponent(slug) + '" class="pname">' + esc(slug) +
+    '</a>' + (title ? '<span class="pd">— ' + esc(title) + '</span>' : "") + "</li>"
+  );
+}
+
 async function indexPage(env: Env): Promise<Response> {
   const idx = await listIndex(env);
-  const rows: string[] = [];
+  const inCategories = new Set<string>();
+  const rootSlugs: string[] = [];
+  for (const s of idx) {
+    if (s === "最近の編集") continue;
+    if (/^(guide|rdsh|reference)\//.test(s)) inCategories.add(s);
+    else rootSlugs.push(s);
+  }
+  const pick = (prefix: string) => [...inCategories].filter((s) => s.startsWith(prefix)).sort().map(pageLink).join("\n");
+
+  // 最近の編集（上8件）
+  type Row = { slug: string; ts: number; by: string };
+  const rows: Row[] = [];
   for (const slug of idx) {
     const doc = await getDoc(env, slug);
-    const at = doc ? new Date(doc.current.at).toISOString().slice(0, 16).replace("T", " ") : "";
-    rows.push(
-      "<li><a href=\"/w/" + encodeURIComponent(slug) + "\">" + esc(slug) + "</a> " +
-        '<span class="revlist">' + at + "</span></li>",
+    if (!doc) continue;
+    rows.push({ slug, ts: doc.current.at, by: doc.current.by || "匿名" });
+  }
+  rows.sort((a, b) => b.ts - a.ts);
+  const recent = rows
+    .slice(0, 8)
+    .map(
+      (r) =>
+        '<li><a href="/w/' +
+        encodeURIComponent(r.slug) +
+        '">' +
+        esc(r.slug) +
+        "</a> <span class=\"sub\">" +
+        new Date(r.ts).toISOString().slice(5, 16).replace("T", " ") +
+        "（" +
+        esc(r.by) +
+        "）</span></li>",
+    )
+    .join("\n");
+
+  const body =
+    '<div class="mp-hero">' +
+    "<h1>DSH 日本語Wiki</h1>" +
+    '<p class="big"><b>アカウント不要</b>で誰でも読めて・書ける、DeepSeek Harness（DSH）と rustdsh の非公式Wikiです。</p>' +
+    '<p>整備済みの解説は下のカタログから。どのページも右上の「このページを編集」から直接直せます（履歴が残るので元に戻せます）。</p>' +
+    "</div>" +
+    '<div class="mp-grid">' +
+    '<div class="mp-box"><h2>DSH を使う</h2><ul>' + pick("guide/") + "</ul></div>" +
+    '<div class="mp-box"><h2>もっと速く（rustdsh）</h2><ul>' + pick("rdsh/") + "</ul></div>" +
+    '<div class="mp-box"><h2>調べる・確かめる</h2><ul>' + pick("reference/") + "</ul></div>" +
+    '<div class="mp-box"><h2>最近の編集</h2><ul>' + recent + "</ul><p class=\"sub\"><a href=\"/w/%E6%9C%80%E8%BF%91%E3%81%AE%E7%B7%A8%E9%9B%86\">もっと見る →</a></p></div>" +
+    "</div>" +
+    '<div class="mp-grid">' +
+    '<div class="mp-box"><h2>新しいページを作る</h2>' +
+    '<form method="get" action="/w/%E4%BD%9C%E6%88%90" style="display:flex;gap:.35rem;flex-wrap:wrap"><input type="text" name="p" placeholder="ページ名（例: DSHのアップデート手順）" style="flex:1;min-width:12rem;border:1px solid #a2a9b1;padding:.3rem .5rem" aria-label="新しいページ名"><button type="submit" class="btn">作成する</button></form>' +
+    '<p class="sub">作成フォームに進みます。保存すると即公開（履歴あり）。名前は日本語でOKです。</p>' +
+    "</div>" +
+    '<div class="mp-box"><h2>ルール（短い3つ）</h2><ul>' +
+    "<li>事実は<b>条件つきで</b>書く（計測値はどんな環境の数値か）</li>" +
+    "<li>ページ末尾に<b>出典</b>を1行以上残す</li>" +
+    "<li>本Wikiは<b>非公式</b>。「DeepSeek Harness」をプロジェクト名には使わない（略称 DSH を使用）</li>" +
+    '</ul><p class="sub">くわしくは <a href="https://github.com/jimoto-no-llm/dsh-wiki/blob/main/CONTRIBUTING.md">CONTRIBUTING</a> へ。</p></div>' +
+    "</div>" +
+    (rootSlugs.length ? '<h2>その他のページ</h2><ul>' + rootSlugs.sort().map(pageLink).join("\n") + "</ul>" : "");
+  return htmlResp(body, "メインページ");
+}
+
+async function searchPage(env: Env, query: string): Promise<Response> {
+  const trimmed = query.trim();
+  if (!trimmed) {
+    return htmlResp(
+      "<h1>検索</h1><form method=\"get\" action=\"/w/%E6%A4%9C%E7%B4%A2\" class=\"searchbox\"><input type=\"text\" name=\"q\" style=\"width:16rem;border:1px solid #a2a9b1;padding:.3rem .5rem\"><button type=\"submit\" class=\"btn\">検索</button></form>\n<p>本文とページ名をまとめて調べます。</p>",
+      "検索",
     );
   }
+  const needle = trimmed.toLowerCase();
+  const idx = await listIndex(env);
+  const hits: { slug: string; snippet: string }[] = [];
+  for (const slug of idx) {
+    const doc = await getDoc(env, slug);
+    if (!doc) continue;
+    const whole = slug + "\n" + doc.current.content;
+    const pos = whole.toLowerCase().indexOf(needle);
+    if (pos === -1) continue;
+    const start = Math.max(0, pos - 40);
+    const bodyTxt = whole.slice(start, pos + needle.length + 80).replace(/\s+/g, " ");
+    hits.push({ slug, snippet: bodyTxt });
+  }
+  hits.sort((a, b) => a.slug.localeCompare(b.slug, "ja"));
+  const list = hits
+    .map(
+      (h) =>
+        '<li><a href="/w/' +
+        encodeURIComponent(h.slug) +
+        '">' +
+        esc(h.slug) +
+        "</a><div class=\"sub\">…" +
+        esc(h.snippet) +
+        "…</div></li>",
+    )
+    .join("\n");
   const body =
-    "<h1>ページ一覧</h1>" +
-    '<div class="warning">どのページも<a href="/w/%E3%81%BB%E3%81%A8%E3%82%93%E3%81%A9?edit">新規作成・編集</a>できます。新規ページの作り方: <code>/w/&lt;好きな名前&gt;</code> を開くと編集フォームが出ます。マークダウンの見出し・箇条書き・リンク・コードブロックが使えます（見かけのHTMLタグは無効化されます）。</div>' +
-    "<ul>" +
-    rows.join("\n") +
-    "</ul>";
-  return htmlResp(body, "ページ一覧");
+    "<h1>検索: " +
+    esc(trimmed) +
+    "</h1>" +
+    (hits.length
+      ? "<ul>" + list + "</ul>"
+      : '<div class="warning">見つかりませんでした。<a href="/go?p=' +
+        encodeURIComponent(trimmed) +
+        '">この名前で新しいページを作る</a>ことはできます（アカウント不要）。</div>');
+  return htmlResp(body, "検索 / " + trimmed);
 }
 
 async function recentPage(env: Env): Promise<Response> {
@@ -595,7 +750,8 @@ async function doPost(req: Request, env: Env, url: URL): Promise<Response> {
 export default {
   async fetch(req: Request, env: Env): Promise<Response> {
     const url = new URL(req.url);
-    if (url.pathname !== "/" && !url.pathname.startsWith("/w")) {
+    const allowed = url.pathname === "/" || url.pathname === "/go" || url.pathname.startsWith("/w");
+    if (!allowed) {
       return new Response(null, { status: 404 });
     }
     try {
