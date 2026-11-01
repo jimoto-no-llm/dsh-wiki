@@ -75,7 +75,7 @@ rdsh 固有のコマンド以外は、指定したすべての引数をそのま
 機能ごとに既定値が異なります（一覧は `rdsh features`）。
 
 - 既定 ON: 更新チェック（update_check）と更新通知。無効化は `rdsh features off update_check`
-- 既定 OFF: serve、search-web、context_engine、agent_tool_sandbox など。有効化は `rdsh features on <id>`
+- 既定 OFF: serve、search-web、context_engine、agent_tool_sandbox など。有効化は `rdsh features on ＼id］`
 - route（難易度別のモデル割当）も既定は OFF です
 
 ## ライセンスは？

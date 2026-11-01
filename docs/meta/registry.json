@@ -1,0 +1,326 @@
+{
+  "reference/cli/launcher": {
+    "t": "DSH CLI ランチャーの文法とオプション",
+    "d": "本体オプション網羅"
+  },
+  "reference/cli/headless": {
+    "t": "CLI headless（1タスク実行）",
+    "d": "全オプション網羅"
+  },
+  "reference/cli/plugin": {
+    "t": "CLI plugin（プラグイン管理）",
+    "d": "pnpm転送と挙動"
+  },
+  "reference/cli/sdk-acp": {
+    "t": "CLI sdk・sdk-minimal・acp",
+    "d": "STDIOサーバー3種"
+  },
+  "reference/cli/web": {
+    "t": "CLI web（ブラウザUI）",
+    "d": "Web起動オプション"
+  },
+  "reference/cli/rescue-dump": {
+    "t": "プロファイル再作成とダンプ",
+    "d": "rescue・dump系"
+  },
+  "reference/cli/behaviors": {
+    "t": "CLI共通挙動と終了コード",
+    "d": "レイヤー・終了コード"
+  },
+  "reference/cli/schema-dump": {
+    "t": "スキーマダンプの安全作法",
+    "d": "schema-dumpの安全性"
+  },
+  "reference/cli/plugin-detail": {
+    "t": "プラグイン管理の詳細仕様",
+    "d": "pluginの深い挙動"
+  },
+  "rdsh/dw/connection-diagnostics": {
+    "t": "接続診断",
+    "d": "携帯/Dot経路の段階診断"
+  },
+  "rdsh/dw/cost-ledger": {
+    "t": "報告型コスト台帳",
+    "d": "使用量を後報告記帳"
+  },
+  "rdsh/dw/fault-simulator": {
+    "t": "障害シミュレータ",
+    "d": "6シナリオで回復検証"
+  },
+  "rdsh/dw/history-backup": {
+    "t": "選択的履歴バックアップ",
+    "d": "出力と復元"
+  },
+  "rdsh/dw/integration-queue": {
+    "t": "ローカル統合キュー",
+    "d": "固定順統合"
+  },
+  "rdsh/dw/model_benchmarks": {
+    "t": "Codex/Claudeベンチ",
+    "d": "ヘッドレス委譲24run"
+  },
+  "rdsh/dw/route": {
+    "t": "難易度ルーティング",
+    "d": "3層判定の決定論"
+  },
+  "rdsh/dw/run-recovery": {
+    "t": "ランリカバリ",
+    "d": "journalとcrash対処"
+  },
+  "rdsh/dw/session-ledger": {
+    "t": "セッション台帳",
+    "d": "run結合を永続"
+  },
+  "rdsh/dw/staged-updates": {
+    "t": "段階的更新",
+    "d": "capture→canary→promote"
+  },
+  "rdsh/dw/task-preflight": {
+    "t": "タスク前提診断",
+    "d": "起動前チェック"
+  },
+  "rdsh/dw/user-flow": {
+    "t": "利用動線",
+    "d": "導入から復旧まで"
+  },
+  "subsystems/sandbox": {
+    "t": "サンドボックス",
+    "d": "プロセス拘束の縫い目"
+  },
+  "subsystems/token-meter": {
+    "t": "トークンメーター",
+    "d": "tokens系統合"
+  },
+  "subsystems/tools": {
+    "t": "ツール実行パイプライン",
+    "d": "guarded execution"
+  },
+  "subsystems/slots": {
+    "t": "Web UIのSlots",
+    "d": "UI型システム"
+  },
+  "subsystems/todo": {
+    "t": "TODO",
+    "d": "タスク管理の仕組み"
+  },
+  "subsystems/goal": {
+    "t": "ゴール",
+    "d": "継続ラウンドの枠"
+  },
+  "subsystems/workflow": {
+    "t": "ワークフロー",
+    "d": "宣言的な進行枠"
+  },
+  "subsystems/jobs": {
+    "t": "ジョブ",
+    "d": "バックグラウンド処理"
+  },
+  "subsystems/user-questions": {
+    "t": "ユーザー質問",
+    "d": "確認入力の規約"
+  },
+  "subsystems/compaction": {
+    "t": "コンパクション",
+    "d": "文脈圧縮"
+  },
+  "subsystems/subagent": {
+    "t": "サブエージェント",
+    "d": "委譲の仕組み"
+  },
+  "subsystems/deliverables": {
+    "t": "成果物提出",
+    "d": "デリバリー"
+  },
+  "rdsh/cmd/tokens": {
+    "t": "rdsh tokens — トークン即時見積り",
+    "d": "ASCII換算見積り"
+  },
+  "rdsh/cmd/prune": {
+    "t": "rdsh prune — 予算内切詰",
+    "d": "前後保持で予算化"
+  },
+  "rdsh/cmd/search": {
+    "t": "rdsh search — 並列検索",
+    "d": "並列grepと走査順"
+  },
+  "rdsh/cmd/sessions": {
+    "t": "rdsh sessions — セッション一覧",
+    "d": "展開トークンつき"
+  },
+  "rdsh/cmd/compact": {
+    "t": "rdsh compact — JSONL圧縮",
+    "d": "重要行保存"
+  },
+  "rdsh/cmd/doctor": {
+    "t": "rdsh doctor — 健全性診断",
+    "d": "dsh・DSH_HOME診断"
+  },
+  "rdsh/cmd/features": {
+    "t": "rdsh features — 機能スイッチ",
+    "d": "既定値つき切替"
+  },
+  "rdsh/cmd/auth": {
+    "t": "rdsh auth — 認証情報",
+    "d": "codex/opencode取込"
+  },
+  "rdsh/cmd/setup": {
+    "t": "rdsh setup — 初期セットアップ",
+    "d": "--web画面つき"
+  },
+  "rdsh/cmd/models": {
+    "t": "rdsh models — モデル反映",
+    "d": "sync/autoで不足追記"
+  },
+  "rdsh/cmd/rate": {
+    "t": "rdsh rate limit — 自動再開",
+    "d": "retryPolicy追記"
+  },
+  "rdsh/cmd/wait": {
+    "t": "rdsh wait — 進捗つき待機",
+    "d": "上限12時間"
+  },
+  "rdsh/cmd/retry-log": {
+    "t": "rdsh retry-log — 再試行集計",
+    "d": "プロバイダ別表"
+  },
+  "rdsh/cmd/guard": {
+    "t": "rdsh guard — フック遮断",
+    "d": "--denyと判定"
+  },
+  "rdsh/cmd/context": {
+    "t": "rdsh context — 注入と記憶",
+    "d": "inject・memory・distill"
+  },
+  "rdsh/cmd/deps": {
+    "t": "rdsh deps — 依存グラフ",
+    "d": "索引とimpact照会"
+  },
+  "rdsh/cmd/route": {
+    "t": "rdsh route — 難易度別割当",
+    "d": "easy/standard/hard"
+  },
+  "rdsh/cmd/serve": {
+    "t": "rdsh serve — Web画面",
+    "d": "38080一時トークン"
+  },
+  "rdsh/cmd/bench": {
+    "t": "rdsh bench — 起動比較",
+    "d": "rdshとdsh実測"
+  },
+  "rdsh/cmd/plugin": {
+    "t": "rdsh plugin — 委譲",
+    "d": "dsh plugin --profile"
+  },
+  "guide/profiles": {
+    "t": "プロファイル",
+    "d": "起動モードと設定のしくみ"
+  },
+  "guide/cli": {
+    "t": "CLI リファレンス",
+    "d": "コマンドとオプション一覧"
+  },
+  "guide/plugins": {
+    "t": "プラグイン管理",
+    "d": "追加・削除・バージョン管理"
+  },
+  "guide/config": {
+    "t": "設定",
+    "d": "設定ファイルの置き場所"
+  },
+  "guide/web": {
+    "t": "Web UI",
+    "d": "ブラウザから使う方法"
+  },
+  "guide/schedule": {
+    "t": "予定実行",
+    "d": "リマインダーと定期実行"
+  },
+  "guide/sessions": {
+    "t": "セッションとデータの保存",
+    "d": "保存形式と intercourse"
+  },
+  "guide/tools": {
+    "t": "ツール一覧と実行の流れ",
+    "d": "ツールの実行のしかた"
+  },
+  "guide/architecture": {
+    "t": "アーキテクチャの全体像",
+    "d": "全体像と層"
+  },
+  "guide/upgrade": {
+    "t": "バージョンアップと互換性",
+    "d": "更新の注意"
+  },
+  "guide/skills": {
+    "t": "スキルと MCP",
+    "d": "スキル・MCPの接続方法"
+  },
+  "rdsh/overview": {
+    "t": "rustdsh とは",
+    "d": "約98倍の起動と導入手順"
+  },
+  "rdsh/install": {
+    "t": "rdsh のインストール",
+    "d": "導入手順とdsh互換切替"
+  },
+  "rdsh/benchmarks": {
+    "t": "rdsh の性能計測",
+    "d": "実測表と再現手順"
+  },
+  "rdsh/security": {
+    "t": "rdsh の安全設計",
+    "d": "サンドボックスとguard"
+  },
+  "rdsh/models": {
+    "t": "rdsh のモデル管理",
+    "d": "同期・難易度別・再試行"
+  },
+  "rdsh/desktop": {
+    "t": "rdsh とデスクトップ",
+    "d": "Electron連携"
+  },
+  "rdsh/context": {
+    "t": "rdsh のコンテキスト",
+    "d": "注入と入力順序"
+  },
+  "rdsh/architecture": {
+    "t": "rdsh の内部構造",
+    "d": "Rust化の範囲とCLI橋"
+  },
+  "rdsh/commands": {
+    "t": "ネイティブコマンド",
+    "d": "tokens・search・deps など"
+  },
+  "reference/faq": {
+    "t": "FAQ",
+    "d": "困ったときにまず見る"
+  },
+  "reference/license": {
+    "t": "ライセンスと商標",
+    "d": "MIT と商標ルール"
+  },
+  "STATUS": {
+    "t": "現状メモ",
+    "d": "このWikiの現状"
+  },
+  "index": {
+    "t": "旧トップ",
+    "d": "以前の案内ページ"
+  },
+  "guide/plugin-market": {
+    "t": "plugin-market",
+    "d": ""
+  },
+  "guide/python-sdk": {
+    "t": "python-sdk",
+    "d": ""
+  },
+  "guide/network-proxy": {
+    "t": "network-proxy",
+    "d": ""
+  },
+  "guide/getting-started": {
+    "t": "getting-started",
+    "d": ""
+  }
+}

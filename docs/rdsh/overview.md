@@ -53,7 +53,7 @@ rdsh 固有のコマンド以外は、指定したすべての引数をそのま
 2. **非破壊設計**: トークン計算、検索、ログ圧縮などの読み取り系コマンドは、既存のファイルを一切変更しません。
 3. **明示的な認証管理**: 他アプリの認証情報を無断で同期・送信せず、利用者が明示的に指定したものだけ取り込みます。
 4. **サンドボックス隔離**（オプトイン）: Linux で bubblewrap と prlimit がある環境では、`--share-file` で共有したファイルだけを読み取り専用・ネットワークなしで渡すため、ホストの他の領域には触れません。
-5. **既定値の明示**: serve・search-web・context_engine・agent_tool_sandbox などは既定 OFF で、`rdsh features on <id>` で有効化します。一覧は `rdsh features` です。
+5. **既定値の明示**: serve・search-web・context_engine・agent_tool_sandbox などは既定 OFF で、`rdsh features on ＼id］` で有効化します。一覧は `rdsh features` です。
 
 ```sh
 rdsh --share-file README.md --share-file src/main.rs --profile tui
@@ -78,7 +78,7 @@ Node.js と npm を用意し、npm registry の `@deepseek-ai/dsh`（bin 名: `d
 
 ```sh
 npm install -g @deepseek-ai/dsh
-npm install -g @deepseek-ai/dsh@<version>   # バージョンを固定する場合
+npm install -g @deepseek-ai/dsh@＼version］   # バージョンを固定する場合
 ```
 
 ### 手順 B. `rdsh` の導入（ビルド済みバイナリ）

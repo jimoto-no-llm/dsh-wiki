@@ -130,7 +130,7 @@ rdsh features on context_engine        # コンテキストエンジンはオプ
 rdsh context hook install              # $DSH_HOME/hooks.json に追記（冪等）
 rdsh context hook status --json
 rdsh context remember "APIの互換性を必ず保つ" --kind constraint
-rdsh context distill --session ~/.dsh/sessions/<project>/<session>/session.v4.jsonl.zstd --apply
+rdsh context distill --session ~/.dsh/sessions/＼project］/＼session］/session.v4.jsonl.zstd --apply
 rdsh context memory --json      # active と superseded を区別して表示
 rdsh context forget mem_ab12cd34ef56
 rdsh context build --require-stable

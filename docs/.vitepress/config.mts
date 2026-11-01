@@ -1,4 +1,5 @@
 import { defineConfig } from "vitepress";
+import { readFileSync } from "node:fs";
 
 export default defineConfig({
   lang: "ja-JP",
@@ -15,57 +16,22 @@ export default defineConfig({
       { text: "誰でも編集Wiki", link: "https://dsh.sahen.site/w/" },
       { text: "ライセンス", link: "/reference/license" },
     ],
-    sidebar: [
-      {
-        text: "DSH へ始める",
-        items: [
-          { text: "はじめに", link: "/guide/getting-started" },
-          { text: "プロファイル", link: "/guide/profiles" },
-          { text: "CLI リファレンス", link: "/guide/cli" },
-        ],
-      },
-      {
-        text: "DSH の使い方",
-        items: [
-          { text: "プラグイン管理", link: "/guide/plugins" },
-          { text: "設定カタログ", link: "/guide/config" },
-          { text: "Web UI", link: "/guide/web" },
-          { text: "スキルと MCP", link: "/guide/skills" },
-          { text: "ツール", link: "/guide/tools" },
-          { text: "セッション", link: "/guide/sessions" },
-          { text: "予定実行", link: "/guide/schedule" },
-          { text: "Python SDK", link: "/guide/python-sdk" },
-          { text: "ネットワーク/プロキシ", link: "/guide/network-proxy" },
-          { text: "プラグインの見つけ方", link: "/guide/plugin-market" },
-        ],
-      },
-      {
-        text: "rustdsh（rdsh）",
-        items: [
-          { text: "概要", link: "/rdsh/overview" },
-          { text: "インストール", link: "/rdsh/install" },
-          { text: "性能計測", link: "/rdsh/benchmarks" },
-          { text: "安全設計", link: "/rdsh/security" },
-          { text: "モデル管理", link: "/rdsh/models" },
-          { text: "デスクトップ", link: "/rdsh/desktop" },
-          { text: "コンテキスト入力", link: "/rdsh/context" },
-          { text: "内部構造", link: "/rdsh/architecture" },
-        ],
-      },      {
-        text: "仕組みと開発",
-        items: [
-          { text: "アーキテクチャの全体像", link: "/guide/architecture" },
-          { text: "バージョンアップ", link: "/guide/upgrade" },
-        ],
-      },
-      {
-        text: "リファレンス",
-        items: [
-          { text: "ライセンスと商標", link: "/reference/license" },
-          { text: "FAQ", link: "/reference/faq" },
-        ],
-      },
-    ],
+    sidebar: (() => {
+      const reg = JSON.parse(readFileSync(new URL("../meta/registry.json", import.meta.url), "utf8"));
+      const items = (prefix) => Object.entries(reg)
+        .filter(([k]) => k.startsWith(prefix))
+        .sort((a, b) => a[0].localeCompare(b[0], "ja"))
+        .map(([k, v]) => ({ text: v.t, link: "/" + k }));
+      return [
+        { text: "DSH を使う", items: items("guide/") },
+        { text: "rustdsh（rdsh）", items: items("rdsh/").filter((it) => !it.link.startsWith("/rdsh/cmd/") && !it.link.startsWith("/rdsh/dw/")) },
+        { text: "rustdsh コマンド詳細", items: items("rdsh/cmd/") },
+        { text: "rustdsh 調査メモ", items: items("rdsh/dw/") },
+        { text: "CLI リファレンス", items: items("reference/cli/") },
+        { text: "サブシステム", items: items("subsystems/") },
+        { text: "リファレンス", items: items("reference/").filter((it) => !it.link.startsWith("/reference/cli/")) },
+      ];
+    })(),
     outline: { label: "このページの内容", level: [2, 3] },
     docFooter: { prev: "前のページ", next: "次のページ" },
     search: { provider: "local" },

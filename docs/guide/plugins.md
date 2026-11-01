@@ -7,15 +7,15 @@ DSH は「すべてがプラグイン」な構成で、プロファイルは同�
 書式は次のとおりで、残りの引数はそのまま pnpm に渡され、プロファイルディレクトリで実行されます。
 
 ```sh
-dsh plugin --profile <name> <pnpm-args...>
+dsh plugin --profile ＼name］ ＼pnpm-args...］
 ```
 
 代表的な例は次です。
 
 ```sh
-dsh plugin --profile tui add <package>     # プラグインを追加
-dsh plugin --profile tui remove <package>  # プラグインを削除
-dsh plugin --profile tui why <package>     # なぜ入っているか確認
+dsh plugin --profile tui add ＼package］     # プラグインを追加
+dsh plugin --profile tui remove ＼package］  # プラグインを削除
+dsh plugin --profile tui why ＼package］     # なぜ入っているか確認
 ```
 
 - 対象プロファイルは初回使用時に初期化されます
@@ -28,7 +28,7 @@ Web UI のサイドバーには **Plugins** ページがあり、バンドルの
 
 ## `cordis.patch.yml`（ユーザー レイヤー）
 
-プロファイル編集はすべて `$DSH_HOME/profiles/<name>/cordis.patch.yml` に記録されます。
+プロファイル編集はすべて `$DSH_HOME/profiles/＼name］/cordis.patch.yml` に記録されます。
 
 - トグル操作は、既存のオーバーレイの `disabled` を書き換え、なければ追記します
 - バンドルと残りのパッチが既に望みどおりの状態なら、差分は書き込まれません
@@ -58,9 +58,9 @@ Web UI のサイドバーには **Plugins** ページがあり、バンドルの
 CLI では次の3つで管理します。
 
 ```sh
-dsh plugin --profile <profile> version-exemptions
-dsh plugin --profile <profile> allow-version <package@version> --dsh-version <runtime> --accept-risk
-dsh plugin --profile <profile> revoke-version <package@version> --dsh-version <runtime>
+dsh plugin --profile ＼profile］ version-exemptions
+dsh plugin --profile ＼profile］ allow-version <package@version> --dsh-version ＼runtime］ --accept-risk
+dsh plugin --profile ＼profile］ revoke-version <package@version> --dsh-version ＼runtime］
 ```
 
 `allow-version` は保存前にリスク警告を表示します。互換性エラー（`incompatible-version`）が出たとき、CLI はそのまま実行できる `allow-version` のコマンドを表示します。例外を使うと、非互換プラグインによるクラッシュやデータ破損のリスクを自分で負うことになります。

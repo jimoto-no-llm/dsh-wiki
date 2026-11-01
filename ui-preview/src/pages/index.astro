@@ -7,10 +7,14 @@ import "@fontsource-variable/jetbrains-mono";
 import "../styles/ui.css";
 
 const groups = [
-  { key: "guide",     label: "DSH を使う" },
-  { key: "rdsh",      label: "rustdsh（rdsh）" },
-  { key: "reference", label: "リファレンス" },
-  { key: "meta",      label: "メタ" },
+  { key: "guide",         label: "DSH を使う" },
+  { key: "subsystems",    label: "サブシステム（内部）" },
+  { key: "rdsh",          label: "rustdsh（rdsh）" },
+  { key: "rdsh-cmd",      label: "rustdsh コマンド詳細" },
+  { key: "rdsh-dw",       label: "rustdsh 調査メモ" },
+  { key: "reference-cli", label: "CLI リファレンス" },
+  { key: "reference",     label: "その他のリファレンス" },
+  { key: "meta",          label: "メタ" },
 ].map((g) => ({
   ...g,
   items: pages.filter((p) => p.cat === g.key).sort((a, b) => a.name.localeCompare(b.name, "ja")),

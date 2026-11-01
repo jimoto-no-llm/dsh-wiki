@@ -18,7 +18,7 @@ rdsh context hook status --json
 
 ```sh
 rdsh context remember "APIの互換性を必ず保つ" --kind constraint
-rdsh context distill --session <session.v4.jsonl.zstd> --apply
+rdsh context distill --session ＼session.v4.jsonl.zstd］ --apply
 rdsh context memory --json      # active と superseded を区別して表示
 rdsh context forget mem_ab12cd34ef56
 ```
@@ -39,7 +39,7 @@ rdsh deps impact src/context.rs    # 直接・推移的な依存元と影響す�
 
 既存の入力順（INPUT-QUEUE-ORDERING.md）と回答適用の契約を使い、ブラウザーの「同じsessionへ追指示を送る」から元の run/session へ余計な新規セッションを作らず追指示を保存・送信します。
 
-- 追指示は `input_<UUID>` のIDで保存され、同じID・同じ内容の再送は同じ記録を返し、同じIDで別内容は 409 になります。
+- 追指示は `input_＼UUID］` のIDで保存され、同じID・同じ内容の再送は同じ記録を返し、同じIDで別内容は 409 になります。
 - 保存・送信開始・元の CLI の応答は分けて表示されます。送信開始は永続 claim の取得であり、1件の native 効果に対して高々1回。
 - 適用タイミングは「次ターンへ追加」のほか、現ターンへの steer は未検証のため次ターン待ちと明示、「明示中断して変更」は人間の確認した入力だけに cancel を送ります。cancel は ACP 通知なので、correlated な取消し応答が確認できない限り「中断成功」としません。
 - 先行する保存・読取・開始・結果不明の入力は、後続 input の begin claim をブロックします。応答には `waiting_for` が付き、既知の待機は失敗や不明として扱われません。

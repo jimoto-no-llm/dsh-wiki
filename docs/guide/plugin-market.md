@@ -31,14 +31,14 @@
 pnpm --filter @deepseek-ai/dsh-plugin-market-generator start --input plugins.txt --output site/index.json --title "Team plugins"
 ```
 
-npmパッケージからは、廃止・非公開でなく `dsh.bundle` を宣言する全版を列挙します。Gitリポジトリからは、標準ブランチ上で非 private なバンドルパッケージを `vX.Y.Z`・`X.Y.Z`・`<name>@X.Y.Z` の各タグで、加えて標準ブランチ上の各パッケージの現在版を列挙します。ジェネレータはファイルのダウンロードと読み取りだけ行い、パッケージのインストールやコード実行は行いません。リストの隣の `.plugin-market-cache` にキャッシュを作り、再実行では新規の版とcommitだけダウンロードします。出力ディレクトリ（`index.json` と `icons/`）を上記の通り公開します。
+npmパッケージからは、廃止・非公開でなく `dsh.bundle` を宣言する全版を列挙します。Gitリポジトリからは、標準ブランチ上で非 private なバンドルパッケージを `vX.Y.Z`・`X.Y.Z`・`＼name］@X.Y.Z` の各タグで、加えて標準ブランチ上の各パッケージの現在版を列挙します。ジェネレータはファイルのダウンロードと読み取りだけ行い、パッケージのインストールやコード実行は行いません。リストの隣の `.plugin-market-cache` にキャッシュを作り、再実行では新規の版とcommitだけダウンロードします。出力ディレクトリ（`index.json` と `icons/`）を上記の通り公開します。
 
 ## 索引形式の主な項目
 
 - 索引: `format`（必須、1）、`title`（必須、LocalizedText）、`metadata.categories`/`labels`/`sortKeys`（任意）、`plugins`（必須）。
 - プラグイン: `name`（必須、索引内で唯一のnpm名）、`title`/`description`/`icon`/`author`/`homepage`/`repository`（任意）、`versions`（必須、1件以上）。
 - 版: `version`（必須の正確なSemVer、プラグイン内で単一）、`publishTimestamp`（必須、Unix秒）、`source`（必須、npmなら `{ "type": "npm", "registry"?: url }`、gitなら `{ "type": "git", "url": https-url, "commit": 40桁hex, "path"?: ディレクトリ }`）、`engines.dsh`（任意のSemVer範囲、不在は全版）。
-- Dshはnpm版を `name@version` で（`registry` があれば最初にそこへ）、Git版を `git+<url>.git#<commit>`（サブディレクトリパッケージには `&path:/<path>` 付き）でインストールします。`engines.dsh` はパッケージ自身の `engines.dsh` と一致させ、値がないパッケージは `@deepseek-ai/dsh*` のpeer依存で検査します。
+- Dshはnpm版を `name@version` で（`registry` があれば最初にそこへ）、Git版を `git+＼url］.git#＼commit］`（サブディレクトリパッケージには `&path:/＼path］` 付き）でインストールします。`engines.dsh` はパッケージ自身の `engines.dsh` と一致させ、値がないパッケージは `@deepseek-ai/dsh*` のpeer依存で検査します。
 
 ## 出典
 

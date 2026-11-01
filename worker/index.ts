@@ -14,6 +14,8 @@ interface Env {
   ADMIN_TOKEN?: string;
 }
 
+import registryJson from "../docs/meta/registry.json";
+
 const SITE = "https://dsh.sahen.site";
 const VERSIONS_KEPT = 30;
 const MAX_BODY = 200_000;
@@ -344,37 +346,8 @@ async function doGet(req: Request, env: Env, url: URL): Promise<Response> {
 
 /* ---------- ポータル（トップページ） ---------- */
 
-const PAGE_INFO: Record<string, { t: string; d: string }> = {
-  "guide/getting-started": { t: "はじめに", d: "インストールから最初の会話まで" },
-  "guide/profiles": { t: "プロファイル", d: "起動モードと設定のしくみ" },
-  "guide/cli": { t: "CLI リファレンス", d: "コマンドとオプション一覧" },
-  "guide/plugins": { t: "プラグイン管理", d: "追加・削除・バージョン管理" },
-  "guide/config": { t: "設定", d: "設定ファイルの置き場所" },
-  "guide/web": { t: "Web UI", d: "ブラウザから使う方法" },
-  "guide/schedule": { t: "予定実行", d: "リマインダーと定期実行" },
-  "guide/python-sdk": { t: "Python SDK", d: "Pythonから使う" },
-  "guide/sessions": { t: "セッションとデータの保存", d: "保存形式と intercourse" },
-  "guide/tools": { t: "ツール一覧と実行の流れ", d: "ツールの実行のしかた" },
-  "guide/architecture": { t: "アーキテクチャの全体像", d: "全体像と層" },
-  "guide/upgrade": { t: "バージョンアップと互換性", d: "更新の注意" },
-  "guide/network-proxy": { t: "ネットワークとプロキシ", d: "外向き通信の設定" },
-  "guide/plugin-market": { t: "プラグインの見つけ方", d: " Markets" },
+const PAGE_INFO: Record<string, { t: string; d: string }> = registryJson as Record<string, { t: string; d: string }>;
 
-  "guide/skills": { t: "スキルと MCP", d: "スキル・MCPの接続方法" },
-  "rdsh/overview": { t: "rustdsh とは", d: "約98倍の起動と導入手順" },
-  "rdsh/install": { t: "rdsh のインストール", d: "導入手順とdsh互換切替" },
-  "rdsh/benchmarks": { t: "rdsh の性能計測", d: "実測表と再現手順" },
-  "rdsh/security": { t: "rdsh の安全設計", d: "サンドボックスとguard" },
-  "rdsh/models": { t: "rdsh のモデル管理", d: "同期・難易度別・再試行" },
-  "rdsh/desktop": { t: "rdsh とデスクトップ", d: "Electron連携" },
-  "rdsh/context": { t: "rdsh のコンテキスト", d: "注入と入力順序" },
-  "rdsh/architecture": { t: "rdsh の内部構造", d: "Rust化の範囲とCLI橋" },
-  "rdsh/commands": { t: "ネイティブコマンド", d: "tokens・search・deps など" },
-  "reference/faq": { t: "FAQ", d: "困ったときにまず見る" },
-  "reference/license": { t: "ライセンスと商標", d: "MIT と商標ルール" },
-  "STATUS": { t: "現状メモ", d: "このWikiの現状" },
-  "index": { t: "旧トップ", d: "以前の案内ページ" },
-};
 
 function pageTitle(slug: string): string {
   return PAGE_INFO[slug]?.t ?? slug;

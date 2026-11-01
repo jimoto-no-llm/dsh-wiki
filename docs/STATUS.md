@@ -24,9 +24,9 @@
    - deploy ワークフロー1回目が失敗（wrangler-action 既定の v3 は assets-only 構成で main を要求）→ wranglerVersion 4.155.0 を明示し、Cloudflare secrets 未設定時はスキップする形に修正して緑化
 7. **匿名編集Wiki（2026-11-01 追加）**: 「アカウント不要で誰でも書ける」要件を受け、`/w/` 以下を Workers + KV のサーバ側レンダリングWikiにした。
    - 構成: `worker/index.ts`（自前の安全な Markdown レンダラ・HTMLは事前エスケープでXSS不可）
-   - 保存: フォームPOST → KV `page:<slug>` 更新＋ `rev:<slug>:<ts>` に版を自動保存（30版まで）
-   - 連投対策: IPハッシュで5分あたり8回のレート制限 + `lock:<slug>` でページ単位の編集停止可
-   - seed: `node scripts/seed-kv.mjs <KV_ID>` で docs/*.md をKVへ初期投入済み（13ページ）
+   - 保存: フォームPOST → KV `page:＼slug］` 更新＋ `rev:＼slug］:＼ts］` に版を自動保存（30版まで）
+   - 連投対策: IPハッシュで5分あたり8回のレート制限 + `lock:＼slug］` でページ単位の編集停止可
+   - seed: `node scripts/seed-kv.mjs ＼KV_ID］` で docs/*.md をKVへ初期投入済み（13ページ）
    - `/w/<名前>` を開くと未作成なら新規作成フォームが出る。VitePress の「このページを編集」リンクも `/w/` に向けた
    - 検証済み: 匿名作成→即公開→履歴3版→過去版閲覧→index反映、テストページはKVから削除して本番クリーン
 8. **悪用対策（2026-11-01 追加）**:
@@ -34,7 +34,7 @@
    - セキュリティヘッダ: CSP（scriptなし・style inlineのみ）・nosniff・no-referrer・frame-ancestors none を全 /w レスポンスに付与
    - スパムガード: 外部リンクが6件以上ある本文は拒否（レートを消費しない）
    - 自動BAN: 5分8回のレート超過を1時間あたり3回やると、IPハッシュ単位で24時間の保存BAN
-   - 管理API: `POST /w/<slug>?admin=<action>` + ヘッダ `X-Admin-Token`。action は lock / unlock / delete / status。トークンは `wrangler secret put ADMIN_TOKEN` で設定し、値は ~/.config/dsh-wiki/admin-token に保管
+   - 管理API: `POST /w/＼slug］?admin=＼action］` + ヘッダ `X-Admin-Token`。action は lock / unlock / delete / status。トークンは `wrangler secret put ADMIN_TOKEN` で設定し、値は ~/.config/dsh-wiki/admin-token に保管
    - 注意: KV保存のIPハッシュ（SHA-256先頭8hex）は攻撃者特定の目安で、確定識別はCloudflare側の情報が必要
 
 ## ページ一覧（12ページ）

@@ -10,18 +10,18 @@ DSH の設定は、プロファイルごとのパッチ層と credential ファ�
 | --- | --- |
 | `$DSH_HOME/.credentials.yaml` | API キーなどの認証情報（書き込み専用。設定側は参照だけ保持） |
 | `$DSH_HOME/cordis.patch.yml` | 全プロファイル共通のユーザー レイヤー |
-| `$DSH_HOME/profiles/<name>/cordis.patch.yml` | プロファイル固有のユーザー レイヤー |
-| `$DSH_HOME/profiles/<name>/package.json` | プラグイン依存と `dsh.profile.bundles`（バンドルの選択と順序） |
-| `$DSH_HOME/profiles/<name>/compatibility.json` | バージョン互換性の例外 |
+| `$DSH_HOME/profiles/＼name］/cordis.patch.yml` | プロファイル固有のユーザー レイヤー |
+| `$DSH_HOME/profiles/＼name］/package.json` | プラグイン依存と `dsh.profile.bundles`（バンドルの選択と順序） |
+| `$DSH_HOME/profiles/＼name］/compatibility.json` | バージョン互換性の例外 |
 | `$DSH_HOME/AGENTS.md` | ユーザー全体に効く指示ファイル（agent-instructions が読み込み） |
-| `--patch <path>` | 起動ごとに渡す追加オーバーレイ |
+| `--patch ＼path］` | 起動ごとに渡す追加オーバーレイ |
 
 ## 合成の順序
 
 設定ツリーは、空のルートに次の順で合成されます。
 
 1. `dsh.profile.bundles` の各バンドルのパッチ
-2. `$DSH_HOME/profiles/<name>/cordis.patch.yml`
+2. `$DSH_HOME/profiles/＼name］/cordis.patch.yml`
 3. `$DSH_HOME/cordis.patch.yml`
 4. `--patch` オーバーレイ
 

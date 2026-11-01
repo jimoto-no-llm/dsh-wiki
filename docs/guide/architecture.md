@@ -17,7 +17,7 @@ Dshの下支えはCordisというフレームワークです。プラグイン�
 
 ## 起動と各種アプリ
 
-サポートされるNodeアプリは名前付き `dsh` プロファイルで起動します（`dsh --profile <name>` または `dsh <name>`）。`plugin` は管理コマンド名なので、同名のプロファイルには `--profile plugin` が要ります。前提のverifyスクリプトは Nodeアプリの経路が dsh を迂回することを拒否します。Python SDKも同じ応用構成で、ランタイムwheelが通常の dsh CLI を同梱し、既定でHarnessホームを明示して `dsh --profile sdk` を起動します。Electronのデスクトップアプリは署名付きリソースとしてdsh実行ランタイムを同梱し、予約済みの `$DSH_HOME/profiles/desktop` を所有します。ホストはNodeモードで起動し、ウィンドウはパッケージ済みWeb資産を即座に読み込みます。
+サポートされるNodeアプリは名前付き `dsh` プロファイルで起動します（`dsh --profile ＼name］` または `dsh ＼name］`）。`plugin` は管理コマンド名なので、同名のプロファイルには `--profile plugin` が要ります。前提のverifyスクリプトは Nodeアプリの経路が dsh を迂回することを拒否します。Python SDKも同じ応用構成で、ランタイムwheelが通常の dsh CLI を同梱し、既定でHarnessホームを明示して `dsh --profile sdk` を起動します。Electronのデスクトップアプリは署名付きリソースとしてdsh実行ランタイムを同梱し、予約済みの `$DSH_HOME/profiles/desktop` を所有します。ホストはNodeモードで起動し、ウィンドウはパッケージ済みWeb資産を即座に読み込みます。
 
 ## 中核パッケージとイベント
 

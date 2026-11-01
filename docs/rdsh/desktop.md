@@ -15,7 +15,7 @@ rdsh desktop install --plugins-dir . --compute   # 常駐 compute bridge（rdsh-
 rdsh desktop verify                 # プロファイルに rdsh プラグインがなければ 0 以外で終了
 ```
 
-導入手順は「1回アプリを起動して終了」「プラグイン attach」「アプリ再起動後に verify」です。実際の追加はアプリ自身のコマンド（`dsh plugin --profile desktop add <package>`）で行われ、共有プロファイルの書き込みロック・バージョン互換チェック・バンドル起動はアプリのプラグインマネージャと共有されます。
+導入手順は「1回アプリを起動して終了」「プラグイン attach」「アプリ再起動後に verify」です。実際の追加はアプリ自身のコマンド（`dsh plugin --profile desktop add ＼package］`）で行われ、共有プロファイルの書き込みロック・バージョン互換チェック・バンドル起動はアプリのプラグインマネージャと共有されます。
 
 プロファイルインストーラーでも同様に使えます：
 

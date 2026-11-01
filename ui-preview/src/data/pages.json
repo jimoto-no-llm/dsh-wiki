@@ -1,14 +1,5 @@
 [
   {
-    "slug": "guide/architecture",
-    "name": "アーキテクチャの全体像",
-    "cat": "guide",
-    "desc": "プロファイルからターン流まで",
-    "updated": "2026-11-01",
-    "by": "wiki",
-    "rev": 1
-  },
-  {
     "slug": "guide/cli",
     "name": "CLI リファレンス",
     "cat": "guide",
@@ -18,10 +9,19 @@
     "rev": 1
   },
   {
-    "slug": "guide/config",
-    "name": "設定",
+    "slug": "guide/python-sdk",
+    "name": "Python SDK",
     "cat": "guide",
-    "desc": "設定ファイルの置き場所",
+    "desc": "SDK導入と最小プロファイルの使い方",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/web",
+    "name": "Web UI",
+    "cat": "guide",
+    "desc": "ブラウザから使う方法",
     "updated": "2026-11-01 01:44",
     "by": "seed",
     "rev": 1
@@ -36,10 +36,55 @@
     "rev": 1
   },
   {
+    "slug": "guide/architecture",
+    "name": "アーキテクチャの全体像",
+    "cat": "guide",
+    "desc": "プロファイルからターン流まで",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/skills",
+    "name": "スキルと MCP",
+    "cat": "guide",
+    "desc": "スキル・MCPの接続方法",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "guide/sessions",
+    "name": "セッションとデータの保存",
+    "cat": "guide",
+    "desc": "形式バージョンとイベント配信",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/tools",
+    "name": "ツール一覧と実行の流れ",
+    "cat": "guide",
+    "desc": "ツール呼び出しパイプライン",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
     "slug": "guide/network-proxy",
     "name": "ネットワークとプロキシ",
     "cat": "guide",
     "desc": "プロキシ変数の設定",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/upgrade",
+    "name": "バージョンアップと互換性",
+    "cat": "guide",
+    "desc": "Schedule APIとSDK runの移行",
     "updated": "2026-11-01",
     "by": "wiki",
     "rev": 1
@@ -72,15 +117,6 @@
     "rev": 1
   },
   {
-    "slug": "guide/python-sdk",
-    "name": "Python SDK",
-    "cat": "guide",
-    "desc": "SDK導入と最小プロファイルの使い方",
-    "updated": "2026-11-01",
-    "by": "wiki",
-    "rev": 1
-  },
-  {
     "slug": "guide/schedule",
     "name": "予定実行",
     "cat": "guide",
@@ -90,55 +126,10 @@
     "rev": 1
   },
   {
-    "slug": "guide/sessions",
-    "name": "セッションとデータの保存",
+    "slug": "guide/config",
+    "name": "設定",
     "cat": "guide",
-    "desc": "形式バージョンとイベント配信",
-    "updated": "2026-11-01",
-    "by": "wiki",
-    "rev": 1
-  },
-  {
-    "slug": "guide/skills",
-    "name": "スキルと MCP",
-    "cat": "guide",
-    "desc": "スキル・MCPの接続方法",
-    "updated": "2026-11-01 01:44",
-    "by": "seed",
-    "rev": 1
-  },
-  {
-    "slug": "guide/tools",
-    "name": "ツール一覧と実行の流れ",
-    "cat": "guide",
-    "desc": "ツール呼び出しパイプライン",
-    "updated": "2026-11-01",
-    "by": "wiki",
-    "rev": 1
-  },
-  {
-    "slug": "guide/upgrade",
-    "name": "バージョンアップと互換性",
-    "cat": "guide",
-    "desc": "Schedule APIとSDK runの移行",
-    "updated": "2026-11-01",
-    "by": "wiki",
-    "rev": 1
-  },
-  {
-    "slug": "guide/web",
-    "name": "Web UI",
-    "cat": "guide",
-    "desc": "ブラウザから使う方法",
-    "updated": "2026-11-01 01:44",
-    "by": "seed",
-    "rev": 1
-  },
-  {
-    "slug": "STATUS",
-    "name": "現状メモ",
-    "cat": "meta",
-    "desc": "このWikiの現状",
+    "desc": "設定ファイルの置き場所",
     "updated": "2026-11-01 01:44",
     "by": "seed",
     "rev": 1
@@ -152,39 +143,12 @@
     "by": "seed"
   },
   {
-    "slug": "rdsh/architecture",
-    "name": "rdsh の内部構造",
-    "cat": "rdsh",
-    "desc": "Rust化の範囲とCLI橋",
-    "updated": "2026-11-01",
-    "by": "wiki",
-    "rev": 1
-  },
-  {
-    "slug": "rdsh/benchmarks",
-    "name": "rdsh の性能計測",
-    "cat": "rdsh",
-    "desc": "実測表と再現手順",
-    "updated": "2026-11-01",
-    "by": "wiki",
-    "rev": 1
-  },
-  {
-    "slug": "rdsh/commands",
-    "name": "ネイティブコマンド",
-    "cat": "rdsh",
-    "desc": "tokens・search・deps など",
+    "slug": "STATUS",
+    "name": "現状メモ",
+    "cat": "meta",
+    "desc": "このWikiの現状",
     "updated": "2026-11-01 01:44",
     "by": "seed",
-    "rev": 1
-  },
-  {
-    "slug": "rdsh/context",
-    "name": "rdsh のコンテキスト",
-    "cat": "rdsh",
-    "desc": "注入と入力順序",
-    "updated": "2026-11-01",
-    "by": "wiki",
     "rev": 1
   },
   {
@@ -206,10 +170,46 @@
     "rev": 1
   },
   {
+    "slug": "rdsh/context",
+    "name": "rdsh のコンテキスト",
+    "cat": "rdsh",
+    "desc": "注入と入力順序",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
     "slug": "rdsh/models",
     "name": "rdsh のモデル管理",
     "cat": "rdsh",
     "desc": "同期・難易度別・再試行",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/architecture",
+    "name": "rdsh の内部構造",
+    "cat": "rdsh",
+    "desc": "Rust化の範囲とCLI橋",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/security",
+    "name": "rdsh の安全設計",
+    "cat": "rdsh",
+    "desc": "サンドボックスとguard",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/benchmarks",
+    "name": "rdsh の性能計測",
+    "cat": "rdsh",
+    "desc": "実測表と再現手順",
     "updated": "2026-11-01",
     "by": "wiki",
     "rev": 1
@@ -224,10 +224,298 @@
     "rev": 1
   },
   {
-    "slug": "rdsh/security",
-    "name": "rdsh の安全設計",
+    "slug": "rdsh/commands",
+    "name": "ネイティブコマンド",
     "cat": "rdsh",
-    "desc": "サンドボックスとguard",
+    "desc": "tokens・search・deps など",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/auth",
+    "name": "rdsh auth — 認証情報",
+    "cat": "rdsh-cmd",
+    "desc": "codex/opencode取込",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/bench",
+    "name": "rdsh bench — 起動比較",
+    "cat": "rdsh-cmd",
+    "desc": "rdshとdsh実測",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/compact",
+    "name": "rdsh compact — JSONL圧縮",
+    "cat": "rdsh-cmd",
+    "desc": "重要行保存",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/context",
+    "name": "rdsh context — 注入と記憶",
+    "cat": "rdsh-cmd",
+    "desc": "inject・memory・distill",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/deps",
+    "name": "rdsh deps — 依存グラフ",
+    "cat": "rdsh-cmd",
+    "desc": "索引とimpact照会",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/doctor",
+    "name": "rdsh doctor — 健全性診断",
+    "cat": "rdsh-cmd",
+    "desc": "dsh・DSH_HOME診断",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/features",
+    "name": "rdsh features — 機能スイッチ",
+    "cat": "rdsh-cmd",
+    "desc": "既定値つき切替",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/guard",
+    "name": "rdsh guard — フック遮断",
+    "cat": "rdsh-cmd",
+    "desc": "--denyと判定",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/models",
+    "name": "rdsh models — モデル反映",
+    "cat": "rdsh-cmd",
+    "desc": "sync/autoで不足追記",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/plugin",
+    "name": "rdsh plugin — 委譲",
+    "cat": "rdsh-cmd",
+    "desc": "dsh plugin --profile",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/prune",
+    "name": "rdsh prune — 予算内切詰",
+    "cat": "rdsh-cmd",
+    "desc": "前後保持で予算化",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/rate",
+    "name": "rdsh rate limit — 自動再開",
+    "cat": "rdsh-cmd",
+    "desc": "retryPolicy追記",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/retry-log",
+    "name": "rdsh retry-log — 再試行集計",
+    "cat": "rdsh-cmd",
+    "desc": "プロバイダ別表",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/route",
+    "name": "rdsh route — 難易度別割当",
+    "cat": "rdsh-cmd",
+    "desc": "easy/standard/hard",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/search",
+    "name": "rdsh search — 並列検索",
+    "cat": "rdsh-cmd",
+    "desc": "並列grepと走査順",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/serve",
+    "name": "rdsh serve — Web画面",
+    "cat": "rdsh-cmd",
+    "desc": "38080一時トークン",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/sessions",
+    "name": "rdsh sessions — セッション一覧",
+    "cat": "rdsh-cmd",
+    "desc": "展開トークンつき",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/setup",
+    "name": "rdsh setup — 初期セットアップ",
+    "cat": "rdsh-cmd",
+    "desc": "--web画面つき",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/tokens",
+    "name": "rdsh tokens — トークン即時見積り",
+    "cat": "rdsh-cmd",
+    "desc": "ASCII換算見積り",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/cmd/wait",
+    "name": "rdsh wait — 進捗つき待機",
+    "cat": "rdsh-cmd",
+    "desc": "上限12時間",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/model_benchmarks",
+    "name": "Codex/Claudeベンチ",
+    "cat": "rdsh-dw",
+    "desc": "ヘッドレス委譲24run",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/session-ledger",
+    "name": "セッション台帳",
+    "cat": "rdsh-dw",
+    "desc": "run結合を永続",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/task-preflight",
+    "name": "タスク前提診断",
+    "cat": "rdsh-dw",
+    "desc": "起動前チェック",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/run-recovery",
+    "name": "ランリカバリ",
+    "cat": "rdsh-dw",
+    "desc": "journalとcrash対処",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/integration-queue",
+    "name": "ローカル統合キュー",
+    "cat": "rdsh-dw",
+    "desc": "固定順統合",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/user-flow",
+    "name": "利用動線",
+    "cat": "rdsh-dw",
+    "desc": "導入から復旧まで",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/cost-ledger",
+    "name": "報告型コスト台帳",
+    "cat": "rdsh-dw",
+    "desc": "使用量を後報告記帳",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/connection-diagnostics",
+    "name": "接続診断",
+    "cat": "rdsh-dw",
+    "desc": "携帯/Dot経路の段階診断",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/staged-updates",
+    "name": "段階的更新",
+    "cat": "rdsh-dw",
+    "desc": "capture→canary→promote",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/history-backup",
+    "name": "選択的履歴バックアップ",
+    "cat": "rdsh-dw",
+    "desc": "出力と復元",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/fault-simulator",
+    "name": "障害シミュレータ",
+    "cat": "rdsh-dw",
+    "desc": "6シナリオで回復検証",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/dw/route",
+    "name": "難易度ルーティング",
+    "cat": "rdsh-dw",
+    "desc": "3層判定の決定論",
     "updated": "2026-11-01",
     "by": "wiki",
     "rev": 1
@@ -248,6 +536,195 @@
     "desc": "MIT と商標ルール",
     "updated": "2026-11-01 01:44",
     "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "reference/cli/headless",
+    "name": "CLI headless（1タスク実行）",
+    "cat": "reference-cli",
+    "desc": "全オプション網羅",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/cli/plugin",
+    "name": "CLI plugin（プラグイン管理）",
+    "cat": "reference-cli",
+    "desc": "pnpm転送と挙動",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/cli/sdk-acp",
+    "name": "CLI sdk・sdk-minimal・acp",
+    "cat": "reference-cli",
+    "desc": "STDIOサーバー3種",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/cli/web",
+    "name": "CLI web（ブラウザUI）",
+    "cat": "reference-cli",
+    "desc": "Web起動オプション",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/cli/behaviors",
+    "name": "CLI共通挙動と終了コード",
+    "cat": "reference-cli",
+    "desc": "レイヤー・終了コード",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/cli/launcher",
+    "name": "DSH CLI ランチャーの文法とオプション",
+    "cat": "reference-cli",
+    "desc": "本体オプション網羅",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/cli/schema-dump",
+    "name": "スキーマダンプの安全作法",
+    "cat": "reference-cli",
+    "desc": "schema-dumpの安全性",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/cli/plugin-detail",
+    "name": "プラグイン管理の詳細仕様",
+    "cat": "reference-cli",
+    "desc": "pluginの深い挙動",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/cli/rescue-dump",
+    "name": "プロファイル再作成とダンプ",
+    "cat": "reference-cli",
+    "desc": "rescue・dump系",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/todo",
+    "name": "TODO",
+    "cat": "subsystems",
+    "desc": "タスク管理の仕組み",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/slots",
+    "name": "Web UIのSlots",
+    "cat": "subsystems",
+    "desc": "UI型システム",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/compaction",
+    "name": "コンパクション",
+    "cat": "subsystems",
+    "desc": "文脈圧縮",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/goal",
+    "name": "ゴール",
+    "cat": "subsystems",
+    "desc": "継続ラウンドの枠",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/subagent",
+    "name": "サブエージェント",
+    "cat": "subsystems",
+    "desc": "委譲の仕組み",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/sandbox",
+    "name": "サンドボックス",
+    "cat": "subsystems",
+    "desc": "プロセス拘束の縫い目",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/jobs",
+    "name": "ジョブ",
+    "cat": "subsystems",
+    "desc": "バックグラウンド処理",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/tools",
+    "name": "ツール実行パイプライン",
+    "cat": "subsystems",
+    "desc": "guarded execution",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/token-meter",
+    "name": "トークンメーター",
+    "cat": "subsystems",
+    "desc": "tokens系統合",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/user-questions",
+    "name": "ユーザー質問",
+    "cat": "subsystems",
+    "desc": "確認入力の規約",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/workflow",
+    "name": "ワークフロー",
+    "cat": "subsystems",
+    "desc": "宣言的な進行枠",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "subsystems/deliverables",
+    "name": "成果物提出",
+    "cat": "subsystems",
+    "desc": "デリバリー",
+    "updated": "2026-11-01",
+    "by": "wiki",
     "rev": 1
   }
 ]

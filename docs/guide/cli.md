@@ -5,11 +5,11 @@
 ## 基本文法
 
 ```text
-Usage: dsh [--profile] <name> [options] [app-args...]
-       dsh plugin --profile <name> <pnpm-args...>
+Usage: dsh [--profile] ＼name］ [options] [app-args...]
+       dsh plugin --profile ＼name］ ＼pnpm-args...］
 ```
 
-- `<name>` は `$DSH_HOME/profiles` 以下のプロファイル名です
+- `＼name］` は `$DSH_HOME/profiles` 以下のプロファイル名です
 - `[options]` はランチャー自身のオプションです
 - `[app-args...]` は、起動したプロファイルのアプリへ渡されます
 
@@ -19,9 +19,9 @@ Usage: dsh [--profile] <name> [options] [app-args...]
 | --- | --- |
 | `-V, --version` | バージョン番号を表示します |
 | `-h, --help` | ランチャーのヘルプを表示します（`dsh --help`） |
-| `--profile <name>` | 起動するプロファイルを指定します |
-| `--from-default-profile <name>` | カスタムプロファイルを同梱テンプレートの新規コピーに置き換えて起動します |
-| `--patch <path>` | プロファイル層の後に重ねる追加パッチを指定します（複数指定可） |
+| `--profile ＼name］` | 起動するプロファイルを指定します |
+| `--from-default-profile ＼name］` | カスタムプロファイルを同梱テンプレートの新規コピーに置き換えて起動します |
+| `--patch ＼path］` | プロファイル層の後に重ねる追加パッチを指定します（複数指定可） |
 | `--dump-config` | 合成後のプロファイルツリーを表示して終了します |
 | `--dump-config-schema` | エントリとパッチの JSON Schema を表示します（マウントしません） |
 | `--dump-default-config` | ユーザー層と `--patch` を除いたプロファイルツリーを表示します |
@@ -33,7 +33,7 @@ Usage: dsh [--profile] <name> [options] [app-args...]
 ```sh
 dsh --profile web --port 8080       # --port は web アプリの引数
 dsh --profile web --host 10.0.0.7   # バインド先アドレスも web アプリの引数
-dsh --profile tui --resume <id>     # --resume はターミナルアプリの引数（tui が入っている場合）
+dsh --profile tui --resume ＼id］     # --resume はターミナルアプリの引数（tui が入っている場合）
 dsh --profile web --help            # web アプリのフラグのヘルプ
 dsh --help                          # ランチャー自身のヘルプ
 ```
@@ -44,8 +44,8 @@ Web UI を別ポートで配信する例は `dsh --profile web --port 8080` で�
 
 | 指定 | 動き |
 | --- | --- |
-| `dsh <name>` / `dsh --profile <name>` | プロファイルを起動します |
-| `dsh plugin --profile <name> <pnpm args>` | プロファイルのプラグインを pnpm 経由で管理します |
+| `dsh ＼name］` / `dsh --profile ＼name］` | プロファイルを起動します |
+| `dsh plugin --profile ＼name］ <pnpm args>` | プロファイルのプラグインを pnpm 経由で管理します |
 | `dsh --profile acp` | ACP の stdio でクライアントに応答します |
 | `dsh --profile headless [task...]` | タスクを1件実行して終了します |
 | `dsh --profile sdk` / `sdk-minimal` | SDK クライアントへ JSON-RPC で応答します |

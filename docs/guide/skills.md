@@ -6,8 +6,8 @@
 
 スキルは Markdown の手順書で、セッションイベントではなく「任意の指示」として扱われます。名前はケバブケース（`a-z0-9` と `-` のみ）で、次の2形式を受け付けます。
 
-- ディレクトリバンドル: `<name>/SKILL.md`
-- フラットな1ファイル: `<name>.md`
+- ディレクトリバンドル: `＼name］/SKILL.md`
+- フラットな1ファイル: `＼name］.md`
 
 さらに `**/SKILL.md` のような入れ子の再帰探索は対象外です。frontmatter の `disable-model-invocation` と `user-invocable` で、モデルから呼び出せるか・人だけが呼び出せるかを制御します（未指定ならどちらも `true`）。
 
@@ -17,11 +17,11 @@
 
 | 優先順位 | 由来 | ルート |
 | --- | --- | --- |
-| 100 | project-dsh | `<projectRoot>/.dsh/skills` |
-| 200 | project-agents | `<projectRoot>/.agents/skills` |
+| 100 | project-dsh | `＼projectRoot］/.dsh/skills` |
+| 200 | project-agents | `＼projectRoot］/.agents/skills` |
 | 300 | custom | `customSkillDirs` 設定 |
-| 400 | user-dsh | `<dshHome>/skills` |
-| 500 | user-agents | `<agentsHome>/skills` |
+| 400 | user-dsh | `＼dshHome］/skills` |
+| 500 | user-agents | `＼agentsHome］/skills` |
 | 600 | bundled | `bundledSkillDir` 設定 |
 
 数値が小さいほど勝ち、同名スキルは優先順位の高い（数値の小さい）側が採用されます。プロジェクトルートは、最も近い祖先にある `.git` のディレクトリで決め、無ければカレントディレクトリを使います。ルートはファイルの追加・削除を監視され、変更は次の読み出しで反映されます。
@@ -52,9 +52,9 @@ MCP（Model Context Protocol）は、外部サーバのツールを DSH の通�
         cwd: !!js process.cwd()
 ```
 
-リモートサーバーなら `transport: streamable-http` と `url`, `headers` を使います。この例は `--patch` で1回だけ渡すか、`$DSH_HOME/profiles/<name>/cordis.patch.yml` に移して保存します。
+リモートサーバーなら `transport: streamable-http` と `url`, `headers` を使います。この例は `--patch` で1回だけ渡すか、`$DSH_HOME/profiles/＼name］/cordis.patch.yml` に移して保存します。
 
-登録後、ツール名は `mcp__<serverName>__<toolName>` の形で公開されます。`serverName` は同じスコープ内で一意で、`[A-Za-z0-9_-]{1,32}` に一致させる必要があります。
+登録後、ツール名は `mcp__＼serverName］__＼toolName］` の形で公開されます。`serverName` は同じスコープ内で一意で、`[A-Za-z0-9_-]{1,32}` に一致させる必要があります。
 
 よく使う設定項目は次のとおりです（全項目は[設定カタログ](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/config-catalog.md#deepseek-aidsh-mcp-client)）。
 
