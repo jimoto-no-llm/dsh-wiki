@@ -185,7 +185,8 @@ function shell(title: string, bodyHtml: string, opts: { slug?: string } = {}): s
     '<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
     '<meta name="robots" content="noindex, nofollow">\n' +
     "<title>" + esc(title) + " - DSH 日本語Wiki</title>\n" +
-    '<style>:root{color-scheme:light dark}' +
+    '<style>:root{color-scheme:light}' +
+    "html,body{background:#fff}" +
     "body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP',system-ui,sans-serif;font-size:.95rem;max-width:62rem;margin:0 auto;padding:0 1rem 3rem;line-height:1.7;color:#202122}" +
     "a{color:#3366cc;text-decoration:none}a:hover{text-decoration:underline}" +
     "header{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;border-bottom:1px solid #a2a9b1;padding:.55rem 0;margin-bottom:1rem}" +
