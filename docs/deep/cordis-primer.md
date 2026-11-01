@@ -5,7 +5,7 @@ CordisはDeepSeek Harnessの下にvendoredされたプラグインフレーム�
 ## Cordisの5つの考え
 
 - **プラグインはServiceを実装するオブジェクトです。** 省略可能な `inject` と `apply(ctx)` フィールドを持つ関数か、Cordisが現在のcontextへライフサイクルごとマウントする `Service` 派生クラスで書けます。
-- **contextはサービスの倉庫です。** serviceは `ctx.tools`・`ctx.llm`・`ctx.sessions` のような安定した `ctx.<key>` をcontextから請求します。他のプラグインは具象実装をimportする代わりに、keyでサービスを探します。
+- **contextはサービスの倉庫です。** serviceは `ctx.tools`・`ctx.llm`・`ctx.sessions` のような安定した `ctx.＼key］` をcontextから請求します。他のプラグインは具象実装をimportする代わりに、keyでサービスを探します。
 - **`inject`でサービス依存を宣言します。** 必要なサービスを名指しするプラグインは、そのサービスが存在するまで待つため、読み込み順序が手動のboot順序でなくサービス要件として表現されます。
 - **型付きイベントで通信します。** serviceはTypeScript宣言マージでイベント名を宣言し、リスナーが観測か、包み込みか、扇出か、順序実行か、最初のbailで停止かに応じて、emit・waterfall・parallel・serial・bailでdispatchします。
 - **登録は可逆的なeffectです。** プロンプトセクション・ツールスキーマ・アダプタ・プロバイダ・リスナーは `ctx.effect()` や `ctx.on()` 経由で設置されるため、reloadとteardownは予測可能に巻き戻ります。
@@ -44,7 +44,7 @@ dispatchモードはイベントのpublic契約の一部です。新規のハー
 
 ## 注意
 
-- サービスの `ctx.<key>` と語彙型を所有する定義、実装（provider）、呼び出し側（consumer）の3役割で1つの能力（capability seam）を構成する考え方は、用語集の「seam」を参照してください。ハーネスでは `dsh-shell`（定義）・`dsh-bash-local` / `dsh-bash-sandbox`（実装）・`dsh-tool-bash`（消費者）がその典型です。
+- サービスの `ctx.＼key］` と語彙型を所有する定義、実装（provider）、呼び出し側（consumer）の3役割で1つの能力（capability seam）を構成する考え方は、用語集の「seam」を参照してください。ハーネスでは `dsh-shell`（定義）・`dsh-bash-local` / `dsh-bash-sandbox`（実装）・`dsh-tool-bash`（消費者）がその典型です。
 - イベントのdispatchモードはイベント契約の一部です。既存イベントのdispatchモードを変えるのは契約の変更であり、生成カタログとdispatch箇所の照合を崩します。
 
 ## 出典

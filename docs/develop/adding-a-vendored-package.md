@@ -14,7 +14,7 @@ Harness が別の upstream Cordis パッケージ（例 `@cordisjs/plugin-http`�
 ### 1. source をコピーする
 
 ```
-vendor/<dir>/
+vendor/＼dir］/
   package.json     # from upstream; rescope the name, keep exports/type (publishable release member, no private flag)
   tsconfig.json    # extends ../../tsconfig.base.json (see configuration below)
   src/             # the upstream src/ verbatim
@@ -44,12 +44,12 @@ vendored TypeScript source 内のローカル相対 import/export はコピー�
 
 | ファイル | 変更 |
 |---|---|
-| `tsconfig.base.json` | `paths` に `"<npm-name>": ["./vendor/<dir>/src"]` を追加 |
-| `tsconfig.host.json` | `references` へ `{ "path": "./vendor/<dir>" }` を追加（`packages/*` entry の前。vendored code は host aggregate を通じて graph に参入） |
+| `tsconfig.base.json` | `paths` に `"＼npm-name］": ["./vendor/＼dir］/src"]` を追加 |
+| `tsconfig.host.json` | `references` へ `{ "path": "./vendor/＼dir］" }` を追加（`packages/*` entry の前。vendored code は host aggregate を通じて graph に参入） |
 | `vendor/README.md` | manifest 表に行（dir、npm name、version、upstream repo、commit SHA）を追加し、ローカル変更を記録 |
 | `scripts/publint-all.ts` | vendored ボン自体がここから publish される場合だけ（普通の vendored 依存はしないので skip） |
 
-glob で自動カバーされ編集不要: root `package.json` workspaces（`vendor/*`）・`tsdown.config.ts`・`vitest.config.ts`・`.oxlintrc.json`。per-package `vendor/<dir>/tsdown.config.ts` は build 設定が root 既定と異なる（dual ESM/CJS、複数 entry — `vendor/schemastery`・`vendor/logger-console` 参照）ときだけ必要で、entry は `lib/types` に emit された JS を読む。
+glob で自動カバーされ編集不要: root `package.json` workspaces（`vendor/*`）・`tsdown.config.ts`・`vitest.config.ts`・`.oxlintrc.json`。per-package `vendor/＼dir］/tsdown.config.ts` は build 設定が root 既定と異なる（dual ESM/CJS、複数 entry — `vendor/schemastery`・`vendor/logger-console` 参照）ときだけ必要で、entry は `lib/types` に emit された JS を読む。
 
 ### 3. manifest guard に気をつける
 
@@ -63,7 +63,7 @@ pnpm run typecheck
 pnpm run build && pnpm run constraints
 ```
 
-testing policy が選定する behavior チェックを実行する。source `paths` map は `tsconfig.base.json` に 1 箇所あり、graph 全体に効く。重要な隔離境界は project-reference graph: vendored source は自前の `vendor/<dir>/tsconfig.json` を通じて参照され、aggregate の strict program には引き込まれてはならない。
+testing policy が選定する behavior チェックを実行する。source `paths` map は `tsconfig.base.json` に 1 箇所あり、graph 全体に効く。重要な隔離境界は project-reference graph: vendored source は自前の `vendor/＼dir］/tsconfig.json` を通じて参照され、aggregate の strict program には引き込まれてはならない。
 
 ## 注意
 

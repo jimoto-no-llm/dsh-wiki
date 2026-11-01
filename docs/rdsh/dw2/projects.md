@@ -40,7 +40,7 @@ sh scripts/sync-labels.sh
 
 # issueをボードへ追加
 gh project item-add 1 --owner jimoto-no-llm \
-  --url https://github.com/jimoto-no-llm/rustdsh/issues/<number>
+  --url https://github.com/jimoto-no-llm/rustdsh/issues/＼number］
 ```
 
 ボードとmilestoneの編集はmaintainerが必要です。この文書をマージするだけではリモート側は変更されず、新バージョンのリリースも行われません。

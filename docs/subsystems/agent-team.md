@@ -7,7 +7,7 @@
 | 概念 | 意味 |
 | --- | --- |
 | `TeamId` | root `SessionId` に独立したbrandを付けたもの |
-| `TeamTaskId` | `task-<n>` として採番 |
+| `TeamTaskId` | `task-＼n］` として採番 |
 | `TeamMessageId` | 歴史メールボックスの記録専用の旧ID。新規送信は対象inboxの `MessageId` を返す |
 | `TeamMemberSnapshot` | メンバーのライフサイクル変化ごとに書込まれるdurable値全体 |
 

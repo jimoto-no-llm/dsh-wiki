@@ -4,7 +4,7 @@
 
 ## アドレス
 
-リソースアドレスは `dsh-resource://<type>/…` 形式のURLです。hostがプロトコル名で、`ResourceProtocolMap` のキーでなければなりません。pathはプロトコル固有のもので、各セグメントのpercent-encodeは所有者が行います。スコープが必要なプロトコルはpathに含めます（`file` プロトコルは `dsh-resource://file/session/<sessionId>/<path>`）。組み立ては `fileAddressFor(sessionId, cwd, path)`、読み戻しは `parseFileAddress(address)` が担います。モデル自体はschemeとhostだけを読み、`protocolOf(address)` は小文字化したhostを、それ以外には `undefined` を返します。
+リソースアドレスは `dsh-resource://＼type］/…` 形式のURLです。hostがプロトコル名で、`ResourceProtocolMap` のキーでなければなりません。pathはプロトコル固有のもので、各セグメントのpercent-encodeは所有者が行います。スコープが必要なプロトコルはpathに含めます（`file` プロトコルは `dsh-resource://file/session/＼sessionId］/＼path］`）。組み立ては `fileAddressFor(sessionId, cwd, path)`、読み戻しは `parseFileAddress(address)` が担います。モデル自体はschemeとhostだけを読み、`protocolOf(address)` は小文字化したhostを、それ以外には `undefined` を返します。
 
 | アドレス | プロトコルキー | 読まれ方 |
 | --- | --- | --- |

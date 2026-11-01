@@ -2,7 +2,7 @@
 
 ## 目的
 
-新しい `@deepseek-ai/dsh-<name>` パッケージ追加の file-by-file checklist を確認する。この checklist は bash と adapter パッケージを template に検証済みであり、drift していたらこっちを直す（原文のルール）。
+新しい `@deepseek-ai/dsh-＼name］` パッケージ追加の file-by-file checklist を確認する。この checklist は bash と adapter パッケージを template に検証済みであり、drift していたらこっちを直す（原文のルール）。
 
 ## 前提
 
@@ -14,12 +14,12 @@
 ### 1. パッケージを作る
 
 ```
-packages/<group>/<pkg>/
+packages/＼group］/＼pkg］/
   package.json     # copy from packages/core/tools, adjust name/description/deps
   tsconfig.json    # extends ../../../tsconfig.base.json, rootDir src,
                    # outDir lib/types, references: ../../../vendor/cosmokit,
                    # ../../../vendor/cordis (+ ../../../vendor/schemastery if
-                   # you use Config, + ../../<group>/<dep> for each dsh dep)
+                   # you use Config, + ../../＼group］/＼dep］ for each dsh dep)
   src/index.ts     # service default export or plugin (name/inject/apply/Config)
   locale/en.json   # optional display metadata: meta.title, meta.description, and meta.detail
   locale/zh.json   # translations using the same fields
@@ -36,8 +36,8 @@ packages/<group>/<pkg>/
 
 | ファイル | 変更 |
 |---|---|
-| `tsconfig.base.json` | 既存 group なら編集不要。新 group は `@deepseek-ai/dsh-*` wildcard に `./packages/<group>/*/src` candidate を追加 |
-| `tsconfig.host.json`（Host package）か `tsconfig.client.json`（Client package） | `references` へ `{ "path": "./packages/<group>/<pkg>" }` を追加。普通のパッケージは必ずどちらか片方の aggregate に属する |
+| `tsconfig.base.json` | 既存 group なら編集不要。新 group は `@deepseek-ai/dsh-*` wildcard に `./packages/＼group］/*/src` candidate を追加 |
+| `tsconfig.host.json`（Host package）か `tsconfig.client.json`（Client package） | `references` へ `{ "path": "./packages/＼group］/＼pkg］" }` を追加。普通のパッケージは必ずどちらか片方の aggregate に属する |
 
 `packages/client/*` は `tsconfig.base.json` の代わりに `tsconfig.base.client.json` を継承し、client plugin パッケージは package.json で `dsh.client` を宣言し、`./client` を export し、共有 tsdown preset を呼ぶ。globs や package-manifest discovery で自動カバーされて編集不要なのは: root `package.json` workspaces、`scripts/publint-all.ts`、`tsdown.config.ts`、`.oxlintrc.json`、`scripts/check-workspace-constraints.ts`。
 

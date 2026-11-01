@@ -306,6 +306,186 @@
     "rev": 1
   },
   {
+    "slug": "deep2/capability-seams",
+    "name": "Capability Seams とコアサービス（capability-seams.md 深掘り）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep2/cordis-fiber",
+    "name": "Cordis Fiber（cordis-api/fiber.md 深掘り）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "ug/forge-git-permissions",
+    "name": "Forge Git クエリの権限と内容変換（v0.2.2-alpha.2）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "ug/github-review",
+    "name": "GitHub Web フックからレビュー セッションを作る",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "ug/sdk-run-commands",
+    "name": "SDK の run がネイティブ コマンドを受け付ける（v0.2.2-alpha.2）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "ug/schedule-remote-host-tasks",
+    "name": "Schedule はホスト全体の1つの管理 API を使う（v0.2.2-alpha.2）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "ug/schedule-agent-tools",
+    "name": "Schedule ツールが RRULE と実行先で全 Host タスクを管理する（v0.2.2-alpha.2）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep2/persistence-catalog",
+    "name": "Session Persistence Event Catalog（persistence-catalog.md 深掘り）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep2/session-format-status",
+    "name": "Session 形式バージョンとリリース状態（session-format-status.md 深掘り）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep2/web-styling",
+    "name": "Web UI Style Reference（web-styling.md 深掘り）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "ug/public-deployments",
+    "name": "Web UI をリバース プロキシで公開する",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop2/maintaining-dsh-code-review",
+    "name": "dsh-code-review skill の保守ガイド",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep2/event-producer-consumer",
+    "name": "イベント生成元・消費者マトリクス（event-producer-consumer.md 深掘り）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "ug/context-menu-target",
+    "name": "コンテキスト メニューの型とアイコン（v0.2.2-alpha.2）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "ug/mcp-memory",
+    "name": "サードパーティのメモリ MCP サーバをつなぐ",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep2/tool-catalog",
+    "name": "ツールスキーマカタログ（tool-catalog.md 深掘り）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep2/postmortems",
+    "name": "ポストモーテム（postmortem/ 深掘り）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "ug/model-listing-refresh",
+    "name": "モデル一覧が自動で更新される（v0.2.1-rc.4）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "develop2/responding-to-pr-review-on-a-stack",
+    "name": "依存 stack PR チェーンをまたぐ review 対応ガイド",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep2/experimental-persistence-catalog",
+    "name": "実験系 Plugin Record Catalog（experimental-persistence-catalog.md 深掘り）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
     "slug": "index",
     "name": "旧トップ",
     "cat": "meta",
@@ -320,6 +500,105 @@
     "desc": "このWikiの現状",
     "updated": "2026-11-01 01:44",
     "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "ug/llm-request-purposes",
+    "name": "補助 LLM 要求の purpose を宣言する（v0.2.2-alpha.2）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "deep2/defensive-patterns",
+    "name": "防御パターン（defensive-patterns/ 深掘り）",
+    "cat": "meta",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/auth",
+    "name": "auth — 外部ログインの自動認識とミラー（src/auth.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/compact",
+    "name": "compact — セッション転写のトークン圧縮（src/compact.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/context_hook",
+    "name": "context_hook — hooks.json への注入フック登録（src/context_hook.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/deps",
+    "name": "deps — 静的依存グラフの近似インデックス（src/deps.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/dsh_args",
+    "name": "dsh_args — 起動引数の分割（src/dsh_args.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/file_security",
+    "name": "file_security — no-follow による安全なリポジトリ読み取り（src/file_security.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/local_http",
+    "name": "local_http — ローカル HTTP の最小実装（src/local_http.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/models_auto",
+    "name": "models_auto — provider モデルの定期リフレッシュ（src/models_auto.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/passthrough",
+    "name": "passthrough — 本家 dsh への drop-in 委譲（src/passthrough.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
     "rev": 1
   },
   {
@@ -392,6 +671,33 @@
     "desc": "約98倍の起動と導入手順",
     "updated": "2026-11-01 01:44",
     "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/search",
+    "name": "search — ネイティブ再帰 grep（src/search.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/serve",
+    "name": "serve — ローカル dashboard（src/serve.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/src/token_handoff",
+    "name": "token_handoff — bearer token のファイル渡し（src/token_handoff.rs）",
+    "cat": "rdsh",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
     "rev": 1
   },
   {
@@ -899,8 +1205,35 @@
     "rev": 1
   },
   {
+    "slug": "reference/config/dsh-agent-loop",
+    "name": "`@deepseek-ai/dsh-agent-loop` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-bash-local",
+    "name": "`@deepseek-ai/dsh-bash-local` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
     "slug": "reference/config/dsh-compaction-basic",
     "name": "`@deepseek-ai/dsh-compaction-basic` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-compaction-tool-result-pruner",
+    "name": "`@deepseek-ai/dsh-compaction-tool-result-pruner` の設定",
     "cat": "reference-config",
     "desc": "",
     "updated": "2026-11-01",
@@ -971,6 +1304,24 @@
     "rev": 1
   },
   {
+    "slug": "reference/config/dsh-pwsh-local",
+    "name": "`@deepseek-ai/dsh-pwsh-local` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-sandbox-policy",
+    "name": "`@deepseek-ai/dsh-sandbox-policy` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
     "slug": "reference/config/dsh-schedule",
     "name": "`@deepseek-ai/dsh-schedule` の設定",
     "cat": "reference-config",
@@ -980,8 +1331,71 @@
     "rev": 1
   },
   {
+    "slug": "reference/config/dsh-session-telemetry-otel",
+    "name": "`@deepseek-ai/dsh-session-telemetry-otel` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-shell-env",
+    "name": "`@deepseek-ai/dsh-shell-env` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-subagent",
+    "name": "`@deepseek-ai/dsh-subagent` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-terminal-bash",
+    "name": "`@deepseek-ai/dsh-terminal-bash` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-time-context",
+    "name": "`@deepseek-ai/dsh-time-context` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
     "slug": "reference/config/dsh-web-app",
     "name": "`@deepseek-ai/dsh-web-app` の設定（`dsh-web` シームを含む）",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-web-fetch-http",
+    "name": "`@deepseek-ai/dsh-web-fetch-http` の設定",
+    "cat": "reference-config",
+    "desc": "",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/config/dsh-web-search-deepseek",
+    "name": "`@deepseek-ai/dsh-web-search-deepseek` の設定",
     "cat": "reference-config",
     "desc": "",
     "updated": "2026-11-01",

@@ -6,7 +6,7 @@ DeepSeek Harnessのドメイン語彙です。1つの概念に1つの正規の�
 
 | 用語 | 意味 |
 | --- | --- |
-| seam（継ぎ目） | 3つの役割からなるスワップ可能な能力。**Service Definition**（`ctx.<key>`と語彙型を所有するCordis `Service`。`ShellExecutor`のような抽象クラス、`WebRuntime`のような具象レジストリで、TypeScript `interface`は不可）、1つ以上の**Service Providers**、サービスを注入する1つ以上の**Consumers**。 |
+| seam（継ぎ目） | 3つの役割からなるスワップ可能な能力。**Service Definition**（`ctx.＼key］`と語彙型を所有するCordis `Service`。`ShellExecutor`のような抽象クラス、`WebRuntime`のような具象レジストリで、TypeScript `interface`は不可）、1つ以上の**Service Providers**、サービスを注入する1つ以上の**Consumers**。 |
 
 `packages/shell` が正規の例です。`dsh-shell` がService Definition、`dsh-bash-local` / `dsh-bash-sandbox` がプロバイダ、`dsh-tool-bash` がコンシューマです。役割が独立に進化するときは別パッケージに置きますが、1つの関心事なら1パッケージが複数の役割を持てます（`dsh-user-approval` は承認seamの定義と実装を1パッケージに置きます）。seamは能力全体を指す語で、個別の構成要素はseamとは呼ばず、役割・クラス・サービス・契約・拡張点の名前で呼びます。
 

@@ -49,7 +49,7 @@ fork seedは親のfeedbackイベントを含めますが、payloadが親の `ses
 - コントロールは `conversation.chat.assistant-actions` list slotの `feedback` entry（順序10）で、確定済みアシスタントメッセージのIconActions行内に `ui-conversation` が描画します。中断で凍結された部分メッセージには `messageId` がないため、描画側はスロットを飛ばします。
 - 1セッションにつき1つの `MessageFeedbackController` が全メッセージコントロールを裏付けます。`list` の1回の読みでtranscript全体が撒かれ、mountではなく初回hover/focusに延期されます。各変異はコントローラが最後に観測したversionを `ifVersion` として送り、`version-conflict` 返信に付属するauthoritative項目でreconcileします（再取得しない）。
 - 未記録の判定からはfeedback dialog（`conversation.input.overlay` の `feedback-dialog` entry。7分類チップと詳細boxを持つ共通Modal）が開きます。提出は選ばれた判定に整えた説明（またはどちらも無し）を載せ、成功でdialogを閉じ、acknowledgement toastを出します。失敗はdialogとdraftを保持し警告toastを出します。
-- スラッシュ無しの `/feedback` は `ui-commands` のdecorationが `action` としてrouteし、dialogを開いてから `sessionFeedback.record` で記録します。`/feedback <text>` はHost command経路を保ちます。
+- スラッシュ無しの `/feedback` は `ui-commands` のdecorationが `action` としてrouteし、dialogを開いてから `sessionFeedback.record` で記録します。`/feedback ＼text］` はHost command経路を保ちます。
 
 ## 注意
 

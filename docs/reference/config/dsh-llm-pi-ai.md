@@ -67,7 +67,7 @@
 | `maxTokensField` | `openai-completions` | エンドポイントが読む出力能力フィールドの名前。 |
 | `requiresToolResultName` | `openai-completions` | ツール結果が `name` を持たなければならないか。 |
 | `requiresAssistantAfterToolResult` | `openai-completions` | ツール結果の後のユーザメッセージが間にアシスタント（assistant）メッセージを挟む必要があるか。 |
-| `requiresThinkingAsText` | `openai-completions` | 思考ブロックが `<thinking>` 区切り文字でテキストとして流れる必要があるか。 |
+| `requiresThinkingAsText` | `openai-completions` | 思考ブロックが `＼thinking］` 区切り文字でテキストとして流れる必要があるか。 |
 | `requiresReasoningContentOnAssistantMessages` | `openai-completions` | 再生したアシスタントメッセージが（推論が有効のとき）空の `reasoning_content` を必要とするか。 |
 | `thinkingFormat` | `openai-completions` | エンドポイントが期待する推論パラメータの形式。 |
 | `chatTemplateKwargs` | `openai-completions` | `chat_template_kwargs` として送る kwargs。pi-ai は2つの `chat-template` thinking 形式のときだけ読む。フォームの強制がない。 |

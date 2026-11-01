@@ -28,11 +28,11 @@ ChatとTrajectoryが同じdurableイベント族を認識しても、それぞ�
 | 型 | 意味 |
 | --- | --- |
 | `ConversationGroupDefinition` | `create()` がSession局所Stateを初期化、`update()` が次Stateを返し、`buildGroups()` がpending出力または `null` を返す |
-| `GroupInput<Node>` | `replace` はtarget順序・タイムライン・同期reader（`readNode` / `readTurn` / `readPosition`）を供給。`apply` はNode変化とlifecycleの `changedTurns` / `changedTurnOrders` を加える。Stateにreaderを保持しない |
+| `GroupInput＼Node］` | `replace` はtarget順序・タイムライン・同期reader（`readNode` / `readTurn` / `readPosition`）を供給。`apply` はNode変化とlifecycleの `changedTurns` / `changedTurnOrders` を加える。Stateにreaderを保持しない |
 | `GroupNodePosition` | 所有Turn（あれば）と直前・直後の可視Nodeキー。Turnだけのキー列が落とす割込みを近傍が保持する |
 | `NodeReference` / `GroupReference` | `kind` で区別されるbrandedキー。Node参照はrenderer所有の `groupPart` を選べる（省略はNode全体） |
-| `GroupSnapshot<Data>` | 不変のgroup key、ビジネスデータ、順序付きNode参照。groupはgroupを含まず、source Nodeデータも所有しない |
-| `GroupUpdate<Data>` | `entries` がroot列の完全差換え。`groups.replace` が全groupを置換、`groups.apply` のupsert/removeがnamed groupのみ更新。除去はNodeを削除しない |
+| `GroupSnapshot＼Data］` | 不変のgroup key、ビジネスデータ、順序付きNode参照。groupはgroupを含まず、source Nodeデータも所有しない |
+| `GroupUpdate＼Data］` | `entries` がroot列の完全差換え。`groups.replace` が全groupを置換、`groups.apply` のupsert/removeがnamed groupのみ更新。除去はNodeを削除しない |
 
 Group storeは取り込み前に全結果を検証します。root参照と記録の1対1対応、参照Nodeの存在、` (NodeKey, groupPart)` の占められる定位置はrootかmemberの最大1つ、ノード全体とその部分の共存不可、重複upsert/removeの失敗です。rendererは2種の参照をswitchして所属View側でコンポーネントを選びます。root参照に載らなかったtargetノードは保存されたまま描画されません。
 
@@ -55,7 +55,7 @@ Definitionを書く前に安定したビジネスidを決め、同じNodeに寄�
 
 ## 前行の読み取り
 
-`start` には `ConversationContextReader` が渡り、他のビジネスkindの直近の先行Stateは `reader.previous<State>(kind)` で読みます。アセンブラはその依存を記録し、より近い先行がprependで届く・未知gapが塞がる・先行Stateが改訂される場合、依存Contextを `start` から再実行し、更新を昇順seqでreplayします。readerにビジネス固有照会メソッドはなく、他Contextへの変異権もありません。
+`start` には `ConversationContextReader` が渡り、他のビジネスkindの直近の先行Stateは `reader.previous＼State］(kind)` で読みます。アセンブラはその依存を記録し、より近い先行がprependで届く・未知gapが塞がる・先行Stateが改訂される場合、依存Contextを `start` から再実行し、更新を昇順seqでreplayします。readerにビジネス固有照会メソッドはなく、他Contextへの変異権もありません。
 
 ## ウィンドウ更新の経路
 

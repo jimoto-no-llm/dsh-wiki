@@ -29,12 +29,12 @@ Harness の拡張（ツールプラグイン／フックプラグイン／UIプ�
 import type { Context } from '@deepseek-ai/cordis'
 import type { PreToolDecision, ToolExecution } from '@deepseek-ai/dsh-tools'
 
-declare function isAllowed(exec: ToolExecution): Promise<boolean>
+declare function isAllowed(exec: ToolExecution): Promise＼boolean］
 
 export const name = 'permission-gate'
 
 export function apply(ctx: Context) {
-  ctx.on('tools/pre-execute', async (exec, next): Promise<PreToolDecision> => {
+  ctx.on('tools/pre-execute', async (exec, next): Promise＼PreToolDecision］ => {
     if (!(await isAllowed(exec))) {
       return { kind: 'deny', reason: 'Denied by policy.' }
     }
@@ -69,7 +69,7 @@ export function apply(ctx: Context) {
       render(frame.chunk.text)
     }
   })
-  onUserInput(text => ctx.agents.get(brandString<SessionId>('client-session'))?.followup(createUserMessage({
+  onUserInput(text => ctx.agents.get(brandString＼SessionId］('client-session'))?.followup(createUserMessage({
     content: [{ type: 'text', text }],
     source: { kind: 'user' },
   })))

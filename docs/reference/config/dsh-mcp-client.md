@@ -12,7 +12,7 @@
 
 | フィールド | 型 | 意味 |
 | --- | --- | --- |
-| `serverName` | `string`（必須） | このサーバのツール名に付ける安定なローカルネームスペース（`mcp__<serverName>__<rawName>`）。`[A-Za-z0-9_-]{1,32}` に一致させ、生きている mcp-client インスタンス間で一意。 |
+| `serverName` | `string`（必須） | このサーバのツール名に付ける安定なローカルネームスペース（`mcp__＼serverName］__＼rawName］`）。`[A-Za-z0-9_-]{1,32}` に一致させ、生きている mcp-client インスタンス間で一意。 |
 | `toolCallTimeoutMs` | `number`（必須） | ツール呼び出し・リソースリクエストそれぞれのタイムアウト（ミリ秒）。 |
 | `failOnStartupError` | `boolean`（必須） | 初回接続またはツリー同期が失敗したときにプラグインの起動を失敗させる。 |
 | `maxInstructionBytes` | `number`（省略可） | サーバが付けてくる instructions（説明文）の UTF-8 バイト上限。デフォルトは 32768。 |

@@ -2,7 +2,7 @@
 
 ## 目的
 
-プラグインの Config schema でライブフィールド（Volatile）を宣言し、製品所有の settings card から編集できるようにする。export された `Config` interface は、各 `Volatile<T>` reference を含む、プラグインが受け取る値を記述する。
+プラグインの Config schema でライブフィールド（Volatile）を宣言し、製品所有の settings card から編集できるようにする。export された `Config` interface は、各 `Volatile＼T］` reference を含む、プラグインが受け取る値を記述する。
 
 ## 前提
 
@@ -19,7 +19,7 @@ import z from '@deepseek-ai/schemastery'
 
 export interface Config {
   endpoint: Volatile<string | undefined>
-  retries: Volatile<number>
+  retries: Volatile＼number］
 }
 
 export const Config = z.object({

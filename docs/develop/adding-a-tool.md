@@ -53,7 +53,7 @@ export function apply(ctx: Context) {
 5. **throw や不正値は `isError` になる。** throw はインフラ障害のため。ドメイン上の成功（非ゼロ exit など）は canonical 値の中で表現する。
 6. **`exec.signal` を尊重する。** 発火したら in-flight の処理をキャンセルする。
 7. **`presentationMeta`（任意）で durable card data を投影する。** 再生可能な JSON を canonical 値から導出し、core が `tool/result` に永続して `presentResult` へ渡す。
-8. **非同期通知は `exec.agent` を使う。** `agent.inject({ content, source: { kind: 'my-plugin' } })` は次のモデル要求から見える永続 context だが wake-up ではない。`kind` は `MessageSourceMap` で宣言し、session format V4 は廃止済み `{ kind: 'plugin', plugin: '<name>' }` wrapper を拒否する。 disposed agent は try/catch で守る。
+8. **非同期通知は `exec.agent` を使う。** `agent.inject({ content, source: { kind: 'my-plugin' } })` は次のモデル要求から見える永続 context だが wake-up ではない。`kind` は `MessageSourceMap` で宣言し、session format V4 は廃止済み `{ kind: 'plugin', plugin: '＼name］' }` wrapper を拒否する。 disposed agent は try/catch で守る。
 
 ### 長時間処理
 
@@ -65,7 +65,7 @@ export function apply(ctx: Context) {
 
 ### PTC モードは自動で届く
 
-PTC モードでは、見えている登録済みツールは追加統合なしで `await tools.<name>(args)` として使える。生成された `ToolArgsMap`／`ToolOutputMap` は同じ schema から正確な引数型と canonical 返り値型を導出し、コールは通常の実行パイプラインに再入する。成功したコールは policy 後の最終 canonical JSON 値に resolve し、失敗は実際の `ToolCallError` で reject する（プログラムが読めるのは `name`・`toolName`・人間向け `message` だけ）。`output.schema` は有用な programmatic API として設計し、人間向けの説明は `output.render` に置く。中間値は execution-local で永続されず prompt truncation もされない。
+PTC モードでは、見えている登録済みツールは追加統合なしで `await tools.＼name］(args)` として使える。生成された `ToolArgsMap`／`ToolOutputMap` は同じ schema から正確な引数型と canonical 返り値型を導出し、コールは通常の実行パイプラインに再入する。成功したコールは policy 後の最終 canonical JSON 値に resolve し、失敗は実際の `ToolCallError` で reject する（プログラムが読めるのは `name`・`toolName`・人間向け `message` だけ）。`output.schema` は有用な programmatic API として設計し、人間向けの説明は `output.render` に置く。中間値は execution-local で永続されず prompt truncation もされない。
 
 ### UI カード
 

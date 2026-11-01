@@ -534,5 +534,189 @@
   "reference/config/dsh-web-app": {
     "t": "`@deepseek-ai/dsh-web-app` の設定（`dsh-web` シームを含む）",
     "d": ""
+  },
+  "ug/context-menu-target": {
+    "t": "コンテキスト メニューの型とアイコン（v0.2.2-alpha.2）",
+    "d": ""
+  },
+  "ug/forge-git-permissions": {
+    "t": "Forge Git クエリの権限と内容変換（v0.2.2-alpha.2）",
+    "d": ""
+  },
+  "ug/github-review": {
+    "t": "GitHub Web フックからレビュー セッションを作る",
+    "d": ""
+  },
+  "ug/llm-request-purposes": {
+    "t": "補助 LLM 要求の purpose を宣言する（v0.2.2-alpha.2）",
+    "d": ""
+  },
+  "ug/mcp-memory": {
+    "t": "サードパーティのメモリ MCP サーバをつなぐ",
+    "d": ""
+  },
+  "ug/model-listing-refresh": {
+    "t": "モデル一覧が自動で更新される（v0.2.1-rc.4）",
+    "d": ""
+  },
+  "ug/public-deployments": {
+    "t": "Web UI をリバース プロキシで公開する",
+    "d": ""
+  },
+  "ug/schedule-agent-tools": {
+    "t": "Schedule ツールが RRULE と実行先で全 Host タスクを管理する（v0.2.2-alpha.2）",
+    "d": ""
+  },
+  "ug/schedule-remote-host-tasks": {
+    "t": "Schedule はホスト全体の1つの管理 API を使う（v0.2.2-alpha.2）",
+    "d": ""
+  },
+  "ug/sdk-run-commands": {
+    "t": "SDK の run がネイティブ コマンドを受け付ける（v0.2.2-alpha.2）",
+    "d": ""
+  },
+  "develop2/maintaining-dsh-code-review": {
+    "t": "dsh-code-review skill の保守ガイド",
+    "d": ""
+  },
+  "develop2/responding-to-pr-review-on-a-stack": {
+    "t": "依存 stack PR チェーンをまたぐ review 対応ガイド",
+    "d": ""
+  },
+  "deep2/capability-seams": {
+    "t": "Capability Seams とコアサービス（capability-seams.md 深掘り）",
+    "d": ""
+  },
+  "deep2/cordis-fiber": {
+    "t": "Cordis Fiber（cordis-api/fiber.md 深掘り）",
+    "d": ""
+  },
+  "deep2/defensive-patterns": {
+    "t": "防御パターン（defensive-patterns/ 深掘り）",
+    "d": ""
+  },
+  "deep2/event-producer-consumer": {
+    "t": "イベント生成元・消費者マトリクス（event-producer-consumer.md 深掘り）",
+    "d": ""
+  },
+  "deep2/experimental-persistence-catalog": {
+    "t": "実験系 Plugin Record Catalog（experimental-persistence-catalog.md 深掘り）",
+    "d": ""
+  },
+  "deep2/persistence-catalog": {
+    "t": "Session Persistence Event Catalog（persistence-catalog.md 深掘り）",
+    "d": ""
+  },
+  "deep2/postmortems": {
+    "t": "ポストモーテム（postmortem/ 深掘り）",
+    "d": ""
+  },
+  "deep2/session-format-status": {
+    "t": "Session 形式バージョンとリリース状態（session-format-status.md 深掘り）",
+    "d": ""
+  },
+  "deep2/tool-catalog": {
+    "t": "ツールスキーマカタログ（tool-catalog.md 深掘り）",
+    "d": ""
+  },
+  "deep2/web-styling": {
+    "t": "Web UI Style Reference（web-styling.md 深掘り）",
+    "d": ""
+  },
+  "rdsh/src/auth": {
+    "t": "auth — 外部ログインの自動認識とミラー（src/auth.rs）",
+    "d": ""
+  },
+  "rdsh/src/compact": {
+    "t": "compact — セッション転写のトークン圧縮（src/compact.rs）",
+    "d": ""
+  },
+  "rdsh/src/context_hook": {
+    "t": "context_hook — hooks.json への注入フック登録（src/context_hook.rs）",
+    "d": ""
+  },
+  "rdsh/src/deps": {
+    "t": "deps — 静的依存グラフの近似インデックス（src/deps.rs）",
+    "d": ""
+  },
+  "rdsh/src/dsh_args": {
+    "t": "dsh_args — 起動引数の分割（src/dsh_args.rs）",
+    "d": ""
+  },
+  "rdsh/src/file_security": {
+    "t": "file_security — no-follow による安全なリポジトリ読み取り（src/file_security.rs）",
+    "d": ""
+  },
+  "rdsh/src/local_http": {
+    "t": "local_http — ローカル HTTP の最小実装（src/local_http.rs）",
+    "d": ""
+  },
+  "rdsh/src/models_auto": {
+    "t": "models_auto — provider モデルの定期リフレッシュ（src/models_auto.rs）",
+    "d": ""
+  },
+  "rdsh/src/passthrough": {
+    "t": "passthrough — 本家 dsh への drop-in 委譲（src/passthrough.rs）",
+    "d": ""
+  },
+  "rdsh/src/search": {
+    "t": "search — ネイティブ再帰 grep（src/search.rs）",
+    "d": ""
+  },
+  "rdsh/src/serve": {
+    "t": "serve — ローカル dashboard（src/serve.rs）",
+    "d": ""
+  },
+  "rdsh/src/token_handoff": {
+    "t": "token_handoff — bearer token のファイル渡し（src/token_handoff.rs）",
+    "d": ""
+  },
+  "reference/config/dsh-agent-loop": {
+    "t": "`@deepseek-ai/dsh-agent-loop` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-bash-local": {
+    "t": "`@deepseek-ai/dsh-bash-local` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-compaction-tool-result-pruner": {
+    "t": "`@deepseek-ai/dsh-compaction-tool-result-pruner` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-pwsh-local": {
+    "t": "`@deepseek-ai/dsh-pwsh-local` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-sandbox-policy": {
+    "t": "`@deepseek-ai/dsh-sandbox-policy` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-session-telemetry-otel": {
+    "t": "`@deepseek-ai/dsh-session-telemetry-otel` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-shell-env": {
+    "t": "`@deepseek-ai/dsh-shell-env` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-subagent": {
+    "t": "`@deepseek-ai/dsh-subagent` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-terminal-bash": {
+    "t": "`@deepseek-ai/dsh-terminal-bash` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-time-context": {
+    "t": "`@deepseek-ai/dsh-time-context` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-web-fetch-http": {
+    "t": "`@deepseek-ai/dsh-web-fetch-http` の設定",
+    "d": ""
+  },
+  "reference/config/dsh-web-search-deepseek": {
+    "t": "`@deepseek-ai/dsh-web-search-deepseek` の設定",
+    "d": ""
   }
 }

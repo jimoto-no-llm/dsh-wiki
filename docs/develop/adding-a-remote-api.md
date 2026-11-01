@@ -38,7 +38,7 @@ export class NotesController extends TypertRemoteService {
 
 障害は 1 クラス `RemoteError`: `RemoteErrorDetailsMap` へ declaration merging で domain code を merge し、failure point で `throw new RemoteError(code, message, details)`。domain error class の族を作らず、exit mapping 関数も書かない。関係ない例外は前分類しない（Gateway が `gateway/internal` に折る）。`catch` は任意の provider 例外を 1 domain code に分別するときだけ書き、原 exception を `cause` に付ける。
 
-code は `<domain>/<reason>`。宣言位置の 4 ルール: 1 producer なら producing package の throw 横。複数 package なら最小共通 domain package。carrier code（`gateway/bad-request`・`gateway/cancelled`・`gateway/internal`）は protocol、Gateway infrastructure code は gateway で宣言 — 使うが複製しない。wire を渡らない local failure は code table の外に置く。
+code は `＼domain］/＼reason］`。宣言位置の 4 ルール: 1 producer なら producing package の throw 横。複数 package なら最小共通 domain package。carrier code（`gateway/bad-request`・`gateway/cancelled`・`gateway/internal`）は protocol、Gateway infrastructure code は gateway で宣言 — 使うが複製しない。wire を渡らない local failure は code table の外に置く。
 
 ```ts
 declare module '@deepseek-ai/dsh-typert-protocol' {
@@ -48,7 +48,7 @@ declare module '@deepseek-ai/dsh-typert-protocol' {
   }
 }
 
-export async function rename(noteId: string, title: string): Promise<void> {
+export async function rename(noteId: string, title: string): Promise＼void］ {
   if (!stored.has(noteId)) {
     throw new RemoteError('note/not-found', `no note "${noteId}"`, { noteId })
   }
@@ -80,7 +80,7 @@ signature・code table・namespace・export 名を変えた後は `pnpm run buil
 
 ### 4. Client で消費する
 
-呼び出し側 plugin は `inject` に `remote` と `remote.<namespace>` の両方を宣言し、call site は `ctx.remote.<namespace>.<method>(...)` と直接書く（`Pick<ClientRemote, …>` narrowing も手書き signature も wire relay object もない）。結果は `RemoteResult<T>` なので `if (!result.ok)` で分岐し、`instanceof` でなく `code` で判別する（code 分岐は `details` も narrow する）。exception-flow site は `throw result.error`（実体は Error）。catch 側は `isRemoteFailure` で障害と local defect を区別し、defect は rethrow。Remote call は reject しないため防御的 catch は不要で、assembly の誤りは crash すべき。
+呼び出し側 plugin は `inject` に `remote` と `remote.＼namespace］` の両方を宣言し、call site は `ctx.remote.＼namespace］.＼method］(...)` と直接書く（`Pick<ClientRemote, …>` narrowing も手書き signature も wire relay object もない）。結果は `RemoteResult＼T］` なので `if (!result.ok)` で分岐し、`instanceof` でなく `code` で判別する（code 分岐は `details` も narrow する）。exception-flow site は `throw result.error`（実体は Error）。catch 側は `isRemoteFailure` で障害と local defect を区別し、defect は rethrow。Remote call は reject しないため防御的 catch は不要で、assembly の誤りは crash すべき。
 
 固定 Host fact は `ctx.remote.$host`: `home`・`isLoopback` は subscription・generation counter なしの plain 読みで、`home` は最初の ready frame まで `undefined`。再接続後は `connection/reset` か domain 自前の remote event で refresh する。unary call を abort したときは throw でなく error branch 上の `gateway/cancelled` になる。
 

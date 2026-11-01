@@ -6,7 +6,7 @@
 
 呼び出しSessionの現在ディレクトリがsource repositoryを選びます。作成はcheckout割当ての前に要求されたlocal commit・branch・tagを固定し、省略は `HEAD` です。各名は新branchと未使用のcheckout pathを同時に満たさなければなりません。操作は欠損オブジェクトのfetchや、staged・unstaged・untracked・ignoredファイルのsource checkoutからのコピーを一切行いません。
 
-既定の目的地は `<current checkout root>/.agents/worktrees/<name>` です。`repositoryRoot` は呼び出し側の現在checkoutの最上位ディレクトリであり、linked checkoutは自分のpoolを持ちます。割当てが構成pool directoryを新規作成するときだけ、`*` と末尾改行だけの `.gitignore` を書きます（既存のファイルとignore規則は保持されます）。呼び出しSessionのsandbox policyが目的地と共有Git管理ディレクトリへの書込みを許す必要があります。Git設定が成功してからworking-directoryが変わります。
+既定の目的地は `<current checkout root>/.agents/worktrees/＼name］` です。`repositoryRoot` は呼び出し側の現在checkoutの最上位ディレクトリであり、linked checkoutは自分のpoolを持ちます。割当てが構成pool directoryを新規作成するときだけ、`*` と末尾改行だけの `.gitignore` を書きます（既存のファイルとignore規則は保持されます）。呼び出しSessionのsandbox policyが目的地と共有Git管理ディレクトリへの書込みを許す必要があります。Git設定が成功してからworking-directoryが変わります。
 
 `working_directory({ cd: path })` での退出はcheckoutとbranchを保持します。取消や失敗も部分的なartifactを保持しえて、その場所はエラーで示されます。disposalでpending操作をabort・drainします。構成とGit要件はパッケージREADMEが所有します。
 
@@ -47,7 +47,7 @@
 次の流れは既定値の組合わせでの典型的な使用です。
 
 1. `create_worktree`（または直接 `ctx.worktrees.create`）へ、任意の新branch名と任意のlocal revisionを渡します。
-2. `prepare` 段階で要求検証とcheckout directory割当てとbranch作成が終わります（既定目的地 `<current checkout root>/.agents/worktrees/<name>`）。
+2. `prepare` 段階で要求検証とcheckout directory割当てとbranch作成が終わります（既定目的地 `<current checkout root>/.agents/worktrees/＼name］`）。
 3. `checkout` 段階でファイルが書き込まれ、作成のときはcheckoutに入ります。
 4. working-directoryサービスが新checkoutを現currentへ結び付けます。
 5. 作業後に `working_directory({ cd })` で元checkoutへ戻ると、worktree自体は保持されます。

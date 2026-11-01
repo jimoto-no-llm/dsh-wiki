@@ -50,7 +50,7 @@ git push origin vX.Y.Z
 タグpushがリリースworkflowと通常の `ci.yml` push workflowを開始します。リリースworkflowは、タグがpushされた正確なSHAに解決すること、そのSHAが `main` の祖先であること、その正確なタグpushで起きた `ci.yml` の完了を検証します。最大15分待ち、タグコミットの必須チェックがすべて存在して成功することを要求します。欠落・queued・実行中・失敗・cancelどれでもビルドと公開を停止します。CIの完了が待ち時間を超えるときは、終了後に失敗した `cd` jobだけを再実行できます。既存のstaged artifactsを再利用します:
 
 ```sh
-gh run rerun <cd-run-id> --failed
+gh run rerun ＼cd-run-id］ --failed
 ```
 
 ## ビルドと公開
