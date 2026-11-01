@@ -170,3 +170,25 @@ footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--line);
 .cat-box li { padding: 5px 0; break-inside: avoid; font-size: 14px; }
 .cat-box li a { font-weight: 500; }
 .cat-box li .dsc { display: block; color: var(--ink-2); font-size: 12.5px; margin-top: 1px; }
+
+/* ---------- mobile 調整 ---------- */
+@media (max-width: 640px) {
+  body { font-size: 14px; padding: 0 14px 40px; }
+  .topbar { min-height: 52px; }
+  .topbar .logo { font-size: 15px; }
+  .topbar nav a { padding: 10px 12px; }
+  .search-hero { padding-top: 40px; padding-bottom: 4px; }
+  .wiki-mark { font-size: 20px; }
+  .search-hero p.lead { font-size: 13px; margin-bottom: 16px; }
+  .search-hero .hint { font-size: 12px; margin-top: 10px; }
+  .bigsearch input[type="search"] { height: 46px; font-size: 16px; padding: 0 12px; }
+  .bigsearch button { height: 46px; padding: 0 16px; font-size: 15px; }
+  .suggest li a { padding: 12px 14px; }
+  .cat-grid { gap: 12px; margin-top: 16px; }
+  .cat-box { padding: 12px; }
+  .cat-box h2 { font-size: 12px; margin-bottom: 6px; }
+  .cat-box ul.cols { columns: 2; column-gap: 14px; }
+  .cat-box li { padding: 4px 0; font-size: 13.5px; }
+  .cat-box li .dsc { font-size: 11.5px; }
+  footer { margin-top: 40px; font-size: 11px; line-height: 1.7; }
+}
