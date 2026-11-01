@@ -29,6 +29,13 @@
    - seed: `node scripts/seed-kv.mjs <KV_ID>` で docs/*.md をKVへ初期投入済み（13ページ）
    - `/w/<名前>` を開くと未作成なら新規作成フォームが出る。VitePress の「このページを編集」リンクも `/w/` に向けた
    - 検証済み: 匿名作成→即公開→履歴3版→過去版閲覧→index反映、テストページはKVから削除して本番クリーン
+8. **悪用対策（2026-11-01 追加）**:
+   - `/w/` は全ページ noindex（meta）+ `X-Robots-Tag` + robots.txt のDisallow で検索インデックスから外した（SEOスパム動機を除去）
+   - セキュリティヘッダ: CSP（scriptなし・style inlineのみ）・nosniff・no-referrer・frame-ancestors none を全 /w レスポンスに付与
+   - スパムガード: 外部リンクが6件以上ある本文は拒否（レートを消費しない）
+   - 自動BAN: 5分8回のレート超過を1時間あたり3回やると、IPハッシュ単位で24時間の保存BAN
+   - 管理API: `POST /w/<slug>?admin=<action>` + ヘッダ `X-Admin-Token`。action は lock / unlock / delete / status。トークンは `wrangler secret put ADMIN_TOKEN` で設定し、値は ~/.config/dsh-wiki/admin-token に保管
+   - 注意: KV保存のIPハッシュ（SHA-256先頭8hex）は攻撃者特定の目安で、確定識別はCloudflare側の情報が必要
 
 ## ページ一覧（12ページ）
 

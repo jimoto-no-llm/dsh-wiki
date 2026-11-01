@@ -1,0 +1,4 @@
+# DSH 日本語Wiki
+# /w/ 以下は悪用・SEOスパム防止のため検索エンジンに登録しない
+User-agent: *
+Disallow: /w/

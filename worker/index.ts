@@ -10,6 +10,8 @@
  */
 interface Env {
   WIKI: KVNamespace;
+  // 管理者API用トークン（wrangler secret put ADMIN_TOKEN）。未設定なら管理APIは無効
+  ADMIN_TOKEN?: string;
 }
 
 const SITE = "https://dsh.sahen.site";
@@ -17,6 +19,9 @@ const VERSIONS_KEPT = 30;
 const MAX_BODY = 200_000;
 const RATE_WINDOW_MS = 5 * 60 * 1000;
 const RATE_MAX = 8;
+const BAN_TTL = 24 * 60 * 60; // 自動BANの秒数
+const BAN_STRIKES = 3; // この回数レート超過でBAN
+const MAX_EXTERNAL_LINKS = 5; // 本文にこの数を超える外部リンクがある投稿は拒否
 
 type PageDoc = {
   current: { content: string; at: number; by: string; ip: string };
@@ -175,6 +180,7 @@ function shell(title: string, bodyHtml: string, opts: { slug?: string } = {}): s
   return (
     '<!DOCTYPE html>\n<html lang="ja">\n<head>\n<meta charset="utf-8">\n' +
     '<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+    '<meta name="robots" content="noindex, nofollow">\n' +
     "<title>" + esc(title) + " - DSH 日本語Wiki</title>\n" +
     '<style>:root{color-scheme:light dark}' +
     "body{font-family:system-ui,-apple-system,'Hiragino Sans','Noto Sans JP',sans-serif;max-width:56rem;margin:0 auto;padding:1rem 1.2rem 3rem;line-height:1.75}" +
@@ -203,17 +209,29 @@ function shell(title: string, bodyHtml: string, opts: { slug?: string } = {}): s
   );
 }
 
+const SEC_HEADERS: Record<string, string> = {
+  "x-content-type-options": "nosniff",
+  "referrer-policy": "no-referrer",
+  "x-robots-tag": "noindex, nofollow",
+  "content-security-policy":
+    "default-src 'none'; style-src 'unsafe-inline'; img-src * data:; base-uri 'none'; form-action 'self'; frame-ancestors 'none'",
+};
+
+function withSecHeaders(h: Record<string, string>): Record<string, string> {
+  return { ...h, ...SEC_HEADERS };
+}
+
 function htmlResp(body: string, title: string, opts: { slug?: string; status?: number } = {}): Response {
   return new Response(shell(title, body, opts), {
     status: opts.status ?? 200,
-    headers: { "content-type": "text/html; charset=utf-8" },
+    headers: withSecHeaders({ "content-type": "text/html; charset=utf-8" }),
   });
 }
 
 function jsonResp(obj: unknown, status = 200): Response {
   return new Response(JSON.stringify(obj, null, 2), {
     status,
-    headers: { "content-type": "application/json; charset=utf-8" },
+    headers: withSecHeaders({ "content-type": "application/json; charset=utf-8" }),
   });
 }
 
@@ -411,6 +429,77 @@ async function revisionPage(env: Env, slug: string, vn: string): Promise<Respons
 
 /* ---------- POST ---------- */
 
+/* ---------- 悪用対策ユーティリティ ---------- */
+
+function countExternalLinks(content: string): number {
+  const urls = content.match(/https?:\/\/[^\s)\]>'"]+/gi) ?? [];
+  return new Set(urls.map((u) => u.toLowerCase())).size;
+}
+
+const okAdmin = (env: Env, req: Request): boolean => {
+  if (!env.ADMIN_TOKEN) return false;
+  const t = req.headers.get("x-admin-token") ?? "";
+  if (t.length !== env.ADMIN_TOKEN.length) return false;
+  // タイミング差を見せない簡易比較
+  let diff = 0;
+  for (let i = 0; i < env.ADMIN_TOKEN.length; i++) diff |= t.charCodeAt(i) ^ env.ADMIN_TOKEN.charCodeAt(i);
+  return diff === 0;
+};
+
+async function removePage(env: Env, slug: string): Promise<number> {
+  // KV list は結果整合なので、版tsはドキュメントから取る（list はフォールバック）
+  let removed = 0;
+  const doc = await getDoc(env, slug);
+  const tsSet = new Set<number>();
+  if (doc) {
+    tsSet.add(doc.current.at);
+    for (const r of doc.revs) tsSet.add(r.ts);
+  }
+  const keys = await env.WIKI.list({ prefix: "rev:" + slug + ":" });
+  for (const k of keys.keys) {
+    const m = k.name.match(/:(\d+)$/);
+    if (m) tsSet.add(Number(m[1]));
+  }
+  for (const ts of tsSet) {
+    await env.WIKI.delete("rev:" + slug + ":" + ts);
+    removed++;
+  }
+  await env.WIKI.delete("page:" + slug);
+  const idx = await listIndex(env);
+  const next = idx.filter((s) => s !== slug);
+  if (next.length !== idx.length) await env.WIKI.put("index", JSON.stringify(next));
+  return removed;
+}
+
+async function adminAction(req: Request, env: Env, url: URL): Promise<Response> {
+  const slug = normSlug(url.pathname.replace(/^\/w\/?/, ""));
+  if (!okAdmin(env, req)) return jsonResp({ ok: false, error: "admin token missing or wrong" }, 403);
+  const action = url.searchParams.get("admin") ?? "";
+  if (action === "lock") {
+    await env.WIKI.put("lock:" + slug, "1");
+    return jsonResp({ ok: true, action: "lock", slug });
+  }
+  if (action === "unlock") {
+    await env.WIKI.delete("lock:" + slug);
+    return jsonResp({ ok: true, action: "unlock", slug });
+  }
+  if (action === "delete") {
+    const revs = await removePage(env, slug);
+    return jsonResp({ ok: true, action: "delete", slug, revs_removed: revs });
+  }
+  if (action === "status") {
+    const doc = await getDoc(env, slug);
+    return jsonResp({
+      ok: true,
+      slug,
+      exists: !!doc,
+      locked: (await env.WIKI.get("lock:" + slug)) === "1",
+      last: doc ? { at: doc.current.at, by: doc.current.by, ip: doc.current.ip, len: doc.current.content.length } : null,
+    });
+  }
+  return jsonResp({ ok: false, error: "unknown action" }, 400);
+}
+
 async function doPost(req: Request, env: Env, url: URL): Promise<Response> {
   const slug = normSlug(url.pathname.replace(/^\/w\/?/, ""));
   if (!slugValid(slug)) return jsonResp({ ok: false, error: "invalid slug" }, 400);
@@ -424,17 +513,37 @@ async function doPost(req: Request, env: Env, url: URL): Promise<Response> {
   const form = await req.formData();
   const content = String(form.get("content") ?? "");
   const by = String(form.get("by") ?? "").trim().slice(0, 40);
+  const ip = await ipHash(req);
+
+  // 1) 自動BAN
+  if ((await env.WIKI.get("ban:" + ip)) === "1") {
+    return jsonResp({ ok: false, error: "temporarily banned" }, 403);
+  }
+  // 2) ページロック
+  if ((await env.WIKI.get("lock:" + slug)) === "1") {
+    return jsonResp({ ok: false, error: "page is locked" }, 403);
+  }
+  // 3) 内容チェック（失敗したらレートを消費しない）
   if (!content.trim()) return jsonResp({ ok: false, error: "empty" }, 400);
   if (content.length > MAX_BODY) return jsonResp({ ok: false, error: "too long" }, 413);
-
-  const lock = await env.WIKI.get("lock:" + slug);
-  if (lock === "1") return jsonResp({ ok: false, error: "locked" }, 403);
-
-  const ip = await ipHash(req);
+  if (countExternalLinks(content) > MAX_EXTERNAL_LINKS) {
+    return jsonResp({ ok: false, error: "too many external links (spam guard)" }, 400);
+  }
+  // 4) レート制限（超過でストライク、3回で自動BAN）
   const bucket = Math.floor(Date.now() / RATE_WINDOW_MS);
   const rk = "rl:" + ip + ":" + bucket;
   const cur = Number((await env.WIKI.get(rk)) ?? "0");
-  if (cur >= RATE_MAX) return jsonResp({ ok: false, error: "rate limited" }, 429);
+  if (cur >= RATE_MAX) {
+    const hour = Math.floor(Date.now() / (60 * 60 * 1000));
+    const sk = "strikes:" + ip + ":" + hour;
+    const strikes = Number((await env.WIKI.get(sk)) ?? "0") + 1;
+    if (strikes >= BAN_STRIKES) {
+      await env.WIKI.put("ban:" + ip, "1", { expirationTtl: BAN_TTL });
+    } else {
+      await env.WIKI.put(sk, String(strikes), { expirationTtl: 3 * 60 * 60 });
+    }
+    return jsonResp({ ok: false, error: "rate limited" }, 429);
+  }
   await env.WIKI.put(rk, String(cur + 1), {
     expirationTtl: Math.ceil(RATE_WINDOW_MS / 1000) + 10,
   });
@@ -465,7 +574,10 @@ export default {
     if (!url.pathname.startsWith("/w")) return new Response(null, { status: 404 });
     try {
       if (req.method === "GET" || req.method === "HEAD") return await doGet(req, env, url);
-      if (req.method === "POST") return await doPost(req, env, url);
+      if (req.method === "POST") {
+        if (url.searchParams.has("admin")) return await adminAction(req, env, url);
+        return await doPost(req, env, url);
+      }
       return jsonResp({ ok: false, error: "method" }, 405);
     } catch (e) {
       return jsonResp({ ok: false, error: String(e) }, 500);

@@ -7,7 +7,7 @@ DeepSeek Harness（DSH）と rustdsh の非公式日本語Wiki。
 - **静的ドキュメント**（VitePress）: 整備済みページ。https://dsh.sahen.site/
 - **匿名編集Wiki**（Cloudflare Workers + KV）: `/w/` 以下はアカウント不要で誰でも読み書き・新規作成ができる。履歴が残る。https://dsh.sahen.site/w/
 
-各静的ページの「このページを編集」リンクは `/w/` の該当ページに繋がっており、編集は即公開されます。`
+各静的ページの「このページを編集」リンクは `/w/` の該当ページに繋がっており、編集は即公開されます。
 
 ```sh
 npm install
