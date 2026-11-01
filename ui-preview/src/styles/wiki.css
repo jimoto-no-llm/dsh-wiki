@@ -73,3 +73,29 @@ code, pre { font-family: "JetBrains Mono Variable", ui-monospace, Menlo, monospa
 .prose blockquote { border-left: 3px solid var(--line) !important; background: var(--surface) !important; padding: 10px 16px !important; color: var(--fg-2) !important; border-radius: 0 4px 4px 0; }
 
 .masthead { display: flex; align-items: center; gap: 14px; padding-top: 18px; border-bottom: 1px solid var(--line); }
+/* Search.tsx bigsearch の見た目（headerに入れる場合も考慮） */
+.bigsearch button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--fg-2);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: border-color 150ms var(--ease), color 150ms var(--ease);
+}
+.bigsearch button:hover { border-color: var(--fg-3); color: var(--fg); }
+.bigsearch button:hover span:nth-child(2) { color: var(--fg); }
+.bigsearch .keys { margin-left: auto; display: flex; gap: 3px; }
+.bigsearch .keys kbd { font-family: var(--mono); font-size: 10.5px; color: var(--fg-3); border: 1px solid var(--line-2); border-radius: 4px; padding: 2px 5px; }
+
+/* header.site 内の Searchbox 大きさ揃え */
+.header-right button, .header-right a {
+  font: inherit; font-size: 13px; color: var(--fg-2); background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 6px 10px; cursor: pointer;
+}
+.header-right button:hover, .header-right a:hover { border-color: var(--fg-3); color: var(--fg); }
