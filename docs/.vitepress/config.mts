@@ -12,6 +12,7 @@ export default defineConfig({
       { text: "ホーム", link: "/" },
       { text: "DSH", link: "/guide/getting-started" },
       { text: "rustdsh", link: "/rdsh/overview" },
+      { text: "誰でも編集Wiki", link: "/w/" },
       { text: "ライセンス", link: "/reference/license" },
     ],
     sidebar: [
@@ -51,8 +52,8 @@ export default defineConfig({
     docFooter: { prev: "前のページ", next: "次のページ" },
     search: { provider: "local" },
     editLink: {
-      pattern: "https://github.com/jimoto-no-llm/dsh-wiki/edit/main/docs/:path",
-      text: "このページを編集",
+      pattern: "https://dsh.sahen.site/w/:path",
+      text: "このページを編集（匿名OK）",
     },
     footer: {
       message:
