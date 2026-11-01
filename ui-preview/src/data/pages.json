@@ -1,15 +1,253 @@
 [
-  { "slug": "guide/getting-started", "name": "はじめに", "cat": "guide", "desc": "インストールから最初の会話まで", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "guide/profiles", "name": "プロファイル", "cat": "guide", "desc": "起動モードと設定のしくみ", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "guide/cli", "name": "CLI リファレンス", "cat": "guide", "desc": "コマンドとオプション一覧", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "guide/plugins", "name": "プラグイン管理", "cat": "guide", "desc": "追加・削除・バージョン管理", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "guide/config", "name": "設定", "cat": "guide", "desc": "設定ファイルの置き場所", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "guide/web", "name": "Web UI", "cat": "guide", "desc": "ブラウザから使う方法", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "guide/skills", "name": "スキルと MCP", "cat": "guide", "desc": "スキル・MCPの接続方法", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "rdsh/overview", "name": "rustdsh とは", "cat": "rdsh", "desc": "約98倍の起動と導入手順", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "rdsh/commands", "name": "ネイティブコマンド", "cat": "rdsh", "desc": "tokens・search・deps など", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "reference/faq", "name": "FAQ", "cat": "reference", "desc": "困ったときにまず見る", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "reference/license", "name": "ライセンスと商標", "cat": "reference", "desc": "MIT と商標ルール", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "STATUS", "name": "現状メモ", "cat": "meta", "desc": "このWikiの現状", "updated": "2026-11-01 01:44", "by": "seed", "rev": 1 },
-  { "slug": "index", "name": "旧トップ", "cat": "meta", "desc": "以前の案内ページ", "updated": "2026-11-01 01:44", "by": "seed" }
+  {
+    "slug": "guide/architecture",
+    "name": "アーキテクチャの全体像",
+    "cat": "guide",
+    "desc": "プロファイルからターン流まで",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/cli",
+    "name": "CLI リファレンス",
+    "cat": "guide",
+    "desc": "コマンドとオプション一覧",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "guide/config",
+    "name": "設定",
+    "cat": "guide",
+    "desc": "設定ファイルの置き場所",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "guide/getting-started",
+    "name": "はじめに",
+    "cat": "guide",
+    "desc": "インストールから最初の会話まで",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "guide/network-proxy",
+    "name": "ネットワークとプロキシ",
+    "cat": "guide",
+    "desc": "プロキシ変数の設定",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/plugin-market",
+    "name": "プラグインの見つけ方",
+    "cat": "guide",
+    "desc": "索引の閲覧・インストール・公開",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/plugins",
+    "name": "プラグイン管理",
+    "cat": "guide",
+    "desc": "追加・削除・バージョン管理",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "guide/profiles",
+    "name": "プロファイル",
+    "cat": "guide",
+    "desc": "起動モードと設定のしくみ",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "guide/python-sdk",
+    "name": "Python SDK",
+    "cat": "guide",
+    "desc": "SDK導入と最小プロファイルの使い方",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/schedule",
+    "name": "予定実行",
+    "cat": "guide",
+    "desc": "リマインダー作成から配信挙動まで",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/sessions",
+    "name": "セッションとデータの保存",
+    "cat": "guide",
+    "desc": "形式バージョンとイベント配信",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/skills",
+    "name": "スキルと MCP",
+    "cat": "guide",
+    "desc": "スキル・MCPの接続方法",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "guide/tools",
+    "name": "ツール一覧と実行の流れ",
+    "cat": "guide",
+    "desc": "ツール呼び出しパイプライン",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/upgrade",
+    "name": "バージョンアップと互換性",
+    "cat": "guide",
+    "desc": "Schedule APIとSDK runの移行",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "guide/web",
+    "name": "Web UI",
+    "cat": "guide",
+    "desc": "ブラウザから使う方法",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "STATUS",
+    "name": "現状メモ",
+    "cat": "meta",
+    "desc": "このWikiの現状",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "index",
+    "name": "旧トップ",
+    "cat": "meta",
+    "desc": "以前の案内ページ",
+    "updated": "2026-11-01 01:44",
+    "by": "seed"
+  },
+  {
+    "slug": "rdsh/architecture",
+    "name": "rdsh の内部構造",
+    "cat": "rdsh",
+    "desc": "Rust化の範囲とCLI橋",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/benchmarks",
+    "name": "rdsh の性能計測",
+    "cat": "rdsh",
+    "desc": "実測表と再現手順",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/commands",
+    "name": "ネイティブコマンド",
+    "cat": "rdsh",
+    "desc": "tokens・search・deps など",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/context",
+    "name": "rdsh のコンテキスト",
+    "cat": "rdsh",
+    "desc": "注入と入力順序",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/desktop",
+    "name": "rdsh とデスクトップ",
+    "cat": "rdsh",
+    "desc": "Electron連携",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/install",
+    "name": "rdsh のインストール",
+    "cat": "rdsh",
+    "desc": "導入手順とdsh互換切替",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/models",
+    "name": "rdsh のモデル管理",
+    "cat": "rdsh",
+    "desc": "同期・難易度別・再試行",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/overview",
+    "name": "rustdsh とは",
+    "cat": "rdsh",
+    "desc": "約98倍の起動と導入手順",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "rdsh/security",
+    "name": "rdsh の安全設計",
+    "cat": "rdsh",
+    "desc": "サンドボックスとguard",
+    "updated": "2026-11-01",
+    "by": "wiki",
+    "rev": 1
+  },
+  {
+    "slug": "reference/faq",
+    "name": "FAQ",
+    "cat": "reference",
+    "desc": "困ったときにまず見る",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  },
+  {
+    "slug": "reference/license",
+    "name": "ライセンスと商標",
+    "cat": "reference",
+    "desc": "MIT と商標ルール",
+    "updated": "2026-11-01 01:44",
+    "by": "seed",
+    "rev": 1
+  }
 ]

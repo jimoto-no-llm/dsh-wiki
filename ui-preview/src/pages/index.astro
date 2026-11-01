@@ -15,10 +15,8 @@ import "../styles/ui.css";
 </head>
 <body>
   <header class="topbar">
-    <a class="logo" href="#">DSH 日本語Wiki<span>ローカルプレビュー</span></a>
+    <a class="logo" href="#">DSH 日本語Wiki</a>
     <nav>
-      <a href="#">はじめに</a>
-      <a href="#">rustdsh とは</a>
       <a href="#">最近の編集</a>
       <a href="#">ページを編集</a>
     </nav>
@@ -38,28 +36,8 @@ import "../styles/ui.css";
     <PageTable client:load />
   </section>
 
-  <div class="two-col">
-    <div class="box">
-      <h2>新しいページを作る</h2>
-      <div class="create">
-        <input type="text" placeholder="ページ名（日本語OK）" aria-label="新しいページ名" />
-        <button>作成する</button>
-      </div>
-      <p class="muted">保存すると即公開。履歴が残るのでどこからでも戻せます。</p>
-    </div>
-    <div class="box">
-      <h2>ルール</h2>
-      <ul>
-        <li>事実は条件つきで書く（計測値には環境を添える）</li>
-        <li>末尾に出典を1行以上残す</li>
-        <li>本Wikiは非公式。プロジェクト名に「DeepSeek Harness」は使わない</li>
-      </ul>
-    </div>
-  </div>
-
   <footer>
-    デザイン確認用のローカルプレビュー（Astro + TanStack Table, unslop passes適用） · 実サイト: dsh.sahen.site · 非公式 · MIT
-    <br />unslop guidance by @heydamir (CC BY 4.0)
+    事実は条件つきで書く · 出典を残す · 非公式（プロジェクト名に「DeepSeek Harness」は使わない） · <a href="#">ルールと編集のしかた</a> · MIT · unslop guidance by @heydamir (CC BY 4.0)
   </footer>
 </body>
 </html>

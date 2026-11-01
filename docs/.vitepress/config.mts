@@ -31,13 +31,31 @@ export default defineConfig({
           { text: "設定カタログ", link: "/guide/config" },
           { text: "Web UI", link: "/guide/web" },
           { text: "スキルと MCP", link: "/guide/skills" },
+          { text: "ツール", link: "/guide/tools" },
+          { text: "セッション", link: "/guide/sessions" },
+          { text: "予定実行", link: "/guide/schedule" },
+          { text: "Python SDK", link: "/guide/python-sdk" },
+          { text: "ネットワーク/プロキシ", link: "/guide/network-proxy" },
+          { text: "プラグインの見つけ方", link: "/guide/plugin-market" },
         ],
       },
       {
         text: "rustdsh（rdsh）",
         items: [
           { text: "概要", link: "/rdsh/overview" },
-          { text: "ネイティブコマンド", link: "/rdsh/commands" },
+          { text: "インストール", link: "/rdsh/install" },
+          { text: "性能計測", link: "/rdsh/benchmarks" },
+          { text: "安全設計", link: "/rdsh/security" },
+          { text: "モデル管理", link: "/rdsh/models" },
+          { text: "デスクトップ", link: "/rdsh/desktop" },
+          { text: "コンテキスト入力", link: "/rdsh/context" },
+          { text: "内部構造", link: "/rdsh/architecture" },
+        ],
+      },      {
+        text: "仕組みと開発",
+        items: [
+          { text: "アーキテクチャの全体像", link: "/guide/architecture" },
+          { text: "バージョンアップ", link: "/guide/upgrade" },
         ],
       },
       {

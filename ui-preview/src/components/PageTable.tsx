@@ -30,7 +30,6 @@ const helper = createColumnHelper<PageRow>();
 
 export default function PageTable() {
   const [sorting, setSorting] = useState<SortingState>([]);
-  const [globalFilter, setGlobalFilter] = useState("");
   const [cat, setCat] = useState("");
 
   const rows = useMemo(
@@ -55,27 +54,15 @@ export default function PageTable() {
         header: "分類",
         cell: (info) => CAT_LABEL[info.getValue()] ?? info.getValue(),
       }),
-      helper.accessor("updated", {
-        header: "最終更新",
-        cell: (info) => (
-          <>
-            <span className="rev">版 {info.row.original.rev ?? 1}</span>
-            <div className="updated">
-              {info.getValue()}（{info.row.original.by}）
-            </div>
-          </>
-        ),
-      }),
-    ],
+],
     [],
   );
 
   const table = useReactTable({
     data: rows,
     columns,
-    state: { sorting, globalFilter },
+    state: { sorting },
     onSortingChange: setSorting,
-    onGlobalFilterChange: setGlobalFilter,
     getCoreRowModel: getCoreRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -87,13 +74,7 @@ export default function PageTable() {
   return (
     <div>
       <div className="controls">
-        <input
-          type="search"
-          placeholder="ページ名・説明から絞り込み…"
-          value={globalFilter}
-          onChange={(e) => setGlobalFilter(e.target.value)}
-          aria-label="ページ検索"
-        />
+
         <select value={cat} onChange={(e) => setCat(e.target.value)} aria-label="分類">
           <option value="">全分類</option>
           <option value="guide">DSH ガイド</option>
