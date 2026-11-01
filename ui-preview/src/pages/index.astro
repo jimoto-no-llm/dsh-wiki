@@ -3,6 +3,7 @@ import "@fontsource-variable/inter";
 import "@fontsource-variable/noto-sans-jp";
 import "@fontsource-variable/jetbrains-mono";
 import PageTable from "../components/PageTable.tsx";
+import SearchBox from "../components/SearchBox.tsx";
 import "../styles/ui.css";
 ---
 <!DOCTYPE html>
@@ -23,25 +24,17 @@ import "../styles/ui.css";
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>誰でも書ける <em>DSH</em> 日本語Wiki</h1>
+  <section class="search-hero">
+    <div class="wiki-mark"><b>DSH</b> 日本語Wiki</div>
     <p class="lead">
-      DeepSeek Harness（DSH）と rustdsh の非公式ドキュメント。
-      編集にアカウントはいらず、保存すると即公開され、履歴が残ります。
+      DeepSeek Harness（DSH）と rustdsh の非公式ドキュメント。<br />アカウント不要で、保存するとすぐ公開されます。
     </p>
-    <div class="cta">
-      <a class="solid" href="#">はじめに読む</a>
-      <a class="ghost" href="#">最近の編集</a>
-      <a class="cta-muted" href="#">編集のしかた（CONTRIBUTING）</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><b>13</b><span>ページ</span></div>
-      <div class="stat"><b>30</b><span>版まで自動保存</span></div>
-    </div>
+    <SearchBox client:load />
+    <p class="hint">まず読むなら <a href="#">「はじめに」</a>　·　新しいページは <a href="#">作成フォーム</a> から</p>
   </section>
 
-  <section style="margin-top:32px">
-    <h2 style="font-size:15px; font-weight:500; margin:0 0 12px">ページカタログ</h2>
+  <section style="margin-top:24px">
+    <h2 style="font-size:15px; font-weight:500; margin:0 0 12px">このWikiの記事</h2>
     <PageTable client:load />
   </section>
 

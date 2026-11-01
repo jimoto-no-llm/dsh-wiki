@@ -1,4 +1,5 @@
-/* unslop passes applied. Ramp: Ink (light). accent: cobalt. */
+/* unslop passes applied + Wikipedia-like search-first portal.
+   Ramp: Ink (light). accent: cobalt. Fonts: Inter + Noto Sans JP + JetBrains Mono. */
 :root {
   --paper: #f5f7fa;        /* page background (ink ramp) */
   --card: #ffffff;
@@ -11,8 +12,8 @@
   --accent: #1d4ed8;
   --accent-hover: #1e40af;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* Inter（欧文）+ Noto Sans JP（日本語）が本体系。Interを先に置くと欧文・数字がInter、
-     日本語はNoto Sans JPに落ちる。数字・slug・キーキャップはJetBrains Mono。 */
+  /* Inter（欧文）+ Noto Sans JP（日本語）。欧文・数字はInter、日本語はNotoに落ちる。
+     数字・slug・キーキャップはJetBrains Mono。 */
   --font: "Inter Variable", "Noto Sans JP Variable", "Noto Sans CJK JP", system-ui, sans-serif;
   --mono: "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
   --radius-card: 12px;
@@ -32,6 +33,8 @@ body {
 }
 p, li { text-wrap: pretty; }
 h1, h2 { line-break: strict; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* ---------- top bar: quiet chrome ---------- */
 .topbar {
@@ -45,29 +48,40 @@ h1, h2 { line-break: strict; }
 .topbar nav a { font-size: 14px; color: var(--ink-2); padding: 6px 10px; border-radius: var(--radius-btn); transition: background-color 150ms var(--ease), color 150ms var(--ease); }
 .topbar nav a:hover { background: var(--raised); color: var(--ink); text-decoration: none; }
 
-/* ---------- hero ---------- */
-.hero { padding: 88px 0 40px; }
-.hero h1 { font-size: 40px; line-height: 1.3; letter-spacing: 0; font-weight: 600; margin: 0 0 16px; max-width: 36rem; }
-.hero h1 em { font-family: var(--font); }
-.hero h1 em { font-style: normal; color: var(--accent); }
-.hero p.lead { color: var(--ink-2); font-size: 16px; line-height: 1.9; margin: 0 0 24px; max-width: 40rem; }
-.hero .cta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
-.hero .cta a {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 14px; font-weight: 500; height: 44px; padding: 0 20px;
-  border-radius: var(--radius-btn);
-}
-.hero .cta a.solid { background: var(--ink); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.12); }
-.hero .cta a.solid:hover { background: #1c2536; text-decoration: none; }
-.hero .cta a.ghost { background: var(--card); color: var(--ink); border: 1px solid var(--line-strong); }
-.hero .cta a.ghost:hover { background: var(--raised); text-decoration: none; }
-.hero .cta .cta-muted { font-size: 13px; color: var(--ink-3); }
-.hero .cta .cta-muted:hover { color: var(--ink-2); text-decoration: none; }
+/* ---------- search hero (Wikipedia 中央検索) ---------- */
+.search-hero { text-align: center; padding: 64px 0 8px; }
+.wiki-mark { font-size: 24px; font-weight: 500; color: var(--ink); margin-bottom: 8px; }
+.wiki-mark b { font-weight: 700; color: var(--ink); }
+.search-hero p.lead { color: var(--ink-2); font-size: 14px; line-height: 1.9; margin: 0 0 24px; }
 
-.stats { display: flex; gap: 8px; margin-top: 32px; }
-.stat { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius-card); padding: 12px 16px; }
-.stat b { display: block; font-size: 28px; line-height: 1; font-weight: 500; font-variant-numeric: tabular-nums; }
-.stat span { color: var(--ink-3); font-size: 12px; }
+.bigsearch { position: relative; max-width: 38rem; margin: 0 auto; }
+.bigsearch form { display: flex; gap: 8px; }
+.bigsearch input[type="search"] {
+  flex: 1; height: 48px;
+  border: 1px solid var(--line-strong); border-radius: var(--radius-btn);
+  padding: 0 16px; font-size: 15px; font-family: var(--font); background: var(--card); color: var(--ink);
+  transition: border-color 150ms var(--ease), box-shadow 150ms var(--ease);
+}
+.bigsearch input[type="search"]:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.15); }
+.bigsearch button {
+  height: 48px; padding: 0 20px; font-size: 14px; font-weight: 500;
+  background: var(--ink); color: #fff; border: none; border-radius: var(--radius-btn);
+  cursor: pointer; font-family: var(--font);
+  transition: background-color 150ms var(--ease);
+}
+.bigsearch button:hover { background: #1c2536; }
+.suggest {
+  position: absolute; top: calc(100% + 6px); left: 0; right: 0;
+  background: var(--card); border: 1px solid var(--line-strong); border-radius: var(--radius-card);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  list-style: none; margin: 0; padding: 4px 0; z-index: 10; text-align: left;
+}
+.suggest li a { display: flex; flex-direction: column; gap: 2px; padding: 10px 16px; }
+.suggest li a:hover { background: var(--raised); text-decoration: none; }
+.suggest b { font-weight: 600; color: var(--ink); font-size: 14px; }
+.suggest span { color: var(--ink-3); font-size: 12px; }
+.search-hero .hint { margin-top: 16px; font-size: 13px; color: var(--ink-3); }
+.search-hero .hint a { color: var(--accent); }
 
 /* ---------- box ---------- */
 .box { border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--card); padding: 16px; }
@@ -116,14 +130,14 @@ table.pages td { padding: 12px 16px; font-size: 14px; line-height: 1.7; border-b
 table.pages tr:last-child td { border-bottom: none; }
 table.pages tbody tr { transition: background-color 150ms var(--ease); }
 table.pages tbody tr:hover td { background: var(--raised); }
-td.name a { font-weight: 500; }
-td.name .slug { color: var(--ink-3); font-size: 12px; font-family: var(--mono); display: block; margin-top: 2px; }
+td.name a { font-weight: 500; font-size: 15px; }
+td.name .dsc { display: block; color: var(--ink-2); font-size: 13px; margin-top: 2px; }
 td.cat { color: var(--ink-2); font-size: 12px; white-space: nowrap; }
 td.updated { color: var(--ink-3); font-size: 12px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* ---------- layout ---------- */
 .two-col { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; margin-top: 32px; align-items: start; }
-@media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } .hero { padding-top: 32px; } }
+@media (max-width: 860px) { .two-col { grid-template-columns: 1fr; } .search-hero { padding-top: 32px; } }
 
 /* ---------- create ---------- */
 .create { display: flex; gap: 8px; }

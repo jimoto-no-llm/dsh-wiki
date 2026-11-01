@@ -41,13 +41,13 @@ export default function PageTable() {
   const columns = useMemo(
     () => [
       helper.accessor("name", {
-        header: "ページ",
+        header: "ページ名",
         cell: (info) => (
           <div className="name">
             <a href={"/w/" + encodeURIComponent(info.row.original.slug)}>
               {info.getValue()}
             </a>
-            <span className="slug">/{info.row.original.slug}</span>
+            <span className="dsc">{info.row.original.desc}</span>
           </div>
         ),
       }),
@@ -55,7 +55,6 @@ export default function PageTable() {
         header: "分類",
         cell: (info) => CAT_LABEL[info.getValue()] ?? info.getValue(),
       }),
-      helper.accessor("desc", { header: "説明" }),
       helper.accessor("updated", {
         header: "最終更新",
         cell: (info) => (
@@ -124,7 +123,7 @@ export default function PageTable() {
         <tbody>
           {shown === 0 ? (
             <tr>
-              <td colSpan={4}>
+              <td colSpan={3}>
                 該当するページがありません。「新しいページを作る」から登録できます。
               </td>
             </tr>

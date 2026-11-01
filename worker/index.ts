@@ -328,7 +328,7 @@ async function doGet(req: Request, env: Env, url: URL): Promise<Response> {
     return htmlResp(body, "404 / " + slug, { slug, status: 404 });
   }
   const body =
-    "<h1>" + esc(slug) + "</h1>\n" +
+    "<h1>" + esc(pageTitle(slug)) + "<br><span style=\"font-size:.8rem;font-weight:400;color:#72777d\">" + esc(slug) + "</span></h1>\n" +
     mdToHtml(doc.current.content) +
     '<hr><p class="revlist">最終更新: ' +
     new Date(doc.current.at).toISOString() +
@@ -344,27 +344,33 @@ async function doGet(req: Request, env: Env, url: URL): Promise<Response> {
 
 /* ---------- ポータル（トップページ） ---------- */
 
-const PAGE_INFO: Record<string, string> = {
-  "guide/getting-started": "インストールから最初の会話まで",
-  "guide/profiles": "起動モードと設定のしくみ",
-  "guide/cli": "コマンドとオプション一覧",
-  "guide/plugins": "追加・削除・バージョン管理",
-  "guide/config": "設定ファイルの置き場所を解説",
-  "guide/web": "ブラウザから使う方法",
-  "guide/skills": "スキルとMCPの接続方法",
-  "rdsh/overview": "約98倍速い起動の仕組みと導入手順",
-  "rdsh/commands": "tokens・search・deps などのコマンド集",
-  "reference/faq": "困ったときにまず見るページ",
-  "reference/license": "MIT と商標ルールの整理",
-  "STATUS": "このWikiの現状メモ",
-  "index": "旧トップページの案内",
+const PAGE_INFO: Record<string, { t: string; d: string }> = {
+  "guide/getting-started": { t: "はじめに", d: "インストールから最初の会話まで" },
+  "guide/profiles": { t: "プロファイル", d: "起動モードと設定のしくみ" },
+  "guide/cli": { t: "CLI リファレンス", d: "コマンドとオプション一覧" },
+  "guide/plugins": { t: "プラグイン管理", d: "追加・削除・バージョン管理" },
+  "guide/config": { t: "設定", d: "設定ファイルの置き場所" },
+  "guide/web": { t: "Web UI", d: "ブラウザから使う方法" },
+  "guide/skills": { t: "スキルと MCP", d: "スキル・MCPの接続方法" },
+  "rdsh/overview": { t: "rustdsh とは", d: "約98倍の起動と導入手順" },
+  "rdsh/commands": { t: "ネイティブコマンド", d: "tokens・search・deps など" },
+  "reference/faq": { t: "FAQ", d: "困ったときにまず見る" },
+  "reference/license": { t: "ライセンスと商標", d: "MIT と商標ルール" },
+  "STATUS": { t: "現状メモ", d: "このWikiの現状" },
+  "index": { t: "旧トップ", d: "以前の案内ページ" },
 };
 
+function pageTitle(slug: string): string {
+  return PAGE_INFO[slug]?.t ?? slug;
+}
+
 function pageLink(slug: string): string {
-  const title = PAGE_INFO[slug];
+  const info = PAGE_INFO[slug];
+  const title = info ? info.t : slug;
+  const desc = info ? info.d : "";
   return (
-    '<li><a href="/w/' + encodeURIComponent(slug) + '" class="pname">' + esc(slug) +
-    '</a>' + (title ? '<span class="pd">— ' + esc(title) + '</span>' : "") + "</li>"
+    '<li><a href="/w/' + encodeURIComponent(slug) + '" class="pname">' + esc(title) +
+    '</a>' + (desc ? '<span class="pd">— ' + esc(desc) + '</span>' : "") + "</li>"
   );
 }
 
@@ -408,7 +414,8 @@ async function indexPage(env: Env): Promise<Response> {
     '<div class="mp-hero">' +
     "<h1>DSH 日本語Wiki</h1>" +
     '<p class="big"><b>アカウント不要</b>で誰でも読めて・書ける、DeepSeek Harness（DSH）と rustdsh の非公式Wikiです。</p>' +
-    '<p>整備済みの解説は下のカタログから。どのページも右上の「このページを編集」から直接直せます（履歴が残るので元に戻せます）。</p>' +
+    '<form method="get" action="/w/%E6%A4%9C%E7%B4%A2" style="max-width:34rem;margin:.6rem auto 0;display:flex;gap:.5rem"><input type="text" name="q" placeholder="このWiki内を検索" style="flex:1;height:2.6rem;border:1px solid #a2a9b1;border-radius:.5rem;padding:0 .9rem;font-size:.95rem" aria-label="Wiki内検索"><button type="submit" style="height:2.6rem;padding:0 1.2rem;background:#111827;color:#fff;border:none;border-radius:.5rem;font-weight:500">検索</button></form>' +
+    '<p class="sub" style="margin-top:.5rem">見つからない名前は<a href="/w/%E4%BD%9C%E6%88%90">作成フォーム</a>から新規ページにできます。まず読むなら「はじめに」。</p>' +
     "</div>" +
     '<div class="mp-grid">' +
     '<div class="mp-box"><h2>DSH を使う</h2><ul>' + pick("guide/") + "</ul></div>" +
@@ -439,13 +446,17 @@ async function searchPage(env: Env, query: string): Promise<Response> {
       "検索",
     );
   }
-  const needle = trimmed.toLowerCase();
   const idx = await listIndex(env);
+  const exact = idx.find((s) => PAGE_INFO[s]?.t === trimmed || s === trimmed);
+  if (exact) {
+    return Response.redirect(SITE + "/w/" + encodeURIComponent(exact), 303);
+  }
+  const needle = trimmed.toLowerCase();
   const hits: { slug: string; snippet: string }[] = [];
   for (const slug of idx) {
     const doc = await getDoc(env, slug);
     if (!doc) continue;
-    const whole = slug + "\n" + doc.current.content;
+    const whole = slug + "\n" + (PAGE_INFO[slug]?.t ?? "") + "\n" + doc.current.content;
     const pos = whole.toLowerCase().indexOf(needle);
     if (pos === -1) continue;
     const start = Math.max(0, pos - 40);
@@ -459,7 +470,7 @@ async function searchPage(env: Env, query: string): Promise<Response> {
         '<li><a href="/w/' +
         encodeURIComponent(h.slug) +
         '">' +
-        esc(h.slug) +
+        esc(pageTitle(h.slug)) +
         "</a><div class=\"sub\">…" +
         esc(h.snippet) +
         "…</div></li>",
