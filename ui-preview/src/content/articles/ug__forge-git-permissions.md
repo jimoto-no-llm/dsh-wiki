@@ -1,0 +1,60 @@
+---
+title: "Forge Git クエリの権限と内容変換（v0.2.2-alpha.2）"
+desc: "Forge パネルの Git クエリが、read-only を強制する代わりに Session のサンドボックス モードを使うようになります。Git 2.31 以上のホストでは、ロ"
+cat: "ug"
+catLabel: "移行"
+chars: 1817
+slug: "ug/forge-git-permissions"
+---
+
+# Forge Git クエリの権限と内容変換（v0.2.2-alpha.2）
+
+Forge パネルの Git クエリが、`read-only` を強制する代わりに Session のサンドボックス モードを使うようになります。Git 2.31 以上のホストでは、ローカルの diff と統計が列挙された clean／process フィルタをコマンドごとに無効化します。
+
+## Session モード別の挙動
+
+| Session のモード | Forge Git クエリの挙動 |
+| --- | --- |
+| `read-only` | OS 強制の書込み保護が必要な Git クエリにはこちらを保つ |
+| `workspace-write` | 設定されたルート内の書込みを許す |
+| `danger-full-access` | サンドボックス バックエンドが無くても動く |
+| 閉じたモードでバックエンド未搭載 | 実行を拒否する |
+
+設定キーの変更はありません。既存の権限ピッカーで、適切な Session のモードを選ります。
+
+## clean／process フィルタの取り扱い
+
+| 状況 | 挙動 |
+| --- | --- |
+| Git 2.31 以上のローカル diff・統計 | コマンドごとに列挙された clean／process フィルタを無効化する |
+| Git の内蔵変換 | newline・ident・encoding の変換は従来どおり適用する |
+| 実体化済み LFS などフィルタが掛かったファイル | 通常の Git が clean と見なすものが「変更あり」に見えることがある。パネルは LFS のダウンロードを要求しない |
+| 旧い Git、または並行して足されたフィルタ | helpers を Session の権限で実行することがある |
+
+サブモジュールについては、コミットの変更は引き続き見える一方、モジュール内部の未コミット変更は省略されます。
+
+## 設定読取の失敗
+
+- フィルタ設定の読取失敗（切り詰められた出力を含む）は、どの比較よりも前に `forgePanel/filter-config-failed` と報告します
+- 失敗の報告には再試行の入口があります
+- この失敗は `forgePanel/diff-too-large` とは別物です
+
+## 移行の手順
+
+1. Git クエリに OS 強制の書込み保護が要る Session は `read-only` のままにします。既存の権限ピッカーで適切な Session のモードを選びます（設定キーの変更はありません）
+2. 内容変換やサブモジュールのワーキング ツリー検査が要るリポジトリでは、適切な Session 権限の下で明示的な Git コマンドを使ってその変更を検査します。パネルのローカル比較は、対応する Git バージョンでは clean／process フィルタをバイパスします
+3. サンドボックス バックエンドのないホストでは Full access を選び、Forge パネルを更新します。チェックアウトと普通のローカル変更が読み込まれ、閉じたモードへの切替ではバックエンドの不在が報告されます
+
+## 確認事項
+
+- Git 2.31 以上のホストでは、通常 clean と見なす LFS 実体化ファイルなどが「変更あり」に見えることがあります。Session 権限の下で明示的な Git コマンドで実態を確かめてください
+- 閉じたモードに切り替えてバックエンドの不在が報告されることも、確認の対象です
+
+## 注意
+
+- Forge パネルに表示される Git 情報が Session の許可モードに従うことを、モード別に一度は目で確かめると安心です
+- フィルタ起因の見た目の変化は、Session の権限と Git のバージョンをそろえた上で判断します
+
+## 出典
+
+- UPSTREAM: https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/upgrade-guide/v0.2.2-alpha.2/forge-git-permissions/guide.md

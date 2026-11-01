@@ -1,0 +1,1434 @@
+[
+  {
+    "slug": "STATUS",
+    "title": "現状メモ（STATUS）",
+    "desc": "このWikiプロジェクトの現状を記録するファイルです。更新日: 2026-11-01（匿名編集Wiki 追加）",
+    "cat": "meta",
+    "catLabel": "メタ",
+    "chars": 3611
+  },
+  {
+    "slug": "deep/agent-lifecycle",
+    "title": "エージェントライフサイクル",
+    "desc": "この文書はエージェントのターン（turn）とステップ（step）がどう駆動されるかを、アーキテクチャのターンフローの視覚的な補助資料として説明します。元文書ではcuratedなMe",
+    "cat": "deep",
+    "catLabel": "深掘り",
+    "chars": 3949
+  },
+  {
+    "slug": "deep/api-gateway",
+    "title": "APIゲートウェイ",
+    "desc": "Typert API Gatewayの現状リファレンスです。ビジネスサービスがunary（一元呼び出し）とstreamのRemoteメソッドをどのように宣言し、ビルドがHostとC",
+    "cat": "deep",
+    "catLabel": "深掘り",
+    "chars": 7717
+  },
+  {
+    "slug": "deep/cordis-primer",
+    "title": "Cordisの基礎",
+    "desc": "CordisはDeepSeek Harnessの下にvendoredされたプラグインフレームワークです。この入門は、サブシステムページの生成済みサービス・イベントリファレンスを読む",
+    "cat": "deep",
+    "catLabel": "深掘り",
+    "chars": 2773
+  },
+  {
+    "slug": "deep/deepseek-llm-api-wire-extensions",
+    "title": "DeepSeek LLM APIのワイヤ拡張",
+    "desc": "@deepseek-ai/dsh-llm-deepseek が、deepseek-official のMessagesリクエスト上で送る、DeepSeek Harness固有のHT",
+    "cat": "deep",
+    "catLabel": "深掘り",
+    "chars": 6989
+  },
+  {
+    "slug": "deep/development",
+    "title": "開発の流れ",
+    "desc": "セットアップ手順が新しいコントリビュータを前提条件から確認済みチェックアウトまで連れて行き、後続のコントリビュータのリファレンスがリポジトリ配置・日常ワークフロー・CI構成を扱いま",
+    "cat": "deep",
+    "catLabel": "深掘り",
+    "chars": 7464
+  },
+  {
+    "slug": "deep/glossary",
+    "title": "用語集",
+    "desc": "DeepSeek Harnessのドメイン語彙です。1つの概念に1つの正規の用語を定め、用語どうしは標準的なMarkdownアンカーで相互参照します。実装の詳細はパッケージのREA",
+    "cat": "deep",
+    "catLabel": "深掘り",
+    "chars": 4035
+  },
+  {
+    "slug": "deep/graph-atlas",
+    "title": "依存グラフの構造",
+    "desc": "DeepSeek Harnessの文書群は、生成カタログが示さない関係性を示す図で補います。パッケージの依存、capability seams、イベントの流れ、モデル向けツール、ア",
+    "cat": "deep",
+    "catLabel": "深掘り",
+    "chars": 1905
+  },
+  {
+    "slug": "deep/rescope",
+    "title": "rescope の仕組み",
+    "desc": "Cordisフレームワークとその基盤ライブラリは vendor/ の下にvendoredされ、@deepseek-ai スコープで公開されます。すべてのハーネスパッケージがフレーム",
+    "cat": "deep",
+    "catLabel": "深掘り",
+    "chars": 3942
+  },
+  {
+    "slug": "deep/testing",
+    "title": "開発のテスト",
+    "desc": "このリポジトリがどうテストするかを階層別に示し、緑のスイートが意味を保つための規則をまとめます。コマンド自体はルートのAGENTS.mdが所有し、根拠はリンクされたAgent No",
+    "cat": "deep",
+    "catLabel": "深掘り",
+    "chars": 5374
+  },
+  {
+    "slug": "deep2/capability-seams",
+    "title": "Capability Seams とコアサービス（capability-seams.md 深掘り）",
+    "desc": "上流の docs/capability-seams.md は scripts/gen-doc-graphs.ts が生成する文書で、DeepSeek Harness 内の",
+    "cat": "deep2",
+    "catLabel": "深掘り 2",
+    "chars": 2527
+  },
+  {
+    "slug": "deep2/cordis-fiber",
+    "title": "Cordis Fiber（cordis-api/fiber.md 深掘り）",
+    "desc": "上流の docs/cordis-api/fiber.md は、vendor/cordis の Fiber に関する生成カタログ",
+    "cat": "deep2",
+    "catLabel": "深掘り 2",
+    "chars": 2044
+  },
+  {
+    "slug": "deep2/defensive-patterns",
+    "title": "防御パターン（defensive-patterns/ 深掘り）",
+    "desc": "上流の docs/defensive-patterns/ は、実際に出荷済ま、あるいは出荷寸前だった欠陥クラスを",
+    "cat": "deep2",
+    "catLabel": "深掘り 2",
+    "chars": 3743
+  },
+  {
+    "slug": "deep2/event-producer-consumer",
+    "title": "イベント生成元・消費者マトリクス（event-producer-consumer.md 深掘り）",
+    "desc": "上流の docs/event-producer-consumer.md は Harness 保有イベントの一覧で、「どのパッケージがどの",
+    "cat": "deep2",
+    "catLabel": "深掘り 2",
+    "chars": 2291
+  },
+  {
+    "slug": "deep2/experimental-persistence-catalog",
+    "title": "実験系 Plugin Record Catalog（experimental-persistence-catalog.md 深掘り）",
+    "desc": "上流の docs/experimental-persistence-catalog.md は experimental パッケージが所有する",
+    "cat": "deep2",
+    "catLabel": "深掘り 2",
+    "chars": 1920
+  },
+  {
+    "slug": "deep2/persistence-catalog",
+    "title": "Session Persistence Event Catalog（persistence-catalog.md 深掘り）",
+    "desc": "上流の docs/persistence-catalog.md は9000行規模の生成カタログで、リポジトリが宣言する",
+    "cat": "deep2",
+    "catLabel": "深掘り 2",
+    "chars": 1840
+  },
+  {
+    "slug": "deep2/postmortems",
+    "title": "ポストモーテム（postmortem/ 深掘り）",
+    "desc": "上流の docs/postmortem/ は障害の後事録です。バグが本来あるべきでない場所（実際のユーザ、",
+    "cat": "deep2",
+    "catLabel": "深掘り 2",
+    "chars": 3778
+  },
+  {
+    "slug": "deep2/session-format-status",
+    "title": "Session 形式バージョンとリリース状態（session-format-status.md 深掘り）",
+    "desc": "上流の docs/session-format-status.md は、Session 形式の「checkout の writer」「受理済み",
+    "cat": "deep2",
+    "catLabel": "深掘り 2",
+    "chars": 2278
+  },
+  {
+    "slug": "deep2/tool-catalog",
+    "title": "ツールスキーマカタログ（tool-catalog.md 深掘り）",
+    "desc": "上流の docs/tool-catalog.md は、出荷済みプラグインが ctx.tools に提供する「モデル向きツール」",
+    "cat": "deep2",
+    "catLabel": "深掘り 2",
+    "chars": 2240
+  },
+  {
+    "slug": "deep2/web-styling",
+    "title": "Web UI Style Reference（web-styling.md 深掘り）",
+    "desc": "上流の docs/web-styling.md は、ブラウザクライアントパッケージのスタイルの所有権と",
+    "cat": "deep2",
+    "catLabel": "深掘り 2",
+    "chars": 5201
+  },
+  {
+    "slug": "develop/adding-a-package",
+    "title": "ワークスペースパッケージ追加ガイド",
+    "desc": "新しい @deepseek-ai/dsh-＼name］ パッケージ追加の file-by-file checklist を確認する。この checklist は bash と ad",
+    "cat": "develop",
+    "catLabel": "開発ガイド",
+    "chars": 6615
+  },
+  {
+    "slug": "develop/adding-a-plugin-preview",
+    "title": "Plugin feature preview 追加ガイド",
+    "desc": "bundle の detail ドキュメント（Plugins ページで description の下に表示される文書）に、任意の feature preview 画像を 1 枚入れ",
+    "cat": "develop",
+    "catLabel": "開発ガイド",
+    "chars": 2634
+  },
+  {
+    "slug": "develop/adding-a-remote-api",
+    "title": "Remote API 追加ガイド",
+    "desc": "ctx.remote endpoint を追加・変更する 5 step（宣言・障害宣言・パッケージ登録・Client での消費・テスト）を確認する。decorator 意味論・lo",
+    "cat": "develop",
+    "catLabel": "開発ガイド",
+    "chars": 5465
+  },
+  {
+    "slug": "develop/adding-a-session-format-version",
+    "title": "Session ログフォーマットバージョン追加ガイド",
+    "desc": "公開済みデータを書き換えずに、次の Session ログフォーマットバージョンを導入する。version/status の権威ドキュメントを読んで checkpoint write",
+    "cat": "develop",
+    "catLabel": "開発ガイド",
+    "chars": 7669
+  },
+  {
+    "slug": "develop/adding-a-settings-card",
+    "title": "ライブ設定フォーム（settings card）追加ガイド",
+    "desc": "プラグインの Config schema でライブフィールド（Volatile）を宣言し、製品所有の settings card から編集できるようにする。export された C",
+    "cat": "develop",
+    "catLabel": "開発ガイド",
+    "chars": 3818
+  },
+  {
+    "slug": "develop/adding-a-tool",
+    "title": "ツール実装リファレンス",
+    "desc": "モデル向けツール（model-facing tool）が満たすべき契約を確認する。順序立てた最初の一本は \"Build a tool\" チュートリアル、本番水準の 3 パッケージ構",
+    "cat": "develop",
+    "catLabel": "開発ガイド",
+    "chars": 5362
+  },
+  {
+    "slug": "develop/adding-a-vendored-package",
+    "title": "Vendored パッケージ追加ガイド",
+    "desc": "Harness が別の upstream Cordis パッケージ（例 @cordisjs/plugin-http）を必要としたとき、npm 依存に加えず vendor/ 配下の ",
+    "cat": "develop",
+    "catLabel": "開発ガイド",
+    "chars": 3523
+  },
+  {
+    "slug": "develop/adding-an-llm-adapter",
+    "title": "LLM アダプタ追加ガイド",
+    "desc": "新しいモデルプロバイダを接続する方法を確認する。リファレンス実装は packages/llm/llm-deepseek（直接 HTTP、eventsource-parser で f",
+    "cat": "develop",
+    "catLabel": "開発ガイド",
+    "chars": 3199
+  },
+  {
+    "slug": "develop/extension-cookbook",
+    "title": "拡張プラグインの形態ガイド",
+    "desc": "Harness の拡張（ツールプラグイン／フックプラグイン／UIプラグイン／外部プロトコルドライバ）を書くときの参照パターンを確認する。",
+    "cat": "develop",
+    "catLabel": "開発ガイド",
+    "chars": 5327
+  },
+  {
+    "slug": "develop/reviewing-persistence-type-changes",
+    "title": "persistence 型変更 review ガイド",
+    "desc": "宣言済み Session persistence 型を contributor checkout で変更した後、開いた PR の前にローカルで 生成・承認・検証する。bilingu",
+    "cat": "develop",
+    "catLabel": "開発ガイド",
+    "chars": 5496
+  },
+  {
+    "slug": "develop2/maintaining-dsh-code-review",
+    "title": "dsh-code-review skill の保守ガイド",
+    "desc": "dsh-code-review skill を現状に保つ、担当オペレータのための workflow を確認する。skill の更新は、単一の指定オペレータが私有の定期メンテナンス ",
+    "cat": "develop2",
+    "catLabel": "レビュー",
+    "chars": 5138
+  },
+  {
+    "slug": "develop2/responding-to-pr-review-on-a-stack",
+    "title": "依存 stack PR チェーンをまたぐ review 対応ガイド",
+    "desc": "依存した PR stack（A ← B ← C …）の複数 PR に review comment が付いたとき、fix をどの PR に置き、どう stack 全体へ伝播させるか",
+    "cat": "develop2",
+    "catLabel": "レビュー",
+    "chars": 3041
+  },
+  {
+    "slug": "guide/architecture",
+    "title": "アーキテクチャの全体像",
+    "desc": "Dshの構成単位と実行の主体、そして能力（capability）のつなぎ目を概観します。",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2829
+  },
+  {
+    "slug": "guide/cli",
+    "title": "CLI リファレンス",
+    "desc": "dsh は唯一の公式ランチャーで、プロファイルを起動して残りの引数をアプリに渡します。ヘルプ原文は上流の docs/cli-help.md にあります。",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2534
+  },
+  {
+    "slug": "guide/config",
+    "title": "設定",
+    "desc": "DSH の設定は、プロファイルごとのパッチ層と credential ファイルに分かれます。まず置き場所を押さえ、必要な項目は生成済みの設定カタログで確認できます。",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 3140
+  },
+  {
+    "slug": "guide/getting-started",
+    "title": "はじめに",
+    "desc": "DSH（DeepSeek Harness）は、DeepSeek AI が開発するオープンソースのエージェントハーネスです。「すべてがプラグイン」な構成で、Cordis というフレー",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 1802
+  },
+  {
+    "slug": "guide/network-proxy",
+    "title": "ネットワークとプロキシ",
+    "desc": "Dshは外向きの要求（モデル呼び出し、Web検索、ページ取得、HTTP経由のMCPサーバ）を、標準のプロキシ環境変数で指定されたプロキシに経路付けます。変数は起動時に読まれ、他の設",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2870
+  },
+  {
+    "slug": "guide/plugin-market",
+    "title": "プラグインの見つけ方",
+    "desc": "プラグイン索引（plugin index）は、インストール可能なDSHバンドルをタイトル・アイコン・作者・版つきで列挙する1つのJSONファイルです。実験プラグインのCustom ",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 3074
+  },
+  {
+    "slug": "guide/plugins",
+    "title": "プラグイン管理",
+    "desc": "DSH は「すべてがプラグイン」な構成で、プロファイルは同梱バンドルのパッチ層を順に重ねたものです。プラグインの追加・削除は、CLI の dsh plugin、Web の Plug",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2842
+  },
+  {
+    "slug": "guide/profiles",
+    "title": "プロファイル",
+    "desc": "プロファイルは「同梱バンドルのパッチ層を順に重ねた構成」で、DSH の起動単位です。どのモードで起動するか、どのプラグインを入れるかはプロファイルごとに決まります。",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2332
+  },
+  {
+    "slug": "guide/python-sdk",
+    "title": "Python SDK",
+    "desc": "公開済みのPython SDKを入れ、同梱のスタンドアローンミニマルプロファイルを実行し、自分のプログラムから同じ dsh プロファイルをカスタマイズする手順を紹介します。",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2315
+  },
+  {
+    "slug": "guide/schedule",
+    "title": "予定実行",
+    "desc": "会話の中でモデルに頼むと、リマインダーの作成・一覧・表示・編集・一時停止・再開・削除ができます。各リマインダーは設定した繰り返しルールに従い、既存の会話、最初の配信で作る1つの新規",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2172
+  },
+  {
+    "slug": "guide/sessions",
+    "title": "セッションとデータの保存",
+    "desc": "セッションの形式バージョンと、イベントの生成・受信（プロデューサ/コンシューマ）の仕組みを、チェックアウトとリリースそれぞれの立場に沿って整理します。",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2256
+  },
+  {
+    "slug": "guide/skills",
+    "title": "スキルと MCP",
+    "desc": "スキルは「必要なときに読ませる補助の指示」、MCP は「外部サーバが提供するツールを接続する規約」です。どちらも既定では効かず、明示的な設定で有効になります。",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 3038
+  },
+  {
+    "slug": "guide/tools",
+    "title": "ツール一覧と実行の流れ",
+    "desc": "モデルに向くツールの全体像と、1回のツール呼び出しがどの順序で処理されるか（実行パイプライン）を説明します。",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2196
+  },
+  {
+    "slug": "guide/upgrade",
+    "title": "バージョンアップと互換性",
+    "desc": "v0.2.2-alpha.2アップグレードガイドのうち、Schedule管理APIとSDK runコマンド入力の扱い方（手順と注意）を紹介します。",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2688
+  },
+  {
+    "slug": "guide/web",
+    "title": "Web UI",
+    "desc": "Web UI は dsh web が配信するブラウザ版の操作画面です。サーバが起動して以降の手順をまとめます。",
+    "cat": "guide",
+    "catLabel": "DSH を使う",
+    "chars": 2335
+  },
+  {
+    "slug": "rdsh/architecture",
+    "title": "rdsh の内部構造",
+    "desc": "rdsh の設計原則、クレート構成、移行方針、CLI アダプタ契約を説明します。",
+    "cat": "rdsh",
+    "catLabel": "rustdsh",
+    "chars": 2293
+  },
+  {
+    "slug": "rdsh/benchmarks",
+    "title": "rdsh の性能計測",
+    "desc": "このページは rdsh の実測ベンチマークをまとめます。数値は Linux x86_64 での測定値です。",
+    "cat": "rdsh",
+    "catLabel": "rustdsh",
+    "chars": 1717
+  },
+  {
+    "slug": "rdsh/cmd/auth",
+    "title": "rdsh auth — 認証情報の状態確認と明示インポート",
+    "desc": "他ツール（Codex・opencode 等）で完了しているログインを、DSH が利用する $DSH_HOME/.credentials.yaml へ安全に取り込む（または状態だけ確",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1880
+  },
+  {
+    "slug": "rdsh/cmd/bench",
+    "title": "rdsh bench — 起動速度の比較",
+    "desc": "rdsh と本家 dsh の起動速度を、どちらの --version も複数回実行して比較するコマンドです。README.ja.md の実測ベンチマーク表はこのコマンド（rdsh ",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1218
+  },
+  {
+    "slug": "rdsh/cmd/compact",
+    "title": "rdsh compact — セッション JSONL の圧縮",
+    "desc": "セッションの JSONL トランスクリプトをトークン予算内へ圧縮するコマンドです。README.ja.md の案内どおり元ファイルは不変で、圧縮結果は標準出力へ出します。READM",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1745
+  },
+  {
+    "slug": "rdsh/cmd/context",
+    "title": "rdsh context — コンテキスト注入と記憶（実験的）",
+    "desc": "そのターンの文脈（goal・constraints・decisions・作業対象ファイル・Git 状態・検索結果・管理された記憶）を組み立て、DSH の UserPromptSub",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 3350
+  },
+  {
+    "slug": "rdsh/cmd/deps",
+    "title": "rdsh deps — 静的な依存グラフと変更影響",
+    "desc": "ソースコードから import・定義・静的な呼び出し箇所を記録した持続的な索引を作り、シンボルの定義元・参照元と、ファイル・シンボルから見た変更影響とカバーするテストを出す読み取り",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1659
+  },
+  {
+    "slug": "rdsh/cmd/doctor",
+    "title": "rdsh doctor — 環境の健全性診断",
+    "desc": "本家 dsh・環境変数・パスが正しくそろっているかを一度に診断する読み取り専用コマンドです。README.ja.md の動作確認（手順 C）では dsh --version && ",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1405
+  },
+  {
+    "slug": "rdsh/cmd/features",
+    "title": "rdsh features — 機能スイッチの一覧と on/off",
+    "desc": "rdsh の選択的機能（features）を一覧し、個々の能力を on / off で切り替えます。README.ja.md では「機能スイッチと既定値の一覧（既定OFF: ser",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 2264
+  },
+  {
+    "slug": "rdsh/cmd/guard",
+    "title": "rdsh guard — フック用の危険コマンド遮断",
+    "desc": "DSH の hooks.json と連携するフックヘルパーです。標準入力のテキストが --deny のパターンに当たると exit 2 で遮断を示します。README.ja.md ",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1993
+  },
+  {
+    "slug": "rdsh/cmd/models",
+    "title": "rdsh models — プロバイダのモデル一覧をプロファイルへ反映",
+    "desc": "DSH のモデルカタログは依存パッケージ @earendil-works/pi-ai 同梱のものがパッケージ公開時に生成されるため、それ以降にプロバイダが変えた内容は選択肢に出てき",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 2631
+  },
+  {
+    "slug": "rdsh/cmd/plugin",
+    "title": "rdsh plugin — 本家 `dsh` plugin への透過委譲",
+    "desc": "rdsh 固有の再実装ではなく、本家 dsh の plugin コマンドをそのまま透過的に委譲する経路です。README.ja.md の Smart-DSH 節では rdsh pl",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 2507
+  },
+  {
+    "slug": "rdsh/cmd/prune",
+    "title": "rdsh prune — トークン予算に合わせた前方・末尾保持の切り詰め",
+    "desc": "テキストを予算内に収まるよう切り詰めるコマンドです。README.ja.md の案内例では標準入力を対象に「echo \"...\" | rdsh prune --max-tokens",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1645
+  },
+  {
+    "slug": "rdsh/cmd/rate",
+    "title": "rdsh rate limit — レート制限から自動再開する retryPolicy の設定",
+    "desc": "DSH は base bundle で @deepseek-ai/dsh-llm-retry を常に読み込みますが、provider 設定の retryPolicy が未定義だと ",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 2633
+  },
+  {
+    "slug": "rdsh/cmd/retry-log",
+    "title": "rdsh retry-log — LLM 再試行の集計",
+    "desc": "DSH がセッションログへ記録した LLM 再試行イベントを集計するコマンドです。読み取り専用で $DSH_HOME へ書き込みません。Node.js を起動せず、追加クレートもし",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1995
+  },
+  {
+    "slug": "rdsh/cmd/route",
+    "title": "rdsh route — 難易度別のモデル自動割当（設定と判定）",
+    "desc": "タスクの大きさから easy / standard / hard を決定的に判定し、tier ごとの provider・model・effort の割当を返すコマンドです。このコマ",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 2430
+  },
+  {
+    "slug": "rdsh/cmd/search",
+    "title": "rdsh search — 高速並列テキスト検索",
+    "desc": "再帰的なテキスト検索を Node.js なしで実行するコマンドです。README.ja.md の実測では約17msで、従来処理（約41ms）の約2.4倍の速度と案内されています。2",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1414
+  },
+  {
+    "slug": "rdsh/cmd/serve",
+    "title": "rdsh serve — ローカル閲覧用 Web 画面",
+    "desc": "手元で状態確認やトークン見積もりを行える軽量なローカル Web 画面です。既定ポート :38080（本家の :3080 と競合しません）で、localhost 限定・一時トークンで",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1993
+  },
+  {
+    "slug": "rdsh/cmd/sessions",
+    "title": "rdsh sessions — 過去セッションの一覧",
+    "desc": "$DSH_HOME/sessions 配下のセッションを Node.js なしで新しい順に一覧するコマンドです。README.ja.md の実測では --tokens 付きの展開が",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1679
+  },
+  {
+    "slug": "rdsh/cmd/setup",
+    "title": "rdsh setup — 初回接続とセットアップ",
+    "desc": "初回起動時の接続をまとめて進めるコマンドです。README.ja.md では \"First-run connect: import what exists, persist env",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1621
+  },
+  {
+    "slug": "rdsh/cmd/tokens",
+    "title": "rdsh tokens — トークン数の即時見積り",
+    "desc": "テキストのトークン数を Node.js を起動せずにネイティブ処理で見積もるコマンドです。README.ja.md の実測では約12msで、本家 dsh 相当処理（約35ms）の約",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1506
+  },
+  {
+    "slug": "rdsh/cmd/wait",
+    "title": "rdsh wait — 進捗表示つきの待機",
+    "desc": "レート制限やバッチの待ち合わせなどで「指定した時間だけ黙って待つ」コマンドです。sleep との違いは、残り時間を1行表示し、Ctrl+C で正常終了（exit 0）できること、上",
+    "cat": "rdsh-cmd",
+    "catLabel": "rustdsh コマンド",
+    "chars": 1940
+  },
+  {
+    "slug": "rdsh/commands",
+    "title": "rdsh ネイティブコマンド リファレンス",
+    "desc": "rdsh のネイティブコマンドをまとめています。ここに挙げない引数やサブコマンドは、そのまま本家 dsh に渡ります。記載の構文は出典の README.ja.md に準拠しています",
+    "cat": "rdsh",
+    "catLabel": "rustdsh",
+    "chars": 8288
+  },
+  {
+    "slug": "rdsh/context",
+    "title": "rdsh のコンテキスト入力",
+    "desc": "rdsh context による文脈の注入と、同じセッションへの追指示・入力順の契約を説明します。",
+    "cat": "rdsh",
+    "catLabel": "rustdsh",
+    "chars": 2582
+  },
+  {
+    "slug": "rdsh/desktop",
+    "title": "rdsh とデスクトップ",
+    "desc": "rdsh と DeepSeek Harness Desktop（Electron）アプリの連携方法を説明します。",
+    "cat": "rdsh",
+    "catLabel": "rustdsh",
+    "chars": 2434
+  },
+  {
+    "slug": "rdsh/dw/connection-diagnostics",
+    "title": "接続診断",
+    "desc": "スマホ経路とDot経路がどこまで届いているかを、ダッシュボード用地元側の情報だけで段階的に確認する機能です。ダッシュボードに読み取り専用の接続診断パネルが用意され、認証付き GET",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 3700
+  },
+  {
+    "slug": "rdsh/dw/cost-ledger",
+    "title": "報告型コスト台帳",
+    "desc": "外部の請求票や使用量観察を、プロジェクトの状態として後から報告・積算するための台帳です（issue #44）。プロジェクト状態に任意の cost_ledger.schema: 1 ",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 4813
+  },
+  {
+    "slug": "rdsh/dw/fault-simulator",
+    "title": "オフライン制御プレーン障害シミュレータ",
+    "desc": "障害下の制御プレーン回復をオフラインで確認する実行機です。ACPアダプタ、セッション台帳、永続ラン履歴、有界リトライコントローラを、固定のローカルピアと合わせて試します。プロバイダ",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 3633
+  },
+  {
+    "slug": "rdsh/dw/history-backup",
+    "title": "選択的履歴バックアップ",
+    "desc": "dashboard/cli.mjs backup は、タスク・質問・回答・決定・エビデンスの歴史的記録を移植可能なアーカイブに書き出します（issue #46）。プロジェクトディレ",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 3838
+  },
+  {
+    "slug": "rdsh/dw/integration-queue",
+    "title": "ローカル統合キュー",
+    "desc": "workerがcommitした変更を固定順に統合するための、オプトインのローカル操作者CLIです（issue #22）。ダッシュボードのブラウザ、HTTPハンドラ、MCPツールから",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 4269
+  },
+  {
+    "slug": "rdsh/dw/model_benchmarks",
+    "title": "Codex / Claude ランタイムベンチマーク",
+    "desc": "Rust製 examples/benchmark_models.rs のオプトイン実行機が、実 rdsh 実行可能物を通してインストール済みの公式DSHヘッドレスプロファイルへ委譲",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 4388
+  },
+  {
+    "slug": "rdsh/dw/route",
+    "title": "難易度に基づくモデルルーティング（`rdsh route`）",
+    "desc": "DeepSeek Harnessはセッション開始時にプロバイダ・モデル・推論effortを1組だけ選びます。依頼の難しさを推定せず、自動フォールバックや繰り返し切替もありません（d",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 4798
+  },
+  {
+    "slug": "rdsh/dw/run-recovery",
+    "title": "永続ランイベントと読み取り専用リカバリ",
+    "desc": "セッション台帳がネイティブCLIセッションを名前付け、その脇の run-history.jsonl が制御要求、ネイティブ承認、所有ルートプロセス観察を記録します。どちらのファイル",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 3974
+  },
+  {
+    "slug": "rdsh/dw/session-ledger",
+    "title": "永続CLIセッション台帳",
+    "desc": "プロジェクト・論理run・タスク・ネイティブCLIセッションの各識別子を結び付ける台帳です。表示ラベルは記述データに過ぎず、再開ターゲットの選択に決して使われません。ネイティブセッ",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 3726
+  },
+  {
+    "slug": "rdsh/dw/staged-updates",
+    "title": "プロジェクトスコープの固定更新（#47）",
+    "desc": "ローカルのダッシュボードCLIが互換ランタイムを一度captureし、1つのcanaryプロジェクトで検証してから、明示的に他プロジェクトへ選択させます。プロジェクトの既定は新しい",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 5493
+  },
+  {
+    "slug": "rdsh/dw/task-preflight",
+    "title": "タスク前提条件診断",
+    "desc": "DSHのACPプロセスを起動する前に、そのタスクに選択された前提条件を検査します。既存のRust rdsh doctor のwrapper/auth在庫実装を補完し、バージョン検証",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 3255
+  },
+  {
+    "slug": "rdsh/dw/user-flow",
+    "title": "導入から利用・復旧まで",
+    "desc": "rdsh は端末で使う高速な補助CLIです。会話やモデル通信は本家DSHが担当します。Desktopアプリ全体の起動時間・常駐メモリと、CLIの測定結果は区別してください。",
+    "cat": "rdsh-dw",
+    "catLabel": "rustdsh 調査",
+    "chars": 2534
+  },
+  {
+    "slug": "rdsh/dw2/budget-control",
+    "title": "予算アドミッション制御（#45）",
+    "desc": "検証済みの DSH 0.2.0-rc.2 ACP adapter に、オプトインのソフト警告とハードなアドミッション上限を追加します。新しいガード付きjobとモデル呼び出しは入口で",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 4404
+  },
+  {
+    "slug": "rdsh/dw2/mobile-overview",
+    "title": "モバイル向けプロジェクト・タスク概要",
+    "desc": "プロジェクトdashboardの開始画面は いまの状況 を示します。プロジェクト/タスクのcontext、現 evidence とその観察時刻、最新の結果、保留中の決定、停止可否で",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 2879
+  },
+  {
+    "slug": "rdsh/dw2/pr-workflow",
+    "title": "PR対応フロー",
+    "desc": "正本は jimoto-no-llm/rustdsh です。受付・レビュー・準備・マージ判定を分け、レビューと検証の結果をPR番号・head SHA・base SHAに結び付けます。",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 3165
+  },
+  {
+    "slug": "rdsh/dw2/project-setup",
+    "title": "リポジトリ設定 (Project settings)",
+    "desc": "正本のリポジトリは jimoto-no-llm/rustdsh です。リポジトリのメタデータと必須チェックの意図は .github/project-settings.json に記",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 2898
+  },
+  {
+    "slug": "rdsh/dw2/projects",
+    "title": "プロジェクト管理 (Projects)",
+    "desc": "rustdsh の作業の追跡方法です。issueが正本で、ROADMAP.md は方向を示し、milestoneは順序を示します。GitHub Projects（ボード）は同じデー",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 2840
+  },
+  {
+    "slug": "rdsh/dw2/question-contracts",
+    "title": "版付き質問カード (Versioned question cards)",
+    "desc": "プロジェクトdashboardは、通常の相談と明示的な承認要求を dashboard_ask_question で扱います。すべての回答は人の返信であり、この機能は実行権限の発行・",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 3568
+  },
+  {
+    "slug": "rdsh/dw2/releasing",
+    "title": "リリース手順 (Releasing)",
+    "desc": "正本のリポジトリは jimoto-no-llm/rustdsh です。セマンティックバージョニングと注釈付きタグを使います。安定版は vX.Y.Z、候補は vX.Y.Z-rc.N（",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 5754
+  },
+  {
+    "slug": "rdsh/dw2/roadmap",
+    "title": "ロードマップ",
+    "desc": "約束ではなく方向性です。項目は誰かがPRを出すと動きます。PROJECTS.md の管理下で、このファイルは方向だけを述べ、状態の正本はissueとmilestoneです。",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 2703
+  },
+  {
+    "slug": "rdsh/dw2/rust-migration",
+    "title": "JS→Rustの段階的移行",
+    "desc": "まずworkflow-boardのソースパッチ準備処理を移しました。src/workflow_patch.rs がマニフェスト検証、パッチのSHA256照合、固定コミット・変更範囲",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 2767
+  },
+  {
+    "slug": "rdsh/dw2/scoped-stop",
+    "title": "スコープ付き段階停止 (Scoped staged stop)",
+    "desc": "管理されたACPとWeb profileの起動は、runごとに1つのカーネルプロセスグループを所有します。DSHは元のargv・同梱profile・ツール・agent loopを保",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 4771
+  },
+  {
+    "slug": "rdsh/dw2/webui-asset-cache",
+    "title": "Webシェル資産キャッシュ — 実装契約",
+    "desc": "rdsh が起動時にシェル資産を Rustで事前圧縮し、DSH側の小さなプラグインがそれを配信します。Nodeは圧縮をしない（CPUコストゼロ）、クライアントはbrotliを取得し",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 3430
+  },
+  {
+    "slug": "rdsh/dw2/worker-workspaces",
+    "title": "ワーカースコープとworktreeのリース",
+    "desc": "rdsh-dashboard workers はワーカーごとにGitのチェックアウトとブランチを割り当て、読み取り/書き込みスコープを記録し、編集の前後で競合を報告します。作られた",
+    "cat": "rdsh-dw2",
+    "catLabel": "rustdsh 運用",
+    "chars": 4144
+  },
+  {
+    "slug": "rdsh/install",
+    "title": "rdsh のインストール",
+    "desc": "rdsh は dsh を速く・安全に起動する Rust 製ランチャーです。このページでは導入手順と動作環境を説明します。エージェントとの会話には本家 DeepSeek Harnes",
+    "cat": "rdsh",
+    "catLabel": "rustdsh",
+    "chars": 1878
+  },
+  {
+    "slug": "rdsh/models",
+    "title": "rdsh のモデル管理",
+    "desc": "rdsh が提供するモデル一覧の自動同期、ルーティング記録、安全な再試行の仕組みを説明します。",
+    "cat": "rdsh",
+    "catLabel": "rustdsh",
+    "chars": 2260
+  },
+  {
+    "slug": "rdsh/overview",
+    "title": "rustdsh（rdsh）とは",
+    "desc": "rustdsh（コマンド名: rdsh）は、DeepSeek Harness（dsh）を高速かつ安全に使うための Rust 製ランチャーです。日常的によく使う処理だけを Rust ",
+    "cat": "rdsh",
+    "catLabel": "rustdsh",
+    "chars": 4479
+  },
+  {
+    "slug": "rdsh/security",
+    "title": "rdsh の安全設計",
+    "desc": "rdsh の安全に関する設計方針と、隔離・監視・設定の仕組みを説明します。",
+    "cat": "rdsh",
+    "catLabel": "rustdsh",
+    "chars": 1638
+  },
+  {
+    "slug": "rdsh/src/auth",
+    "title": "auth — 外部ログインの自動認識とミラー（src/auth.rs）",
+    "desc": "Codex CLI と opencode の外部ログイン情報を自動で認識し、rdsh 側の唯一の書き込み可能な認保管 $DSH_HOME/.credentials.yaml へ安全",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 2534
+  },
+  {
+    "slug": "rdsh/src/compact",
+    "title": "compact — セッション転写のトークン圧縮（src/compact.rs）",
+    "desc": "JSONL セッション転写を読み込み、トークン予算内に抑えて標準出力へ返します。ソースファイルは変更しません（cmd_compact() L263）。トークン推定は crate::",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 1768
+  },
+  {
+    "slug": "rdsh/src/context_hook",
+    "title": "context_hook — hooks.json への注入フック登録（src/context_hook.rs）",
+    "desc": "rdsh context inject を DSH の Claude Code 方言設定 hooks.json に UserPromptSubmit コマンドフックとして登録するモ",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 2080
+  },
+  {
+    "slug": "rdsh/src/deps",
+    "title": "deps — 静的依存グラフの近似インデックス（src/deps.rs）",
+    "desc": "リポジトリを決定論的・オフラインの静的解析で近似し、関連ファイルやシンボルの参照を rdsh deps コマンド群で提供します。先頭コメント「Dynamic dispatch, i",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 2469
+  },
+  {
+    "slug": "rdsh/src/dsh_args",
+    "title": "dsh_args — 起動引数の分割（src/dsh_args.rs）",
+    "desc": "rdsh が受け取った引数を、本家 dsh（lib/bin.js）互換の意味論に沿って起動フラグと内部アプリ引数に分けるモジュールです。先頭コメント「Launcher flags ",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 1883
+  },
+  {
+    "slug": "rdsh/src/file_security",
+    "title": "file_security — no-follow による安全なリポジトリ読み取り（src/file_security.rs）",
+    "desc": "リポジトリ配下のファイルを、no-follow とディレクトリ相対ハンドルで安全に読むための capability 型 Root を提供します。絶対かつ正準な root を呼び出し",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 2147
+  },
+  {
+    "slug": "rdsh/src/local_http",
+    "title": "local_http — ローカル HTTP の最小実装（src/local_http.rs）",
+    "desc": "dashboard などが使うローカル HTTP サーバの共通部を提供するモジュールです。上限つきのリクエストパーサ、host・origin による信頼判定、トークン認証、恒定時間",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 2149
+  },
+  {
+    "slug": "rdsh/src/models_auto",
+    "title": "models_auto — provider モデルの定期リフレッシュ（src/models_auto.rs）",
+    "desc": "rdsh models sync はプロファイルの provider ブロックを provider 自身が広告するモデル一覧に揃えます（モジュール doc L1-5）。ただし実行を",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 2388
+  },
+  {
+    "slug": "rdsh/src/passthrough",
+    "title": "passthrough — 本家 dsh への drop-in 委譲（src/passthrough.rs）",
+    "desc": "rdsh を dsh として振る舞わせ、実際の処理は本家 dsh（lib/bin.js）に委譲するモジュールです。起動時に PATH から original dsh を探し、 sl",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 2739
+  },
+  {
+    "slug": "rdsh/src/search",
+    "title": "search — ネイティブ再帰 grep（src/search.rs）",
+    "desc": "リポジトリ配下を再帰的に走査して部分文字列を探すネイティブ grep です。hidden ディレクトリと vendor 系を除外し、出力上限を持ちます。2 相構成で、先に固定順の ",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 2158
+  },
+  {
+    "slug": "rdsh/src/serve",
+    "title": "serve — ローカル dashboard（src/serve.rs）",
+    "desc": "rdsh serve で起動する bounded な local dashboard です。127.0.0.1 のみの server、embedded UI と小さな JSON A",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 2665
+  },
+  {
+    "slug": "rdsh/src/token_handoff",
+    "title": "token_handoff — bearer token のファイル渡し（src/token_handoff.rs）",
+    "desc": "プロセスごとの bearer-token handoff を、credential を argv・ログへ出さない形で行うモジュールです（先頭 doc L1）。トークン内容は一時ファ",
+    "cat": "rdsh-src",
+    "catLabel": "rustdsh ソース",
+    "chars": 1957
+  },
+  {
+    "slug": "reference/cli/behaviors",
+    "title": "CLI の共通挙動（終了コード・レイヤー・初期化）",
+    "desc": "このページは、dsh CLI のサブモード（headless / web / sdk / plugin など）に共通するふるまいをまとめます。出典は上流の CLI ヘルプと CLI",
+    "cat": "cli",
+    "catLabel": "CLI リファレンス",
+    "chars": 2266
+  },
+  {
+    "slug": "reference/cli/headless",
+    "title": "CLI headless（`dsh headless`）",
+    "desc": "dsh headless は、タスクを1つ実行して終了するモードです。回答は stdout に、診断出力は stderr に出ます。同じヘルプが dsh headless --he",
+    "cat": "cli",
+    "catLabel": "CLI リファレンス",
+    "chars": 2416
+  },
+  {
+    "slug": "reference/cli/launcher",
+    "title": "DSH CLI ランチャー（`dsh`）",
+    "desc": "dsh コマンドは DSH でサポートされる唯一のアプリケーションランチャーです。プロファイルとは、「プラグインバンドルのパッチレイヤーを宣言された順序で積み、その上にユーザー自身",
+    "cat": "cli",
+    "catLabel": "CLI リファレンス",
+    "chars": 4101
+  },
+  {
+    "slug": "reference/cli/plugin-detail",
+    "title": "プラグイン管理の詳細仕様",
+    "desc": "dsh plugin は、プロファイルディレクトリに置かれた pnpm へ残りの引数を転送し、プロファイルのプラグインを管理します。構文とオプション表は plugin(/refer",
+    "cat": "cli",
+    "catLabel": "CLI リファレンス",
+    "chars": 4916
+  },
+  {
+    "slug": "reference/cli/plugin",
+    "title": "CLI plugin（`dsh plugin`）",
+    "desc": "dsh plugin は、プロファイルのプラグインを管理するサブコマンドです。残りの引数を、プロファイルディレクトリ内で pnpm にそのまま転送します。",
+    "cat": "cli",
+    "catLabel": "CLI リファレンス",
+    "chars": 1784
+  },
+  {
+    "slug": "reference/cli/rescue-dump",
+    "title": "プロファイルの再作成と設定ダンプ（rescue / dump）",
+    "desc": "ランチャーは、プロファイルの作り直し（rescue）と、起動せずに設定を確認するためのダンプ系オプションを持ちます。ここに列挙するオプションはすべてランチャー本体のオプションで、d",
+    "cat": "cli",
+    "catLabel": "CLI リファレンス",
+    "chars": 2373
+  },
+  {
+    "slug": "reference/cli/schema-dump",
+    "title": "設定スキーマダンプの安全作法",
+    "desc": "--dump-config-schema は、起動せずにプロファイルが宣言するプラグイン設定の JSON Schema を出力するダンプモードです。この記事はダンプ表面のオプション",
+    "cat": "cli",
+    "catLabel": "CLI リファレンス",
+    "chars": 5785
+  },
+  {
+    "slug": "reference/cli/sdk-acp",
+    "title": "CLI sdk・sdk-minimal・acp",
+    "desc": "DSH では SDK と ACP は独立した公開バイナリではなく、プロファイルとして提供されます。どちらも stdio ベースのサーバーとして動作し、クライアントの切断まで（SDK",
+    "cat": "cli",
+    "catLabel": "CLI リファレンス",
+    "chars": 2224
+  },
+  {
+    "slug": "reference/cli/web",
+    "title": "CLI web（`dsh web`）",
+    "desc": "dsh web（dsh --profile web と同じ）は、DSH のブラウザ UI を提供する Web プロファイルを起動します。同じヘルプが dsh web --help ",
+    "cat": "cli",
+    "catLabel": "CLI リファレンス",
+    "chars": 2473
+  },
+  {
+    "slug": "reference/config/dsh-agent-loop",
+    "title": "`@deepseek-ai/dsh-agent-loop` の設定",
+    "desc": "@deepseek-ai/dsh-agent-loop はエージェントループ本体のプラグインで、1ステップあたりの並列ツール呼び出し上限と、プラグイン起動時に作成・再開するエージェ",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 3861
+  },
+  {
+    "slug": "reference/config/dsh-bash-local",
+    "title": "`@deepseek-ai/dsh-bash-local` の設定",
+    "desc": "@deepseek-ai/dsh-bash-local はローカルの bash 実行体（executor）で、シェルコマンド実行のための capability subprocess",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 3068
+  },
+  {
+    "slug": "reference/config/dsh-compaction-basic",
+    "title": "`@deepseek-ai/dsh-compaction-basic` の設定",
+    "desc": "@deepseek-ai/dsh-compaction-basic はベーシックなコンパクション（要約・圧縮）プラグインの実装です。設定の doc コメントは「省略可能なモデルごと",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 3247
+  },
+  {
+    "slug": "reference/config/dsh-compaction-tool-result-pruner",
+    "title": "`@deepseek-ai/dsh-compaction-tool-result-pruner` の設定",
+    "desc": "@deepseek-ai/dsh-compaction-tool-result-pruner は、決定論的（deterministic）なツール結果の刈り込み（pruning）を担",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2681
+  },
+  {
+    "slug": "reference/config/dsh-fs-local",
+    "title": "`@deepseek-ai/dsh-fs-local` の設定",
+    "desc": "@deepseek-ai/dsh-fs-local はローカルファイルシステムバックエンドの実装プラグインです。設定対象の doc コメントは 「ローカルファイルシステムバックエン",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2232
+  },
+  {
+    "slug": "reference/config/dsh-goal",
+    "title": "`@deepseek-ai/dsh-goal` の設定",
+    "desc": "@deepseek-ai/dsh-goal は、ゴール（goal）機能の「作成時デフォルト」を供給するプラグインです。設定対象は単一の Config インターフェイスで、原文の d",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 1885
+  },
+  {
+    "slug": "reference/config/dsh-hmr",
+    "title": "`@deepseek-ai/dsh-hmr` の設定",
+    "desc": "@deepseek-ai/dsh-hmr はプロファイル設定のホットリロード（HMR）を担う起動系プラグインです。設定の doc コメントは「モジュールのルートとウォッチャーのタイ",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2015
+  },
+  {
+    "slug": "reference/config/dsh-jobs-local",
+    "title": "`@deepseek-ai/dsh-jobs-local` の設定",
+    "desc": "@deepseek-ai/dsh-jobs-local はプロセス内（process-local）のジョブレジストリ実装です。設定の doc コメントは 「プロセスローカルなジョブ",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2754
+  },
+  {
+    "slug": "reference/config/dsh-llm-pi-ai",
+    "title": "`@deepseek-ai/dsh-llm-pi-ai` の設定",
+    "desc": "@deepseek-ai/dsh-llm-pi-ai は pi-ai ベースの LLM アダプタで、このインスタンスが所有するプロバイダルート（provider routes）を設",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 8386
+  },
+  {
+    "slug": "reference/config/dsh-mcp-client",
+    "title": "`@deepseek-ai/dsh-mcp-client` の設定",
+    "desc": "@deepseek-ai/dsh-mcp-client は MCP（Model Context Protocol）サーバへの接続プラグインです。設定は stdio 接続と Stre",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 3149
+  },
+  {
+    "slug": "reference/config/dsh-plugin-manager",
+    "title": "`@deepseek-ai/dsh-plugin-manager` の設定",
+    "desc": "@deepseek-ai/dsh-plugin-manager は、pnpm ベースのプラグインマネージャとして、パッケージの診断・レジストリルックアップ・接続チェックを行うプラグ",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2858
+  },
+  {
+    "slug": "reference/config/dsh-pwsh-local",
+    "title": "`@deepseek-ai/dsh-pwsh-local` の設定",
+    "desc": "@deepseek-ai/dsh-pwsh-local はローカルの PowerShell（pwsh）実行体（executor）で、シェルコマンド実行のための capability",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 3344
+  },
+  {
+    "slug": "reference/config/dsh-sandbox-policy",
+    "title": "`@deepseek-ai/dsh-sandbox-policy` の設定",
+    "desc": "@deepseek-ai/dsh-sandbox-policy は、デプロイメントのファイル砂箱（sandbox）の既定ポリシーを供給するプラグインです。設定対象は3フィールドの ",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 3590
+  },
+  {
+    "slug": "reference/config/dsh-schedule",
+    "title": "`@deepseek-ai/dsh-schedule` の設定",
+    "desc": "@deepseek-ai/dsh-schedule は Host Schedule ドメイン（リマインダー・定期タスク）の実装プラグインです。設定の doc コメントは 「Host",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2903
+  },
+  {
+    "slug": "reference/config/dsh-session-telemetry-otel",
+    "title": "`@deepseek-ai/dsh-session-telemetry-otel` の設定",
+    "desc": "@deepseek-ai/dsh-session-telemetry-otel は、OpenTelemetry（OTEL）経由でセッションログを共有するプラグインです。設定対象は「",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 4945
+  },
+  {
+    "slug": "reference/config/dsh-shell-env",
+    "title": "`@deepseek-ai/dsh-shell-env` の設定",
+    "desc": "@deepseek-ai/dsh-shell-env は、シェル環境に面する既定値を供給するプラグインです。設定対象は単一の Config インターフェイスで、原文の doc コメ",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2346
+  },
+  {
+    "slug": "reference/config/dsh-subagent",
+    "title": "`@deepseek-ai/dsh-subagent` の設定",
+    "desc": "@deepseek-ai/dsh-subagent は、続行可能（continuable）なサブエージェントの容量を定めるホスト側の設定プラグインです。設定対象は単一の Confi",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2191
+  },
+  {
+    "slug": "reference/config/dsh-terminal-bash",
+    "title": "`@deepseek-ai/dsh-terminal-bash` の設定",
+    "desc": "@deepseek-ai/dsh-terminal-bash は対話シェル（ターミナル）を束ねるプラグインで、シェルの方言、初期の行数・桁数、スクロールバック、アイドル判定のしきい",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 5534
+  },
+  {
+    "slug": "reference/config/dsh-time-context",
+    "title": "`@deepseek-ai/dsh-time-context` の設定",
+    "desc": "@deepseek-ai/dsh-time-context は、リクエスト（ターン）準備時の時刻の表示と、コンテキストへの永続的な注入のスケジュールを司るプラグインです。設定対象は",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2679
+  },
+  {
+    "slug": "reference/config/dsh-web-app",
+    "title": "`@deepseek-ai/dsh-web-app` の設定（`dsh-web` シームを含む）",
+    "desc": "Web GUI 周辺の設定は2段に分かれます。",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2738
+  },
+  {
+    "slug": "reference/config/dsh-web-fetch-http",
+    "title": "`@deepseek-ai/dsh-web-fetch-http` の設定",
+    "desc": "@deepseek-ai/dsh-web-fetch-http は HTTP fetch を担う web プロバイダのプラグインで、トランスポートとサイズの上限、送信する User",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 2449
+  },
+  {
+    "slug": "reference/config/dsh-web-search-deepseek",
+    "title": "`@deepseek-ai/dsh-web-search-deepseek` の設定",
+    "desc": "@deepseek-ai/dsh-web-search-deepseek は、DeepSeek の API と web_search サーバツールを用いた Web 検索プロバイダの",
+    "cat": "config",
+    "catLabel": "設定の詳細",
+    "chars": 3598
+  },
+  {
+    "slug": "reference/faq",
+    "title": "よくある質問",
+    "desc": "rdsh（rustdsh）と DSH について、よく寄せられる質問をまとめます。",
+    "cat": "reference",
+    "catLabel": "リファレンス",
+    "chars": 3068
+  },
+  {
+    "slug": "reference/license",
+    "title": "ライセンスと商標",
+    "desc": "このWikiを作り・公開するにあたって確認した内容をまとめています。",
+    "cat": "reference",
+    "catLabel": "リファレンス",
+    "chars": 1263
+  },
+  {
+    "slug": "subsystems/agent-team",
+    "title": "エージェントチーム（Agent Teams）",
+    "desc": "実験的な暗黙ルートTeamドメイン、モデルツール、ホストアダプタが共有する型を記録するページです（packages/experimental/agent-team）。アイデンティテ",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3212
+  },
+  {
+    "slug": "subsystems/approval",
+    "title": "ユーザー承認",
+    "desc": "dsh-user-approval パッケージのユーザー承認シームは、「この特定のアクションを進めてよいか」という1つの問いに答えるための部品です。要求と結果の共有語彙、ctx.a",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3464
+  },
+  {
+    "slug": "subsystems/attachment",
+    "title": "恒久アタッチメント（Durable Attachments）",
+    "desc": "アタッチメントシームは、画像と汎用ファイルのバイナリ所有権をセッションログから分離します。生産者はバイト列を ctx.attachments に渡し、サービスはオブジェクトが恒久化",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 4060
+  },
+  {
+    "slug": "subsystems/boot",
+    "title": "プロファイル管理（Boot）",
+    "desc": "bootパッケージ群は、ランチャが提供するprofileへのアクセスとプラグインマネージャを所有します。管理記録はLoader entryとbundle、market記録はプラグイ",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 5744
+  },
+  {
+    "slug": "subsystems/client-resources",
+    "title": "クライアントリソース",
+    "desc": "クライアントリソースモデル（dsh-client-resources）は、Web Clientのコンポーネントに対して「アドレスを生データに変える」仕組みです。ctx.resour",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3884
+  },
+  {
+    "slug": "subsystems/commands",
+    "title": "人間コマンド",
+    "desc": "dsh-commands（packages/interaction/commands）の人間コマンドレジストリサービスは、プラグイン所有のコマンドを正確なエージェントに対して発見し",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3218
+  },
+  {
+    "slug": "subsystems/compaction",
+    "title": "コンパクション",
+    "desc": "会話が長くなったとき、選択した範囲を1つの要約ノードに置き換えて文脈を節約する仕組みです。bash例に倣うcapability seamの分割で、抽象seam（dsh-compac",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3783
+  },
+  {
+    "slug": "subsystems/conversation",
+    "title": "会話組み立て（Conversation Assembly）",
+    "desc": "Conversationは、Clientの SessionEventLikeEntry ウィンドウとブラウザビューの間にあるtarget非依存の組み立て層です。ui-convers",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 6748
+  },
+  {
+    "slug": "subsystems/credentials",
+    "title": "ユーザー認証情報（Credentials）",
+    "desc": "dsh-credentials の認証情報シームは、秘密情報を設定から外します。settingsセクションと cordis.yml の要素は リファレンス（環境変数名）だけを持ち、",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 4344
+  },
+  {
+    "slug": "subsystems/deliverables",
+    "title": "成果物（deliverables）とターンの変更カード",
+    "desc": "1つのターンがユーザーに渡すものを扱うパッケージ群です。大きく2つの顔があります。",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 2653
+  },
+  {
+    "slug": "subsystems/feedback",
+    "title": "メッセージフィードバック",
+    "desc": "@deepseek-ai/dsh-message-feedback は、個々のアシスタントメッセージに対する編集可能なフィードバックを所有します。正典のセッションログは feedb",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 4417
+  },
+  {
+    "slug": "subsystems/goal",
+    "title": "同一セッションのゴール",
+    "desc": "1つのエージェントに「この目的を達成するまで継続すべきか」という方針を持たせるための、イベントソース化されたゴールサービスの語彙です。永続化と活性化の決定はgoalパッケージが所有",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 2693
+  },
+  {
+    "slug": "subsystems/jobs",
+    "title": "背景ジョブランタイム",
+    "desc": "長時間かかる作業（bashの長時間コマンド、委譲、出力ストリーム）を「ジョブ」として登録し、モデルと UI・観察者が安全に読み・止められる仕組みです。型は packages/job",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3382
+  },
+  {
+    "slug": "subsystems/mcp",
+    "title": "MCP",
+    "desc": "Model Context Protocol（MCP）は、外部サーバが提供するツールをモデルへ接続します。構成済みの各サーバは、キャンセル・権限検査・結果記録・画像出力対応を備えた",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3465
+  },
+  {
+    "slug": "subsystems/plan",
+    "title": "プランモード",
+    "desc": "プランモードは dsh-plan-mode が所有するエージェントごとの記録（logged）された協調状態です（ctx.planMode / PlanModeController）",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3810
+  },
+  {
+    "slug": "subsystems/sandbox",
+    "title": "プロセスサンドボックス",
+    "desc": "DSHがコマンドやファイル操作を安全に実行するための「サンドボックス」層の仕組みです。サンドボックスはbash・filesystemといった消費者を特定のOSの実装に結合させない抽",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3540
+  },
+  {
+    "slug": "subsystems/slots",
+    "title": "WebクライアントSlots",
+    "desc": "WebクライアントのUIを、プラグインが安全に拡張するための型付きReact合成システムです。dsh-client-ui-slots がReactに依存しないレジストリと型代数、d",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3044
+  },
+  {
+    "slug": "subsystems/subagent",
+    "title": "サブエージェント",
+    "desc": "1つのエージェントが別のエージェント実行を起て、届け、計測するための統一された活性化（activation）APIです。新規の独立した子会話の起動と、外部実行（他のCLI・DSH ",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3136
+  },
+  {
+    "slug": "subsystems/todo",
+    "title": "Todo",
+    "desc": "エージェントが作業を進める際に自分のタスクリストをモデル経由で書き換えるための、永続的なtodo語彙を扱います。所有者は @deepseek-ai/dsh-tool-todo パッ",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 2018
+  },
+  {
+    "slug": "subsystems/token-meter",
+    "title": "トークンメーター",
+    "desc": "セッションの「いまLLMに送る内容がどのくらいのトークンになっているか」を測定するコンポーネントです。@deepseek-ai/dsh-token-meter は、要求に相当する圧",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3013
+  },
+  {
+    "slug": "subsystems/tools",
+    "title": "ツール実行パイプライン",
+    "desc": "モデルが呼び出したツールが、どのように検証・実行・記録され、UIに届くかを担う中核コンポーネントです。core.md が ToolDefinition をパイプライン共有の型として",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 4674
+  },
+  {
+    "slug": "subsystems/user-questions",
+    "title": "ユーザー質問",
+    "desc": "エージェントが継続前に人間の回答を必要とするとき、ツールや許可プラグインが使うプロバイダ中立の語彙です。所有者は dsh-user-questions パッケージで、エージェントス",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3409
+  },
+  {
+    "slug": "subsystems/workflow",
+    "title": "ワークフロー",
+    "desc": "モデルが書いた編成（orchestration）スクリプトを実行してサブエージェントを起動できる継ぎ目（seam）です。サブエージェントと同じく 1つの任意能力 であってループの一",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3448
+  },
+  {
+    "slug": "subsystems/worktrees",
+    "title": "Git Worktrees",
+    "desc": "実験的な dsh-experimental-worktree サービスが ctx.worktrees を提供します。消費者の create_worktree が新しいGit bra",
+    "cat": "subsystems",
+    "catLabel": "サブシステム",
+    "chars": 3622
+  },
+  {
+    "slug": "ug/context-menu-target",
+    "title": "コンテキスト メニューの型とアイコン（v0.2.2-alpha.2）",
+    "desc": "Client プラグインは、接頭辞付きのコンテキスト メニュー型とフックを使い、キー付きのアイコン コンポーネントを登録するようになります。ターゲットのフィールドと実行時の挙動は変",
+    "cat": "ug",
+    "catLabel": "移行",
+    "chars": 1986
+  },
+  {
+    "slug": "ug/forge-git-permissions",
+    "title": "Forge Git クエリの権限と内容変換（v0.2.2-alpha.2）",
+    "desc": "Forge パネルの Git クエリが、read-only を強制する代わりに Session のサンドボックス モードを使うようになります。Git 2.31 以上のホストでは、ロ",
+    "cat": "ug",
+    "catLabel": "移行",
+    "chars": 1817
+  },
+  {
+    "slug": "ug/github-review",
+    "title": "GitHub Web フックからレビュー セッションを作る",
+    "desc": "dsh web に実験的なオーバーレイを入れると、署名付きの GitHub エンドポイントが追加されます。設定したリポジトリの PR がドラフトから ready for revie",
+    "cat": "ug",
+    "catLabel": "移行",
+    "chars": 3302
+  },
+  {
+    "slug": "ug/llm-request-purposes",
+    "title": "補助 LLM 要求の purpose を宣言する（v0.2.2-alpha.2）",
+    "desc": "補助的な LLM 要求の purpose が、共有の固定 union から「プロデューサ所有の型宣言」に変わります。宣言結合（declaration merge）で目的のキーを広げ",
+    "cat": "ug",
+    "catLabel": "移行",
+    "chars": 1722
+  },
+  {
+    "slug": "ug/mcp-memory",
+    "title": "サードパーティのメモリ MCP サーバをつなぐ",
+    "desc": "既定で無効になっている参照設定3種のうちの1つを使うと、1つのメモリ システムを @deepseek-ai/dsh-mcp-client を経由して DSH につなげられます。1つ",
+    "cat": "ug",
+    "catLabel": "移行",
+    "chars": 4203
+  },
+  {
+    "slug": "ug/model-listing-refresh",
+    "title": "モデル一覧が自動で更新される（v0.2.1-rc.4）",
+    "desc": "DeepSeek のアカウント・API キー各経路が、初回使用後からモデル一覧を自動更新するようになります。アイドル中も更新は続きます。",
+    "cat": "ug",
+    "catLabel": "移行",
+    "chars": 1687
+  },
+  {
+    "slug": "ug/public-deployments",
+    "title": "Web UI をリバース プロキシで公開する",
+    "desc": "dsh --profile web は GUI をループバックのポートで配信するため、他マシンのブラウザは届かず、プロセスは自分の使うアドレスを知りません。前面のリバース プロキシ",
+    "cat": "ug",
+    "catLabel": "移行",
+    "chars": 2637
+  },
+  {
+    "slug": "ug/schedule-agent-tools",
+    "title": "Schedule ツールが RRULE と実行先で全 Host タスクを管理する（v0.2.2-alpha.2）",
+    "desc": "Schedule のモデル向けツールが schedule_create・schedule_list・schedule_view・schedule_edit の4本構成に変わります。",
+    "cat": "ug",
+    "catLabel": "移行",
+    "chars": 3224
+  },
+  {
+    "slug": "ug/schedule-remote-host-tasks",
+    "title": "Schedule はホスト全体の1つの管理 API を使う（v0.2.2-alpha.2）",
+    "desc": "Schedule の管理が id で任意の Host タスクを扱うようになり、ネイティブ API と Remote API が1つのサービスを共有します。",
+    "cat": "ug",
+    "catLabel": "移行",
+    "chars": 2440
+  },
+  {
+    "slug": "ug/sdk-run-commands",
+    "title": "SDK の run がネイティブ コマンドを受け付ける（v0.2.2-alpha.2）",
+    "desc": "Python と TypeScript の run() が文字列とコンテンツ ブロック配列を受け付け、入力の完了後つねに RunResult を返すように変わりました。",
+    "cat": "ug",
+    "catLabel": "移行",
+    "chars": 2299
+  }
+]

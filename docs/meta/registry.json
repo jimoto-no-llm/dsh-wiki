@@ -309,414 +309,414 @@
   },
   "guide/plugin-market": {
     "t": "plugin-market",
-    "d": ""
+    "d": "プラグイン索引（plugin index）は、インストール可能なDSHバンドルをタイトル・アイコン・作者・版つき"
   },
   "guide/python-sdk": {
     "t": "python-sdk",
-    "d": ""
+    "d": "公開済みのPython SDKを入れ、同梱のスタンドアローンミニマルプロファイルを実行し、自分のプログラムから同"
   },
   "guide/network-proxy": {
     "t": "network-proxy",
-    "d": ""
+    "d": "Dshは外向きの要求（モデル呼び出し、Web検索、ページ取得、HTTP経由のMCPサーバ）を、標準のプロキシ環境"
   },
   "guide/getting-started": {
     "t": "getting-started",
-    "d": ""
+    "d": "DSH（DeepSeek Harness）は、DeepSeek AI が開発するオープンソースのエージェントハー"
   },
   "develop/adding-a-package": {
     "t": "ワークスペースパッケージ追加ガイド",
-    "d": ""
+    "d": "新しい @deepseek-ai/dsh-＼name］ パッケージ追加の file-by-file checkl"
   },
   "develop/adding-a-plugin-preview": {
     "t": "Plugin feature preview 追加ガイド",
-    "d": ""
+    "d": "bundle の detail ドキュメント（Plugins ページで description の下に表示される"
   },
   "develop/adding-a-remote-api": {
     "t": "Remote API 追加ガイド",
-    "d": ""
+    "d": "ctx.remote endpoint を追加・変更する 5 step（宣言・障害宣言・パッケージ登録・Clie"
   },
   "develop/adding-a-session-format-version": {
     "t": "Session ログフォーマットバージョン追加ガイド",
-    "d": ""
+    "d": "公開済みデータを書き換えずに、次の Session ログフォーマットバージョンを導入する。version/sta"
   },
   "develop/adding-a-settings-card": {
     "t": "ライブ設定フォーム（settings card）追加ガイド",
-    "d": ""
+    "d": "プラグインの Config schema でライブフィールド（Volatile）を宣言し、製品所有の setti"
   },
   "develop/adding-a-tool": {
     "t": "ツール実装リファレンス",
-    "d": ""
+    "d": "モデル向けツール（model-facing tool）が満たすべき契約を確認する。順序立てた最初の一本は \"Bu"
   },
   "develop/adding-a-vendored-package": {
     "t": "Vendored パッケージ追加ガイド",
-    "d": ""
+    "d": "Harness が別の upstream Cordis パッケージ（例 @cordisjs/plugin-htt"
   },
   "develop/adding-an-llm-adapter": {
     "t": "LLM アダプタ追加ガイド",
-    "d": ""
+    "d": "新しいモデルプロバイダを接続する方法を確認する。リファレンス実装は packages/llm/llm-deeps"
   },
   "develop/extension-cookbook": {
     "t": "拡張プラグインの形態ガイド",
-    "d": ""
+    "d": "Harness の拡張（ツールプラグイン／フックプラグイン／UIプラグイン／外部プロトコルドライバ）を書くときの"
   },
   "develop/reviewing-persistence-type-changes": {
     "t": "persistence 型変更 review ガイド",
-    "d": ""
+    "d": "宣言済み Session persistence 型を contributor checkout で変更した後、"
   },
   "subsystems/agent-team": {
     "t": "エージェントチーム（Agent Teams）",
-    "d": ""
+    "d": "実験的な暗黙ルートTeamドメイン、モデルツール、ホストアダプタが共有する型を記録するページです（package"
   },
   "subsystems/approval": {
     "t": "ユーザー承認",
-    "d": ""
+    "d": "dsh-user-approval パッケージのユーザー承認シームは、「この特定のアクションを進めてよいか」とい"
   },
   "subsystems/attachment": {
     "t": "恒久アタッチメント（Durable Attachments）",
-    "d": ""
+    "d": "アタッチメントシームは、画像と汎用ファイルのバイナリ所有権をセッションログから分離します。生産者はバイト列を c"
   },
   "subsystems/boot": {
     "t": "プロファイル管理（Boot）",
-    "d": ""
+    "d": "bootパッケージ群は、ランチャが提供するprofileへのアクセスとプラグインマネージャを所有します。管理記録"
   },
   "subsystems/client-resources": {
     "t": "クライアントリソース",
-    "d": ""
+    "d": "クライアントリソースモデル（dsh-client-resources）は、Web Clientのコンポーネントに"
   },
   "subsystems/commands": {
     "t": "人間コマンド",
-    "d": ""
+    "d": "dsh-commands（packages/interaction/commands）の人間コマンドレジストリサ"
   },
   "subsystems/conversation": {
     "t": "会話組み立て（Conversation Assembly）",
-    "d": ""
+    "d": "Conversationは、Clientの SessionEventLikeEntry ウィンドウとブラウザビュ"
   },
   "subsystems/credentials": {
     "t": "ユーザー認証情報（Credentials）",
-    "d": ""
+    "d": "dsh-credentials の認証情報シームは、秘密情報を設定から外します。settingsセクションと c"
   },
   "subsystems/feedback": {
     "t": "メッセージフィードバック",
-    "d": ""
+    "d": "@deepseek-ai/dsh-message-feedback は、個々のアシスタントメッセージに対する編集"
   },
   "subsystems/mcp": {
     "t": "MCP",
-    "d": ""
+    "d": "Model Context Protocol（MCP）は、外部サーバが提供するツールをモデルへ接続します。構成済"
   },
   "subsystems/plan": {
     "t": "プランモード",
-    "d": ""
+    "d": "プランモードは dsh-plan-mode が所有するエージェントごとの記録（logged）された協調状態です（"
   },
   "subsystems/worktrees": {
     "t": "Git Worktrees",
-    "d": ""
+    "d": "実験的な dsh-experimental-worktree サービスが ctx.worktrees を提供しま"
   },
   "deep/agent-lifecycle": {
     "t": "エージェントライフサイクル",
-    "d": ""
+    "d": "この文書はエージェントのターン（turn）とステップ（step）がどう駆動されるかを、アーキテクチャのターンフロ"
   },
   "deep/api-gateway": {
     "t": "APIゲートウェイ",
-    "d": ""
+    "d": "Typert API Gatewayの現状リファレンスです。ビジネスサービスがunary（一元呼び出し）とstr"
   },
   "deep/cordis-primer": {
     "t": "Cordisの基礎",
-    "d": ""
+    "d": "CordisはDeepSeek Harnessの下にvendoredされたプラグインフレームワークです。この入門"
   },
   "deep/deepseek-llm-api-wire-extensions": {
     "t": "DeepSeek LLM APIのワイヤ拡張",
-    "d": ""
+    "d": "@deepseek-ai/dsh-llm-deepseek が、deepseek-official のMessa"
   },
   "deep/development": {
     "t": "開発の流れ",
-    "d": ""
+    "d": "セットアップ手順が新しいコントリビュータを前提条件から確認済みチェックアウトまで連れて行き、後続のコントリビュー"
   },
   "deep/glossary": {
     "t": "用語集",
-    "d": ""
+    "d": "DeepSeek Harnessのドメイン語彙です。1つの概念に1つの正規の用語を定め、用語どうしは標準的なMa"
   },
   "deep/graph-atlas": {
     "t": "依存グラフの構造",
-    "d": ""
+    "d": "DeepSeek Harnessの文書群は、生成カタログが示さない関係性を示す図で補います。パッケージの依存、c"
   },
   "deep/rescope": {
     "t": "rescope の仕組み",
-    "d": ""
+    "d": "Cordisフレームワークとその基盤ライブラリは vendor/ の下にvendoredされ、@deepseek"
   },
   "deep/testing": {
     "t": "開発のテスト",
-    "d": ""
+    "d": "このリポジトリがどうテストするかを階層別に示し、緑のスイートが意味を保つための規則をまとめます。コマンド自体はル"
   },
   "rdsh/dw2/budget-control": {
     "t": "予算アドミッション制御（#45）",
-    "d": ""
+    "d": "検証済みの DSH 0.2.0-rc.2 ACP adapter に、オプトインのソフト警告とハードなアドミッシ"
   },
   "rdsh/dw2/mobile-overview": {
     "t": "モバイル向けプロジェクト・タスク概要",
-    "d": ""
+    "d": "プロジェクトdashboardの開始画面は いまの状況 を示します。プロジェクト/タスクのcontext、現 e"
   },
   "rdsh/dw2/pr-workflow": {
     "t": "PR対応フロー",
-    "d": ""
+    "d": "正本は jimoto-no-llm/rustdsh です。受付・レビュー・準備・マージ判定を分け、レビューと検証"
   },
   "rdsh/dw2/project-setup": {
     "t": "リポジトリ設定 (Project settings)",
-    "d": ""
+    "d": "正本のリポジトリは jimoto-no-llm/rustdsh です。リポジトリのメタデータと必須チェックの意図"
   },
   "rdsh/dw2/projects": {
     "t": "プロジェクト管理 (Projects)",
-    "d": ""
+    "d": "rustdsh の作業の追跡方法です。issueが正本で、ROADMAP.md は方向を示し、milestone"
   },
   "rdsh/dw2/question-contracts": {
     "t": "版付き質問カード (Versioned question cards)",
-    "d": ""
+    "d": "プロジェクトdashboardは、通常の相談と明示的な承認要求を dashboard_ask_question "
   },
   "rdsh/dw2/releasing": {
     "t": "リリース手順 (Releasing)",
-    "d": ""
+    "d": "正本のリポジトリは jimoto-no-llm/rustdsh です。セマンティックバージョニングと注釈付きタグ"
   },
   "rdsh/dw2/roadmap": {
     "t": "ロードマップ",
-    "d": ""
+    "d": "約束ではなく方向性です。項目は誰かがPRを出すと動きます。PROJECTS.md の管理下で、このファイルは方向"
   },
   "rdsh/dw2/rust-migration": {
     "t": "JS→Rustの段階的移行",
-    "d": ""
+    "d": "まずworkflow-boardのソースパッチ準備処理を移しました。src/workflow_patch.rs "
   },
   "rdsh/dw2/scoped-stop": {
     "t": "スコープ付き段階停止 (Scoped staged stop)",
-    "d": ""
+    "d": "管理されたACPとWeb profileの起動は、runごとに1つのカーネルプロセスグループを所有します。DSH"
   },
   "rdsh/dw2/webui-asset-cache": {
     "t": "Webシェル資産キャッシュ — 実装契約",
-    "d": ""
+    "d": "rdsh が起動時にシェル資産を Rustで事前圧縮し、DSH側の小さなプラグインがそれを配信します。Nodeは"
   },
   "rdsh/dw2/worker-workspaces": {
     "t": "ワーカースコープとworktreeのリース",
-    "d": ""
+    "d": "rdsh-dashboard workers はワーカーごとにGitのチェックアウトとブランチを割り当て、読み取"
   },
   "reference/config/dsh-compaction-basic": {
     "t": "`@deepseek-ai/dsh-compaction-basic` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-compaction-basic はベーシックなコンパクション（要約・圧縮）プ"
   },
   "reference/config/dsh-fs-local": {
     "t": "`@deepseek-ai/dsh-fs-local` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-fs-local はローカルファイルシステムバックエンドの実装プラグインです。"
   },
   "reference/config/dsh-goal": {
     "t": "`@deepseek-ai/dsh-goal` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-goal は、ゴール（goal）機能の「作成時デフォルト」を供給するプラグイン"
   },
   "reference/config/dsh-hmr": {
     "t": "`@deepseek-ai/dsh-hmr` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-hmr はプロファイル設定のホットリロード（HMR）を担う起動系プラグインです"
   },
   "reference/config/dsh-jobs-local": {
     "t": "`@deepseek-ai/dsh-jobs-local` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-jobs-local はプロセス内（process-local）のジョブレジス"
   },
   "reference/config/dsh-llm-pi-ai": {
     "t": "`@deepseek-ai/dsh-llm-pi-ai` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-llm-pi-ai は pi-ai ベースの LLM アダプタで、このインスタ"
   },
   "reference/config/dsh-mcp-client": {
     "t": "`@deepseek-ai/dsh-mcp-client` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-mcp-client は MCP（Model Context Protocol"
   },
   "reference/config/dsh-plugin-manager": {
     "t": "`@deepseek-ai/dsh-plugin-manager` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-plugin-manager は、pnpm ベースのプラグインマネージャとして"
   },
   "reference/config/dsh-schedule": {
     "t": "`@deepseek-ai/dsh-schedule` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-schedule は Host Schedule ドメイン（リマインダー・定期"
   },
   "reference/config/dsh-web-app": {
     "t": "`@deepseek-ai/dsh-web-app` の設定（`dsh-web` シームを含む）",
-    "d": ""
+    "d": "Web GUI 周辺の設定は2段に分かれます。"
   },
   "ug/context-menu-target": {
     "t": "コンテキスト メニューの型とアイコン（v0.2.2-alpha.2）",
-    "d": ""
+    "d": "Client プラグインは、接頭辞付きのコンテキスト メニュー型とフックを使い、キー付きのアイコン コンポーネン"
   },
   "ug/forge-git-permissions": {
     "t": "Forge Git クエリの権限と内容変換（v0.2.2-alpha.2）",
-    "d": ""
+    "d": "Forge パネルの Git クエリが、read-only を強制する代わりに Session のサンドボックス"
   },
   "ug/github-review": {
     "t": "GitHub Web フックからレビュー セッションを作る",
-    "d": ""
+    "d": "dsh web に実験的なオーバーレイを入れると、署名付きの GitHub エンドポイントが追加されます。設定し"
   },
   "ug/llm-request-purposes": {
     "t": "補助 LLM 要求の purpose を宣言する（v0.2.2-alpha.2）",
-    "d": ""
+    "d": "補助的な LLM 要求の purpose が、共有の固定 union から「プロデューサ所有の型宣言」に変わりま"
   },
   "ug/mcp-memory": {
     "t": "サードパーティのメモリ MCP サーバをつなぐ",
-    "d": ""
+    "d": "既定で無効になっている参照設定3種のうちの1つを使うと、1つのメモリ システムを @deepseek-ai/ds"
   },
   "ug/model-listing-refresh": {
     "t": "モデル一覧が自動で更新される（v0.2.1-rc.4）",
-    "d": ""
+    "d": "DeepSeek のアカウント・API キー各経路が、初回使用後からモデル一覧を自動更新するようになります。アイ"
   },
   "ug/public-deployments": {
     "t": "Web UI をリバース プロキシで公開する",
-    "d": ""
+    "d": "dsh --profile web は GUI をループバックのポートで配信するため、他マシンのブラウザは届かず"
   },
   "ug/schedule-agent-tools": {
     "t": "Schedule ツールが RRULE と実行先で全 Host タスクを管理する（v0.2.2-alpha.2）",
-    "d": ""
+    "d": "Schedule のモデル向けツールが schedule_create・schedule_list・schedu"
   },
   "ug/schedule-remote-host-tasks": {
     "t": "Schedule はホスト全体の1つの管理 API を使う（v0.2.2-alpha.2）",
-    "d": ""
+    "d": "Schedule の管理が id で任意の Host タスクを扱うようになり、ネイティブ API と Remot"
   },
   "ug/sdk-run-commands": {
     "t": "SDK の run がネイティブ コマンドを受け付ける（v0.2.2-alpha.2）",
-    "d": ""
+    "d": "Python と TypeScript の run が文字列とコンテンツ ブロック配列を受け付け、入力の完了後つ"
   },
   "develop2/maintaining-dsh-code-review": {
     "t": "dsh-code-review skill の保守ガイド",
-    "d": ""
+    "d": "dsh-code-review skill を現状に保つ、担当オペレータのための workflow を確認する。"
   },
   "develop2/responding-to-pr-review-on-a-stack": {
     "t": "依存 stack PR チェーンをまたぐ review 対応ガイド",
-    "d": ""
+    "d": "依存した PR stack（A ← B ← C …）の複数 PR に review comment が付いたとき"
   },
   "deep2/capability-seams": {
     "t": "Capability Seams とコアサービス（capability-seams.md 深掘り）",
-    "d": ""
+    "d": "上流の docs/capability-seams.md は scripts/gen-doc-graphs.ts"
   },
   "deep2/cordis-fiber": {
     "t": "Cordis Fiber（cordis-api/fiber.md 深掘り）",
-    "d": ""
+    "d": "上流の docs/cordis-api/fiber.md は、vendor/cordis の Fiber に関す"
   },
   "deep2/defensive-patterns": {
     "t": "防御パターン（defensive-patterns/ 深掘り）",
-    "d": ""
+    "d": "上流の docs/defensive-patterns/ は、実際に出荷済ま、あるいは出荷寸前だった欠陥クラスを"
   },
   "deep2/event-producer-consumer": {
     "t": "イベント生成元・消費者マトリクス（event-producer-consumer.md 深掘り）",
-    "d": ""
+    "d": "上流の docs/event-producer-consumer.md は Harness 保有イベントの一覧で"
   },
   "deep2/experimental-persistence-catalog": {
     "t": "実験系 Plugin Record Catalog（experimental-persistence-catalog.md 深掘り）",
-    "d": ""
+    "d": "上流の docs/experimental-persistence-catalog.md は experimen"
   },
   "deep2/persistence-catalog": {
     "t": "Session Persistence Event Catalog（persistence-catalog.md 深掘り）",
-    "d": ""
+    "d": "上流の docs/persistence-catalog.md は9000行規模の生成カタログで、リポジトリが宣"
   },
   "deep2/postmortems": {
     "t": "ポストモーテム（postmortem/ 深掘り）",
-    "d": ""
+    "d": "上流の docs/postmortem/ は障害の後事録です。バグが本来あるべきでない場所（実際のユーザ、"
   },
   "deep2/session-format-status": {
     "t": "Session 形式バージョンとリリース状態（session-format-status.md 深掘り）",
-    "d": ""
+    "d": "上流の docs/session-format-status.md は、Session 形式の「checkout"
   },
   "deep2/tool-catalog": {
     "t": "ツールスキーマカタログ（tool-catalog.md 深掘り）",
-    "d": ""
+    "d": "上流の docs/tool-catalog.md は、出荷済みプラグインが ctx.tools に提供する「モデ"
   },
   "deep2/web-styling": {
     "t": "Web UI Style Reference（web-styling.md 深掘り）",
-    "d": ""
+    "d": "上流の docs/web-styling.md は、ブラウザクライアントパッケージのスタイルの所有権と"
   },
   "rdsh/src/auth": {
     "t": "auth — 外部ログインの自動認識とミラー（src/auth.rs）",
-    "d": ""
+    "d": "Codex CLI と opencode の外部ログイン情報を自動で認識し、rdsh 側の唯一の書き込み可能な認"
   },
   "rdsh/src/compact": {
     "t": "compact — セッション転写のトークン圧縮（src/compact.rs）",
-    "d": ""
+    "d": "JSONL セッション転写を読み込み、トークン予算内に抑えて標準出力へ返します。ソースファイルは変更しません（c"
   },
   "rdsh/src/context_hook": {
     "t": "context_hook — hooks.json への注入フック登録（src/context_hook.rs）",
-    "d": ""
+    "d": "rdsh context inject を DSH の Claude Code 方言設定 hooks.json "
   },
   "rdsh/src/deps": {
     "t": "deps — 静的依存グラフの近似インデックス（src/deps.rs）",
-    "d": ""
+    "d": "リポジトリを決定論的・オフラインの静的解析で近似し、関連ファイルやシンボルの参照を rdsh deps コマンド"
   },
   "rdsh/src/dsh_args": {
     "t": "dsh_args — 起動引数の分割（src/dsh_args.rs）",
-    "d": ""
+    "d": "rdsh が受け取った引数を、本家 dsh（lib/bin.js）互換の意味論に沿って起動フラグと内部アプリ引数"
   },
   "rdsh/src/file_security": {
     "t": "file_security — no-follow による安全なリポジトリ読み取り（src/file_security.rs）",
-    "d": ""
+    "d": "リポジトリ配下のファイルを、no-follow とディレクトリ相対ハンドルで安全に読むための capabilit"
   },
   "rdsh/src/local_http": {
     "t": "local_http — ローカル HTTP の最小実装（src/local_http.rs）",
-    "d": ""
+    "d": "dashboard などが使うローカル HTTP サーバの共通部を提供するモジュールです。上限つきのリクエストパ"
   },
   "rdsh/src/models_auto": {
     "t": "models_auto — provider モデルの定期リフレッシュ（src/models_auto.rs）",
-    "d": ""
+    "d": "rdsh models sync はプロファイルの provider ブロックを provider 自身が広告す"
   },
   "rdsh/src/passthrough": {
     "t": "passthrough — 本家 dsh への drop-in 委譲（src/passthrough.rs）",
-    "d": ""
+    "d": "rdsh を dsh として振る舞わせ、実際の処理は本家 dsh（lib/bin.js）に委譲するモジュールです"
   },
   "rdsh/src/search": {
     "t": "search — ネイティブ再帰 grep（src/search.rs）",
-    "d": ""
+    "d": "リポジトリ配下を再帰的に走査して部分文字列を探すネイティブ grep です。hidden ディレクトリと ven"
   },
   "rdsh/src/serve": {
     "t": "serve — ローカル dashboard（src/serve.rs）",
-    "d": ""
+    "d": "rdsh serve で起動する bounded な local dashboard です。127.0.0.1 "
   },
   "rdsh/src/token_handoff": {
     "t": "token_handoff — bearer token のファイル渡し（src/token_handoff.rs）",
-    "d": ""
+    "d": "プロセスごとの bearer-token handoff を、credential を argv・ログへ出さない"
   },
   "reference/config/dsh-agent-loop": {
     "t": "`@deepseek-ai/dsh-agent-loop` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-agent-loop はエージェントループ本体のプラグインで、1ステップあたり"
   },
   "reference/config/dsh-bash-local": {
     "t": "`@deepseek-ai/dsh-bash-local` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-bash-local はローカルの bash 実行体（executor）で、シ"
   },
   "reference/config/dsh-compaction-tool-result-pruner": {
     "t": "`@deepseek-ai/dsh-compaction-tool-result-pruner` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-compaction-tool-result-pruner は、決定論的（de"
   },
   "reference/config/dsh-pwsh-local": {
     "t": "`@deepseek-ai/dsh-pwsh-local` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-pwsh-local はローカルの PowerShell（pwsh）実行体（e"
   },
   "reference/config/dsh-sandbox-policy": {
     "t": "`@deepseek-ai/dsh-sandbox-policy` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-sandbox-policy は、デプロイメントのファイル砂箱（sandbox"
   },
   "reference/config/dsh-session-telemetry-otel": {
     "t": "`@deepseek-ai/dsh-session-telemetry-otel` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-session-telemetry-otel は、OpenTelemetry（"
   },
   "reference/config/dsh-shell-env": {
     "t": "`@deepseek-ai/dsh-shell-env` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-shell-env は、シェル環境に面する既定値を供給するプラグインです。設定"
   },
   "reference/config/dsh-subagent": {
     "t": "`@deepseek-ai/dsh-subagent` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-subagent は、続行可能（continuable）なサブエージェントの容"
   },
   "reference/config/dsh-terminal-bash": {
     "t": "`@deepseek-ai/dsh-terminal-bash` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-terminal-bash は対話シェル（ターミナル）を束ねるプラグインで、シ"
   },
   "reference/config/dsh-time-context": {
     "t": "`@deepseek-ai/dsh-time-context` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-time-context は、リクエスト（ターン）準備時の時刻の表示と、コンテ"
   },
   "reference/config/dsh-web-fetch-http": {
     "t": "`@deepseek-ai/dsh-web-fetch-http` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-web-fetch-http は HTTP fetch を担う web プロバ"
   },
   "reference/config/dsh-web-search-deepseek": {
     "t": "`@deepseek-ai/dsh-web-search-deepseek` の設定",
-    "d": ""
+    "d": "@deepseek-ai/dsh-web-search-deepseek は、DeepSeek の API と "
   }
 }

@@ -1,78 +1,136 @@
 ---
-import SearchBox from "../components/SearchBox.tsx";
-import pages from "../data/pages.json";
+import Search from "../components/Search.tsx";
+import articles from "../data/articles.json";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/noto-sans-jp";
 import "@fontsource-variable/jetbrains-mono";
-import "../styles/ui.css";
+import "../styles/wiki.css";
 
-const groups = [
-  { key: "guide",             label: "DSH を使う" },
-  { key: "subsystems",        label: "サブシステム（内部）" },
-  { key: "reference-config",  label: "設定の詳細" },
-  { key: "rdsh",              label: "rustdsh（rdsh）" },
-  { key: "rdsh-cmd",          label: "rustdsh コマンド詳細" },
-  { key: "rdsh-src",          label: "rustdsh ソース読解" },
-  { key: "rdsh-dw2",          label: "rustdsh 計画と運用" },
-  { key: "rdsh-dw",           label: "rustdsh 調査メモ" },
-  { key: "reference-cli",     label: "CLI リファレンス" },
-  { key: "reference",         label: "その他のリファレンス" },
-  { key: "develop",           label: "開発ガイド（cookbook）" },
-  { key: "develop2",          label: "開発ガイド（ レビュー運用）" },
-  { key: "deep",              label: "深掘り（上流大物）" },
-  { key: "deep2",             label: "深掘り2（構造と実録）" },
-  { key: "ug",                label: "ガイド補遺と移行" },
-  { key: "meta",              label: "メタ" },
-].map((g) => ({
-  ...g,
-  items: pages.filter((p) => p.cat === g.key).sort((a, b) => a.name.localeCompare(b.name, "ja")),
-}));
+const BASE = "http://127.0.0.1:4400/"; // 未使用（リンクは全部 /slug）
+
+const bySlug = (s: string) => articles.find((a) => a.slug === s);
+const picks = [
+  "guide/getting-started",
+  "guide/profiles",
+  "rdsh/overview",
+  "subsystems/approval",
+  "deep/cordis-primer",
+  "reference/faq",
+].map(bySlug).filter(Boolean);
+
+const CATS = [
+  ["guide", "DSH を使う"],
+  ["subsystems", "サブシステム"],
+  ["config", "設定の詳細"],
+  ["cli", "CLI リファレンス"],
+  ["reference", "リファレンス"],
+  ["rdsh", "rustdsh"],
+  ["rdsh-cmd", "rustdsh コマンド"],
+  ["rdsh-src", "rustdsh ソース読解"],
+  ["rdsh-dw", "rustdsh 調査"],
+  ["rdsh-dw2", "rustdsh 運用"],
+  ["develop", "開発ガイド"],
+  ["develop2", "レビュー"],
+  ["deep", "深掘り"],
+  ["deep2", "深掘り 2"],
+  ["ug", "移行"],
+  ["meta", "メタ"],
+] as const;
+const groups = CATS.map(([key, label]) => ({
+  key, label,
+  items: articles.filter((a) => a.cat === key).sort((a, b) => a.title.localeCompare(b.title, "ja")),
+})).filter((g) => g.items.length > 0);
 ---
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DSH 日本語Wiki — UIプレビュー</title>
+  <title>DSH 日本語Wiki</title>
+  <script is:inline>
+    (() => {
+      const s = localStorage.getItem("dsh-theme");
+      const dark = s ? s === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.dataset.theme = dark ? "dark" : "light";
+    })();
+  </script>
 </head>
 <body>
-  <header class="topbar">
-    <a class="logo" href="#">DSH 日本語Wiki</a>
-    <nav>
-      <a href="#">最近の編集</a>
-      <a href="#">ページを編集</a>
+  <div class="shell">
+    <header class="site">
+      <a class="logo" href="/">DSH 日本語Wiki</a>
+      <div class="searchbox">
+        <Search client:load />
+      </div>
+      <div class="header-right">
+        <a href="/all">全記事</a>
+        <button type="button" id="theme-btn">◐ テーマ</button>
+      </div>
+    </header>
+    <nav class="tabs" aria-label="表示">
+      <a class="on" href="/">閲覧</a>
+      <a href="/all">全記事</a>
+      <a href="https://github.com/jimoto-no-llm/dsh-wiki" rel="noopener">ソース</a>
+      <a href="https://github.com/jimoto-no-llm/dsh-wiki/issues" rel="noopener">フィードバック</a>
     </nav>
-  </header>
 
-  <section class="search-hero">
-    <div class="wiki-mark"><b>DSH</b> 日本語Wiki</div>
-    <p class="lead">
-      DeepSeek Harness（DSH）と rustdsh の非公式ドキュメント。<br />アカウント不要で、保存するとすぐ公開されます。
-    </p>
-    <SearchBox client:load />
-    <p class="hint">まず読むなら <a href="#">「はじめに」</a>　·　新しいページは <a href="#">作成フォーム</a> から</p>
-  </section>
+    <article>
+      <h1 class="article">DSH 日本語Wiki</h1>
+      <p class="meta">
+        <span>{articles.length} 記事</span>
+        <span>·</span>
+        <span>最終更新 {new Date().toISOString().slice(0,10)}</span>
+      </p>
 
-  <section style="margin-top:24px">
-    <div class="cat-grid">
+      <div class="prose">
+        <p>
+          <b>DSH 日本語Wiki</b>は、DeepSeek Harness（<a href="https://github.com/deepseek-ai/deepseek-harness" rel="noopener">deepseek-harness</a>）と <a href="https://github.com/jimoto-no-llm/rustdsh" rel="noopener">rustdsh</a> を日本語で解説する<b>非公式</b>ドキュメントです。
+          編集にアカウントは不要で、保存するとすぐ公開されます。各記事は上流のソースに基づき、末尾に<b>出典</b>を置いています。
+        </p>
+        <p>
+          はじめての場合は、下の「まず読む」を上からお読みください。DSH の使い方から、rustdsh の内部まで一通り分かります。
+        </p>
+      </div>
+
+      <section>
+        <h2 class="cat-h" style="font-size:1.05rem;border-bottom:1px solid var(--line);padding-bottom:0.3rem;">まず読む</h2>
+        <ul class="readlist">
+          {picks.map((p) => (
+            <li>
+              <a href={"/" + p!.slug}>
+                <span>{p!.title}</span>
+                <span class="d">{p!.desc}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {groups.map((g) => (
-        <div class="cat-box" class:list={{ wide: g.items.length >= 10 }}>
-          <h2>{g.label} <span>{g.items.length}</span></h2>
-          <ul class:list={{ cols: g.items.length >= 8 }}>
-            {g.items.map((p) => (
-              <li>
-                <a href={"/w/" + p.slug}>{p.name}</a>
-                <span class="dsc">{p.desc}</span>
-              </li>
+        <section>
+          <h2 class="cat-h">{g.label} <span>（{g.items.length}）</span></h2>
+          <ul class="toccols">
+            {g.items.map((a) => (
+              <li><a href={"/" + a.slug}>{a.title}</a></li>
             ))}
           </ul>
-        </div>
+        </section>
       ))}
-    </div>
-  </section>
+    </article>
 
-  <footer>
-    事実は条件つきで書く · 出典を残す · 非公式（プロジェクト名に「DeepSeek Harness」は使わない） · <a href="#">ルールと編集のしかた</a> · MIT · unslop guidance by @heydamir (CC BY 4.0)
-  </footer>
+    <footer class="sitedone">
+      事実は条件つきで書く · 出典を残す · 本Wikiは非公式（プロジェクト名に「DeepSeek Harness」は使わない）<br />
+      コンテンツは MIT · デザインは <a href="https://github.com/heydamir/unslop">unslop</a> by @heydamir（CC BY 4.0）を参照 · ソースは <a href="https://github.com/jimoto-no-llm/dsh-wiki">GitHub</a>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("theme-btn")?.addEventListener("click", () => {
+      const cur = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+      const next = cur === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = next;
+      localStorage.setItem("dsh-theme", next);
+    });
+  </script>
 </body>
 </html>

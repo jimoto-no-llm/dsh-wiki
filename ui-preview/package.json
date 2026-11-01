@@ -4,8 +4,9 @@
   "type": "module",
   "version": "0.1.0",
   "scripts": {
-    "dev": "astro dev --port 4331",
-    "build": "astro build",
+    "prepare": "node scripts/prepare-content.mjs",
+    "dev": "node scripts/prepare-content.mjs && astro dev --port 4331",
+    "build": "node scripts/prepare-content.mjs && astro build",
     "preview": "astro preview --port 4332"
   },
   "dependencies": {
