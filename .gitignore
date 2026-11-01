@@ -1,3 +1,4 @@
-node_modules/
 docs/.vitepress/dist/
 docs/.vitepress/cache/
+.wrangler/
+node_modules/
