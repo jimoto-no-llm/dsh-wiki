@@ -11,36 +11,34 @@ import "../styles/ui.css";
 </head>
 <body>
   <header class="topbar">
-    <a class="logo" href="#">DSH 日本語Wiki<span>プレビュー（ローカルのみ）</span></a>
+    <a class="logo" href="#">DSH 日本語Wiki<span>ローカルプレビュー</span></a>
     <nav>
       <a href="#">はじめに</a>
       <a href="#">rustdsh とは</a>
-      <a href="#" class="primary">ページを編集</a>
+      <a href="#">最近の編集</a>
+      <a href="#">ページを編集</a>
     </nav>
   </header>
 
   <section class="hero">
-    <div style="flex:1; min-width:300px">
-      <h1>誰でも書ける <em>DSH</em> 日本語Wiki</h1>
-      <p class="lead">
-        アカウント不要で編集・新規作成でき、保存すると即公開される（履歴つき）。
-        DeepSeek Harness（DSH）と rustdsh の非公式ドキュメントを、みんなでたてます。
-      </p>
-      <div class="cta">
-        <a class="solid" href="#">はじめに読む</a>
-        <a href="#">rustdsh とは</a>
-        <a href="#">最近の編集を見る</a>
-      </div>
+    <h1>誰でも書ける <em>DSH</em> 日本語Wiki</h1>
+    <p class="lead">
+      DeepSeek Harness（DSH）と rustdsh の非公式ドキュメント。
+      編集にアカウントはいらず、保存すると即公開され、履歴が残ります。
+    </p>
+    <div class="cta">
+      <a class="solid" href="#">はじめに読む</a>
+      <a class="ghost" href="#">最近の編集</a>
+      <a class="cta-muted" href="#">編集のしかた（CONTRIBUTING）</a>
     </div>
-    <div style="display:flex; gap:14px; flex-wrap:wrap">
+    <div class="stats">
       <div class="stat"><b>13</b><span>ページ</span></div>
-      <div class="stat"><b>不要</b><span>編集にアカウント</span></div>
-      <div class="stat"><b>30版</b><span>自動保存の履歴</span></div>
+      <div class="stat"><b>30</b><span>版まで自動保存</span></div>
     </div>
   </section>
 
-  <section style="margin-top:40px">
-    <h2 style="font-size:18px; margin:0 0 12px">ページカタログ</h2>
+  <section style="margin-top:32px">
+    <h2 style="font-size:15px; font-weight:500; margin:0 0 12px">ページカタログ</h2>
     <PageTable client:load />
   </section>
 
@@ -54,17 +52,18 @@ import "../styles/ui.css";
       <p class="muted">保存すると即公開。履歴が残るのでどこからでも戻せます。</p>
     </div>
     <div class="box">
-      <h2>ルール（短い3つ）</h2>
+      <h2>ルール</h2>
       <ul>
-        <li>事実は条件つきで書く（計測値は環境を添える）</li>
+        <li>事実は条件つきで書く（計測値には環境を添える）</li>
         <li>末尾に出典を1行以上残す</li>
-        <li>本Wikiは非公式。プロジェクト名に「DeepSeek Harness」を使わない</li>
+        <li>本Wikiは非公式。プロジェクト名に「DeepSeek Harness」は使わない</li>
       </ul>
     </div>
   </div>
 
   <footer>
-    これはデザイン確認用のローカルプレビュー（Astro + TanStack Table）。実サイト: dsh.sahen.site · 非公式 · MIT
+    デザイン確認用のローカルプレビュー（Astro + TanStack Table, unslop passes適用） · 実サイト: dsh.sahen.site · 非公式 · MIT
+    <br />unslop guidance by @heydamir (CC BY 4.0)
   </footer>
 </body>
 </html>

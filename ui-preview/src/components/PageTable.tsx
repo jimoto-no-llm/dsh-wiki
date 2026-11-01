@@ -53,19 +53,18 @@ export default function PageTable() {
       }),
       helper.accessor("cat", {
         header: "分類",
-        cell: (info) => (
-          <span className={info.getValue()}>
-            {CAT_LABEL[info.getValue()] ?? info.getValue()}
-          </span>
-        ),
+        cell: (info) => CAT_LABEL[info.getValue()] ?? info.getValue(),
       }),
       helper.accessor("desc", { header: "説明" }),
       helper.accessor("updated", {
         header: "最終更新",
         cell: (info) => (
-          <span className="updated">
-            {info.getValue()}（{info.row.original.by}）
-          </span>
+          <>
+            <span className="rev">版 {info.row.original.rev ?? 1}</span>
+            <div className="updated">
+              {info.getValue()}（{info.row.original.by}）
+            </div>
+          </>
         ),
       }),
     ],
