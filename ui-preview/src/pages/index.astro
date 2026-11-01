@@ -1,10 +1,20 @@
 ---
+import SearchBox from "../components/SearchBox.tsx";
+import pages from "../data/pages.json";
 import "@fontsource-variable/inter";
 import "@fontsource-variable/noto-sans-jp";
 import "@fontsource-variable/jetbrains-mono";
-import PageTable from "../components/PageTable.tsx";
-import SearchBox from "../components/SearchBox.tsx";
 import "../styles/ui.css";
+
+const groups = [
+  { key: "guide",     label: "DSH を使う" },
+  { key: "rdsh",      label: "rustdsh（rdsh）" },
+  { key: "reference", label: "リファレンス" },
+  { key: "meta",      label: "メタ" },
+].map((g) => ({
+  ...g,
+  items: pages.filter((p) => p.cat === g.key).sort((a, b) => a.name.localeCompare(b.name, "ja")),
+}));
 ---
 <!DOCTYPE html>
 <html lang="ja">
@@ -32,8 +42,21 @@ import "../styles/ui.css";
   </section>
 
   <section style="margin-top:24px">
-    <h2 style="font-size:15px; font-weight:500; margin:0 0 12px">このWikiの記事</h2>
-    <PageTable client:load />
+    <div class="cat-grid">
+      {groups.map((g) => (
+        <div class="cat-box" class:list={{ wide: g.items.length >= 10 }}>
+          <h2>{g.label} <span>{g.items.length}</span></h2>
+          <ul class:list={{ cols: g.items.length >= 8 }}>
+            {g.items.map((p) => (
+              <li>
+                <a href={"/w/" + p.slug}>{p.name}</a>
+                <span class="dsc">{p.desc}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
   </section>
 
   <footer>

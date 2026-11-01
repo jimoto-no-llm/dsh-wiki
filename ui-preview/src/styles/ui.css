@@ -155,3 +155,18 @@ td.updated { color: var(--ink-3); font-size: 12px; font-variant-numeric: tabular
 .create button:active { transform: scale(0.98); }
 
 footer { margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--ink-3); font-size: 12px; }
+
+
+/* ---------- categorized catalog grid ---------- */
+.cat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; align-items: start; }
+@media (max-width: 860px) { .cat-grid { grid-template-columns: 1fr; } }
+.cat-box { border: 1px solid var(--line); border-radius: var(--radius-card); background: var(--card); padding: 16px; }
+.cat-box.wide { grid-column: 1 / -1; }
+.cat-box h2 { font-size: 13px; font-weight: 500; color: var(--ink-2); margin: 0 0 8px; }
+.cat-box h2 span { color: var(--ink-3); font-variant-numeric: tabular-nums; margin-left: 6px; }
+.cat-box ul { list-style: none; margin: 0; padding: 0; }
+.cat-box ul.cols { columns: 2; column-gap: 24px; }
+@media (max-width: 700px) { .cat-box ul.cols { columns: 1; } }
+.cat-box li { padding: 5px 0; break-inside: avoid; font-size: 14px; }
+.cat-box li a { font-weight: 500; }
+.cat-box li .dsc { display: block; color: var(--ink-2); font-size: 12.5px; margin-top: 1px; }
