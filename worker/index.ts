@@ -25,10 +25,18 @@ const BAN_TTL = 24 * 60 * 60; // 自動BANの秒数
 const BAN_STRIKES = 3; // この回数レート超過でBAN
 const MAX_EXTERNAL_LINKS = 5; // 本文にこの数を超える外部リンクがある投稿は拒否
 
+type RevMeta = { ts: number; by: string; len: number; ipHash: string };
 type PageDoc = {
-  current: { content: string; at: number; by: string; ip: string };
-  revs: { ts: number; by: string; len: number }[];
+  current: { content: string; at: number; by: string; ipHash: string };
+  revs: RevMeta[];
 };
+// 旧形式（current.ip にハッシュが入っていた）との互換
+function ipHashOf(c: { ipHash?: string; ip?: string }): string {
+  return c.ipHash ?? c.ip ?? "";
+}
+type RecentRow = { slug: string; ts: number; by: string; ipHash: string };
+// 版1件の完全な記録（非公開。管理APIでのみ参照）
+type RevRecord = { content: string; at: number; by: string; ipHash: string; ip: string; ua: string };
 
 function esc(s: string): string {
   return s
@@ -62,6 +70,13 @@ async function ipHash(req: Request): Promise<string> {
     .slice(0, 8)
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("");
+}
+
+function rawIp(req: Request): string {
+  return req.headers.get("cf-connecting-ip") ?? "unknown";
+}
+function userAgent(req: Request): string {
+  return (req.headers.get("user-agent") ?? "").slice(0, 200);
 }
 
 /* ---------- 最小 Markdown レンダラ ---------- */
@@ -350,7 +365,7 @@ async function doGet(req: Request, env: Env, url: URL): Promise<Response> {
   const vn = q.get("v");
   if (vn) return revisionPage(env, slug, vn);
 
-  if (slug === "最近の編集") return recentPage(env);
+  if (slug === "最近の編集") return recentPage(env, req);
   if (slug === "検索") return searchPage(env, url.searchParams.get("q") ?? "");
 
   const doc = await getDoc(env, slug);
@@ -373,6 +388,8 @@ async function doGet(req: Request, env: Env, url: URL): Promise<Response> {
     new Date(doc.current.at).toISOString() +
     "（" +
     esc(doc.current.by || "匿名") +
+    " / ip:" +
+    esc(ipHashOf(doc.current)) +
     "）</p>";
   return htmlResp(body, slug, { slug });
 }
@@ -407,16 +424,9 @@ async function indexPage(env: Env): Promise<Response> {
   }
   const pick = (prefix: string) => [...inCategories].filter((s) => s.startsWith(prefix)).sort().map(pageLink).join("\n");
 
-  // 最近の編集（上8件）
-  type Row = { slug: string; ts: number; by: string };
-  const rows: Row[] = [];
-  for (const slug of idx) {
-    const doc = await getDoc(env, slug);
-    if (!doc) continue;
-    rows.push({ slug, ts: doc.current.at, by: doc.current.by || "匿名" });
-  }
-  rows.sort((a, b) => b.ts - a.ts);
-  const recent = rows
+  // 最近の編集（recent キー1読み。全slug走査しない=無料枠の読み取りを節約）
+  const recentRows = (await env.WIKI.get<RecentRow[]>("recent", "json")) ?? [];
+  const recent = recentRows
     .slice(0, 8)
     .map(
       (r) =>
@@ -473,13 +483,13 @@ async function searchPage(env: Env, query: string): Promise<Response> {
   if (exact) {
     return Response.redirect(SITE + "/w/" + encodeURIComponent(exact), 303);
   }
+  // 検索は searchindex キー1読みで完結させる（全slug走査しない）
   const needle = trimmed.toLowerCase();
+  const sidx = (await env.WIKI.get<Record<string, { t: string; c: string }>>("searchindex", "json")) ?? {};
   const hits: { slug: string; snippet: string }[] = [];
-  for (const slug of idx) {
-    const doc = await getDoc(env, slug);
-    if (!doc) continue;
-    const whole = slug + "\n" + (PAGE_INFO[slug]?.t ?? "") + "\n" + doc.current.content;
-    const pos = whole.toLowerCase().indexOf(needle);
+  for (const [slug, entry] of Object.entries(sidx)) {
+    const whole = (slug + "\n" + (entry.t ?? "") + "\n" + (entry.c ?? "")).toLowerCase();
+    const pos = whole.indexOf(needle);
     if (pos === -1) continue;
     const start = Math.max(0, pos - 40);
     const bodyTxt = whole.slice(start, pos + needle.length + 80).replace(/\s+/g, " ");
@@ -510,33 +520,32 @@ async function searchPage(env: Env, query: string): Promise<Response> {
   return htmlResp(body, "検索 / " + trimmed);
 }
 
-async function recentPage(env: Env): Promise<Response> {
-  const idx = await listIndex(env);
-  type Row = { slug: string; ts: number; by: string };
-  const rows: Row[] = [];
-  for (const slug of idx) {
-    const doc = await getDoc(env, slug);
-    if (!doc) continue;
-    rows.push({ slug, ts: doc.current.at, by: doc.current.by || "匿名" });
-    for (const r of doc.revs.slice(0, 5)) rows.push({ slug, ts: r.ts, by: r.by || "匿名" });
-  }
-  rows.sort((a, b) => b.ts - a.ts);
+async function recentPage(env: Env, req: Request): Promise<Response> {
+  // recent キー1読み。管理トークンがあれば生IPも出す（荒らし対処用）
+  const admin = okAdmin(env, req);
+  const rows = ((await env.WIKI.get<RecentRow[]>("recent", "json")) ?? []).slice(0, 50);
+  // 管理者表示のときだけ各版の記録から生IPを引く（最大50読み・管理画面限定）
+  const ips = admin
+    ? await Promise.all(rows.map((r) => env.WIKI.get<RevRecord>("rev:" + r.slug + ":" + r.ts, "json")))
+    : [];
   const list = rows
-    .slice(0, 50)
-    .map(
-      (r) =>
+    .map((r, i) => {
+      const who = esc(r.by);
+      const ipNote = admin
+        ? ' <span class="sub">IP:' + esc(ips[i]?.ip ?? "?") + " / UA:" + esc(ips[i]?.ua ?? "?") + "</span>"
+        : ' <span class="sub">ip:' + esc(r.ipHash) + "</span>";
+      return (
         "<li>" +
         new Date(r.ts).toISOString().replace("T", " ").slice(0, 16) +
-        "　<a href=\"/w/" +
-        encodeURIComponent(r.slug) +
-        "\">" +
-        esc(r.slug) +
-        "</a>　（" +
-        esc(r.by) +
-        "）</li>",
-    )
+        "　<a href=\"/w/" + encodeURIComponent(r.slug) + "\">" + esc(r.slug) +
+        "</a>　（" + who + "）" + ipNote + "</li>"
+      );
+    })
     .join("\n");
-  return htmlResp("<h1>最近の編集</h1><ul>" + list + "</ul>", "最近の編集");
+  const note = admin
+    ? '<p class="revlist">管理者表示: 生IP・UAを表示中。URLを共有しないこと。</p>'
+    : '<p class="revlist">IPは匿名化ハッシュで表示しています。荒らし対処は管理者が生IPを確認します。</p>';
+  return htmlResp("<h1>最近の編集</h1>" + note + "<ul>" + list + "</ul>", "最近の編集");
 }
 
 async function editPage(env: Env, slug: string, err: string): Promise<Response> {
@@ -580,7 +589,7 @@ async function historyPage(env: Env, slug: string): Promise<Response> {
   items.push(
     "<li><strong>現行版</strong>　" +
       new Date(doc.current.at).toISOString().replace("T", " ").slice(0, 16) +
-      "　（" + esc(doc.current.by || "匿名") + "）</li>",
+      "　（" + esc(doc.current.by || "匿名") + " / ip:" + esc(ipHashOf(doc.current)) + "）</li>",
   );
   doc.revs.forEach((r, n) => {
     items.push(
@@ -594,7 +603,9 @@ async function historyPage(env: Env, slug: string): Promise<Response> {
         esc(r.by || "匿名") +
         "・" +
         r.len +
-        "字）</li>",
+        "字・ip:" +
+        esc(r.ipHash ?? "") +
+        "）</li>",
     );
   });
   return htmlResp(
@@ -688,12 +699,25 @@ async function adminAction(req: Request, env: Env, url: URL): Promise<Response> 
   }
   if (action === "status") {
     const doc = await getDoc(env, slug);
+    // 最新版の完全な記録（生IP・UA）を管理用に返す
+    const rec = doc
+      ? await env.WIKI.get<RevRecord>("rev:" + slug + ":" + doc.current.at, "json")
+      : null;
     return jsonResp({
       ok: true,
       slug,
       exists: !!doc,
       locked: (await env.WIKI.get("lock:" + slug)) === "1",
-      last: doc ? { at: doc.current.at, by: doc.current.by, ip: doc.current.ip, len: doc.current.content.length } : null,
+      last: doc
+        ? {
+            at: doc.current.at,
+            by: doc.current.by,
+            ipHash: ipHashOf(doc.current),
+            ip: rec?.ip ?? "(旧形式・記録なし)",
+            ua: rec?.ua ?? "(旧形式・記録なし)",
+            len: doc.current.content.length,
+          }
+        : null,
     });
   }
   return jsonResp({ ok: false, error: "unknown action" }, 400);
@@ -726,7 +750,9 @@ async function doPost(req: Request, env: Env, url: URL): Promise<Response> {
   const form = await req.formData();
   const content = String(form.get("content") ?? "");
   const by = String(form.get("by") ?? "").trim().slice(0, 40);
-  const ip = await ipHash(req);
+  const ip = await ipHash(req); // 公開用ハッシュ（レート制限・履歴表示に使用）
+  const rip = rawIp(req);       // 生IP（記録はするが管理APIでのみ参照）
+  const ua = userAgent(req);
   const browser = !!origin; // Origin あり=ブラウザフォーム。無しはAPIとしてJSONを返す
 
   // 1) 自動BAN
@@ -737,11 +763,14 @@ async function doPost(req: Request, env: Env, url: URL): Promise<Response> {
   if ((await env.WIKI.get("lock:" + slug)) === "1") {
     return browser ? saveError(url, slug, "このページは編集停止中です") : jsonResp({ ok: false, error: "page is locked" }, 403);
   }
-  // 3) 内容チェック（失敗したらレートを消費しない）
-  if (!content.trim()) return browser ? saveError(url, slug, "本文が空です") : jsonResp({ ok: false, error: "empty" }, 400);
-  if (content.length > MAX_BODY) return browser ? saveError(url, slug, "本文が大きすぎます") : jsonResp({ ok: false, error: "too long" }, 413);
-  if (countExternalLinks(content) > MAX_EXTERNAL_LINKS) {
-    return browser ? saveError(url, slug, "外部リンクが多すぎます（スパムガード）") : jsonResp({ ok: false, error: "too many external links (spam guard)" }, 400);
+  // 3) 内容チェック（失敗したらレートを消費しない）。管理者トークンがあればスパムガードを免除
+  const adminBypass = okAdmin(env, req);
+  if (!adminBypass) {
+    if (!content.trim()) return browser ? saveError(url, slug, "本文が空です") : jsonResp({ ok: false, error: "empty" }, 400);
+    if (content.length > MAX_BODY) return browser ? saveError(url, slug, "本文が大きすぎます") : jsonResp({ ok: false, error: "too long" }, 413);
+    if (countExternalLinks(content) > MAX_EXTERNAL_LINKS) {
+      return browser ? saveError(url, slug, "外部リンクが多すぎます（スパムガード）") : jsonResp({ ok: false, error: "too many external links (spam guard)" }, 400);
+    }
   }
   // 4) レート制限（超過でストライク、3回で自動BAN）
   const bucket = Math.floor(Date.now() / RATE_WINDOW_MS);
@@ -766,17 +795,30 @@ async function doPost(req: Request, env: Env, url: URL): Promise<Response> {
   const prev = await getDoc(env, slug);
   const now = Date.now();
   const doc: PageDoc = {
-    current: { content, at: now, by, ip },
+    current: { content, at: now, by, ipHash: ip },
     revs: prev
       ? [
-          { ts: prev.current.at, by: prev.current.by, len: prev.current.content.length },
+          { ts: prev.current.at, by: prev.current.by, len: prev.current.content.length, ipHash: ipHashOf(prev.current) },
           ...prev.revs,
         ].slice(0, VERSIONS_KEPT)
       : [],
   };
-  await env.WIKI.put(key, JSON.stringify(doc));
-  await env.WIKI.put("rev:" + slug + ":" + now, JSON.stringify(doc.current));
-  if (!prev) await addToIndex(env, slug);
+  // 版の完全な記録（生IP・UAつき。公開ページには出さない）
+  const record: RevRecord = { content, at: now, by, ipHash: ip, ip: rip, ua };
+  // 無料枠対策: ポータル・最近の編集・検索を1読みにするための索引を同時に更新
+  const recent = (await env.WIKI.get<RecentRow[]>("recent", "json")) ?? [];
+  recent.unshift({ slug, ts: now, by: by || "匿名", ipHash: ip });
+  const searchIdx = (await env.WIKI.get<Record<string, { t: string; c: string }>>("searchindex", "json")) ?? {};
+  searchIdx[slug] = { t: pageTitle(slug), c: (slug + "\n" + content).toLowerCase().slice(0, 1200) };
+
+  const writes: Promise<void>[] = [
+    env.WIKI.put(key, JSON.stringify(doc)),
+    env.WIKI.put("rev:" + slug + ":" + now, JSON.stringify(record)),
+    env.WIKI.put("recent", JSON.stringify(recent.slice(0, 50))),
+    env.WIKI.put("searchindex", JSON.stringify(searchIdx)),
+  ];
+  if (!prev) writes.push(addToIndex(env, slug));
+  await Promise.all(writes);
   return Response.redirect("https://dsh.sahen.site/w/" + encodeURIComponent(slug), 303);
 }
 

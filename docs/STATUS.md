@@ -1,5 +1,20 @@
 # 現状メモ（STATUS）
 
+更新日: 2026-11-06
+
+## 2026-11-06 の変更
+
+- 編集APIを復旧（Astro切替時に wrangler.jsonc から main/KV/run_worker_first が抜けて /w/ が404だった）
+- IP記録: 版ごとに生IP・UAを rev:<slug>:<ts> に記録。公開画面にはSHA-256ハッシュ8桁のみ表示
+- 管理者モード: 最近の編集を X-Admin-Token 付きで見ると生IP・UAを表示
+- 無料枠対策: recent / searchindex キーを導入し、ポータル・検索を1読みに削減
+- スパムガード: 外部リンク5件超は拒否（管理者トークン付きは免除=ページ復元用）
+- backfill: scripts/backfill-indexes.mjs で既存ページから recent/searchindex を再構築できる
+
+---
+
+# 現状メモ（STATUS）
+
 このWikiプロジェクトの現状を記録するファイルです。更新日: 2026-11-01（匿名編集Wiki 追加）
 
 ## 全体の状態
