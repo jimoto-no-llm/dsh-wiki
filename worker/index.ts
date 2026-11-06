@@ -182,49 +182,82 @@ function shell(title: string, bodyHtml: string, opts: { slug?: string } = {}): s
     opts.slug !== undefined
       ? '<a class="btn" href="/w/' + encodeURIComponent(opts.slug) + '?edit">このページを編集</a>'
       : "";
+  // 静的側（Astro）の wiki.css と同じトークン。/w/ は CSP で JS 不可のため
+  // ダークテーマは prefers-color-scheme のみに追従する。
+  const css = [
+    ":root{--bg:#fff;--fg:#202122;--fg-2:#54595d;--fg-3:#72777d;--link:#3366cc;--visited:#795cb2;--line:#a2a9b1;--line-soft:#eaecf0;--surface:#f8f9fa;--surface-2:#eaecf0;--danger-bg:#fef6e7;--danger-line:#f0c67d;--radius:6px;color-scheme:light}",
+    "@media (prefers-color-scheme:dark){:root{--bg:#101418;--fg:#eaecf0;--fg-2:#a2a9b1;--fg-3:#72777d;--link:#6b9ded;--visited:#a687d0;--line:#54595d;--line-soft:#27292d;--surface:#1c2024;--surface-2:#22262b;--danger-bg:#3a2f1a;--danger-line:#6b5620;color-scheme:dark}}",
+    "*,*::before,*::after{box-sizing:border-box}",
+    "html{-webkit-text-size-adjust:100%}",
+    "body{margin:0;background:var(--bg);color:var(--fg);font-family:'Noto Sans JP Variable','Hiragino Sans','Yu Gothic',system-ui,sans-serif;font-size:15px;line-height:1.8;-webkit-font-smoothing:antialiased;max-width:60rem;margin:0 auto;padding:0 1.25rem 3rem}",
+    "a{color:var(--link);text-decoration:none}a:hover{text-decoration:underline}a:visited{color:var(--visited)}",
+    ":focus-visible{outline:2px solid var(--link);outline-offset:2px;border-radius:2px}",
+    "::selection{background:rgba(51,102,204,.2)}",
+    "code,pre,kbd{font-family:'JetBrains Mono Variable',ui-monospace,Menlo,monospace}",
+    ".num{font-variant-numeric:tabular-nums}",
+    "header.site{display:flex;align-items:center;gap:.9rem;flex-wrap:wrap;padding:.9rem 0 0;border-bottom:1px solid var(--line)}",
+    "header .brand{font-weight:700;text-decoration:none;color:var(--fg);font-size:1.1rem;letter-spacing:-.01em;white-space:nowrap}",
+    "header .brand:hover{color:var(--link);text-decoration:none}",
+    "header .brand small{color:var(--fg-3);font-weight:400;font-size:.78rem}",
+    ".actions{margin-left:auto;display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}",
+    ".actions form{display:flex;gap:.25rem}",
+    ".btn{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:.4rem .75rem;text-decoration:none;color:var(--fg-2);font-size:.85rem;min-height:2.2rem;display:inline-flex;align-items:center;white-space:nowrap}",
+    ".btn:hover{color:var(--fg);border-color:var(--fg-3);text-decoration:none}",
+    ".btn.primary{background:var(--link);border-color:var(--link);color:#fff}",
+    ".btn.primary:hover{opacity:.9}",
+    ".searchbox input[type=text]{border:1px solid var(--line);padding:.35rem .55rem;width:10rem;background:var(--surface);color:var(--fg);font-size:16px;border-radius:var(--radius)}",
+    ".searchbox button{border:1px solid var(--line);background:var(--surface);padding:.35rem .6rem;font-size:.85rem;cursor:pointer;color:var(--fg-2);border-radius:var(--radius);min-height:2.2rem}",
+    ".searchbox button:hover{color:var(--fg);border-color:var(--fg-3)}",
+    "h1{font-size:1.6rem;border-bottom:1px solid var(--line);padding-bottom:.25rem;margin:.4rem 0 .8rem;font-weight:400;line-height:1.4}",
+    "h1 small{font-size:.8rem;font-weight:400;color:var(--fg-3)}",
+    "h2{font-size:1.15rem;border-bottom:1px solid var(--line-soft);padding-bottom:.2rem;margin:1.6rem 0 .5rem;font-weight:600}",
+    "h3{font-size:1rem;margin:1.2rem 0 .4rem;font-weight:600}",
+    "ul,ol{padding-left:1.6em}li{margin:.25rem 0}",
+    "pre{background:var(--surface);border:1px solid var(--line-soft);border-radius:var(--radius);padding:.7rem .9rem;overflow-x:auto;font-size:.84rem;line-height:1.6}",
+    "code{font-size:.9em}",
+    "blockquote{border-left:3px solid var(--line);background:var(--surface);margin:.5rem 0;padding:.5rem .9rem;color:var(--fg-2);border-radius:0 var(--radius) var(--radius) 0;font-size:.9rem}",
+    ".warning{background:var(--danger-bg);border:1px solid var(--danger-line);border-radius:var(--radius);padding:.5rem .8rem;margin:.8rem 0;font-size:.9rem}",
+    ".infobox{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:.6rem .9rem;margin:.8rem 0;font-size:.88rem}",
+    "footer{margin-top:2.6rem;border-top:1px solid var(--line);padding-top:.6rem;color:var(--fg-3);font-size:.78rem;line-height:1.7}",
+    ".revlist{font-size:.85rem;color:var(--fg-3)}",
+    ".revlist a{color:var(--link)}",
+    ".pageactions{display:flex;gap:.5rem;flex-wrap:wrap;margin:0 0 1.2rem}",
+    ".pageactions .btn{font-size:.82rem;padding:.35rem .7rem;min-height:2.1rem}",
+    ".mp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}",
+    ".mp-box{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:.5rem .9rem .7rem}",
+    ".mp-box h2{border-bottom:1px solid var(--line);font-size:.92rem;margin:.2rem 0 .5rem;padding:.15rem 0 .3rem;color:var(--fg)}",
+    ".mp-box ul{margin:.2rem 0 .2rem 1.1rem;padding:0}",
+    ".mp-box li{margin:.25rem 0}",
+    ".mp-box .sub{font-size:.8rem;color:var(--fg-3)}",
+    ".mp-hero{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);padding:.9rem 1.1rem;margin:0 0 1rem;text-align:center}",
+    ".mp-hero h1{border:none;font-size:1.7rem;margin:.1rem 0}",
+    ".mp-hero p{margin:.25rem 0;font-size:.9rem;color:var(--fg-2)}",
+    ".mp-hero .big{font-size:.95rem}",
+    ".mp-hero form{max-width:34rem;margin:.6rem auto 0;display:flex;gap:.5rem}",
+    ".mp-hero form input{flex:1;height:2.6rem;border:1px solid var(--line);border-radius:var(--radius);padding:0 .9rem;font-size:16px;background:var(--surface);color:var(--fg)}",
+    ".mp-hero form button{height:2.6rem;padding:0 1.2rem;background:var(--link);color:#fff;border:none;border-radius:var(--radius);font-weight:500;font-size:.95rem;cursor:pointer}",
+    ".pagerow{display:flex;gap:.4rem;flex-wrap:wrap;align-items:baseline;margin:.35rem 0 .1rem}",
+    ".pagerow .pname{font-size:1rem}",
+    ".pagerow .pd{color:var(--fg-3);font-size:.82rem;margin-left:.35rem}",
+    /* 編集フォーム */
+    ".editform label{display:block;font-size:.85rem;color:var(--fg-2);margin:0 0 .4rem}",
+    ".editform input[name=by]{border:1px solid var(--line);border-radius:var(--radius);padding:.4rem .55rem;width:16rem;max-width:100%;font-size:16px;background:var(--surface);color:var(--fg)}",
+    ".editform textarea{width:100%;font-family:'JetBrains Mono Variable',ui-monospace,Menlo,monospace;font-size:14px;line-height:1.6;border:1px solid var(--line);border-radius:var(--radius);padding:.7rem .8rem;background:var(--surface);color:var(--fg);min-height:26rem}",
+    ".editform .save{margin-top:.6rem;display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}",
+    ".editform .save .btn.primary{font-size:.95rem;padding:.55rem 1.3rem;min-height:2.6rem}",
+    ".editform .save small{color:var(--fg-3)}",
+    ".edithint{font-size:.82rem;color:var(--fg-3);margin:.6rem 0 0}",
+    ".edithint code{background:var(--surface);border:1px solid var(--line-soft);border-radius:3px;padding:.05rem .3rem}",
+    /* レスポンシブ */
+    "@media (max-width:640px){body{padding:0 .9rem 2.5rem}.actions{margin-left:0;width:100%}.searchbox{flex:1}.searchbox input[type=text]{flex:1;width:auto;min-width:0}.mp-grid{grid-template-columns:1fr}.mp-hero form{flex-direction:column}.mp-hero form button{width:100%}.editform textarea{min-height:20rem}}",
+  ].join("\n");
   return (
     '<!DOCTYPE html>\n<html lang="ja">\n<head>\n<meta charset="utf-8">\n' +
     '<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
     '<meta name="robots" content="noindex, nofollow">\n' +
     "<title>" + esc(title) + " - DSH 日本語Wiki</title>\n" +
-    '<style>:root{color-scheme:light}' +
-    "html,body{background:#fff}" +
-    "body{font-family:'Hiragino Kaku Gothic ProN','Hiragino Sans','Noto Sans JP',system-ui,sans-serif;font-size:.95rem;max-width:62rem;margin:0 auto;padding:0 1rem 3rem;line-height:1.7;color:#202122}" +
-    "a{color:#3366cc;text-decoration:none}a:hover{text-decoration:underline}" +
-    "header{display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;border-bottom:1px solid #a2a9b1;padding:.55rem 0;margin-bottom:1rem}" +
-    "header .brand{font-weight:700;text-decoration:none;color:#202122;font-size:1.02rem}" +
-    "header .brand small{color:#72777d;font-weight:400;font-size:.78rem}" +
-    ".actions{margin-left:auto;display:flex;gap:.4rem;align-items:center;flex-wrap:wrap}" +
-    ".actions form{display:flex;gap:.25rem}" +
-    '.btn{border:1px solid #a2a9b1;background:#f8f9fa;border-radius:2px;padding:.15rem .55rem;text-decoration:none;color:#202122;font-size:.85rem}' +
-    ".btn:hover{background:#eaecf0;text-decoration:none}" +
-    '.searchbox input[type=text]{border:1px solid #a2a9b1;padding:.2rem .45rem;width:10rem;background:#fff;color:#202122;font-size:.85rem}' +
-    '.searchbox button{border:1px solid #a2a9b1;background:#f8f9fa;padding:.2rem .55rem;font-size:.85rem;cursor:pointer}' +
-    "h1{font-size:1.6rem;border-bottom:1px solid #a2a9b1;padding-bottom:.25rem;margin:.4rem 0 .8rem;font-weight:400}" +
-    "h2{font-size:1.05rem;border-bottom:1px solid #c8ccd1;padding-bottom:.2rem;margin:1.2rem 0 .6rem;font-weight:700}" +
-    "h3{font-size:.95rem;margin:1rem 0 .4rem}" +
-    "pre{background:#f8f9fa;border:1px solid #eaecf0;border-radius:2px;padding:.7rem .9rem;overflow-x:auto}" +
-    "code{font-size:.9em}blockquote{border-left:3px solid #a2a9b1;margin:.5rem 0;padding:.05rem .9rem;color:#54595d}" +
-    ".warning{background:#fef6e7;border:1px solid #f0c67d;border-radius:2px;padding:.5rem .8rem;margin:.8rem 0;font-size:.9rem}" +
-    ".infobox{background:#f8f9fa;border:1px solid #a2a9b1;border-radius:2px;padding:.6rem .9rem;margin:.8rem 0;font-size:.88rem}" +
-    "footer{margin-top:2.6rem;border-top:1px solid #a2a9b1;padding-top:.6rem;color:#72777d;font-size:.8rem}" +
-    ".revlist{font-size:.85rem;color:#72777d}" +
-    ".mp-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}" +
-    '@media (max-width:640px){.mp-grid{grid-template-columns:1fr}}' +
-    ".mp-box{border:1px solid #a2a9b1;background:#f8f9fa;border-radius:2px;padding:.5rem .9rem .7rem}" +
-    ".mp-box h2{border-bottom:1px solid #a2a9b1;font-size:.92rem;margin:.2rem 0 .5rem;padding:.15rem 0 .3rem;color:#202122}" +
-    ".mp-box ul{margin:.2rem 0 .2rem 1.1rem;padding:0}" +
-    ".mp-box li{margin:.25rem 0}" +
-    ".mp-box .sub{font-size:.8rem;color:#72777d}" +
-    ".mp-hero{border:1px solid #a2a9b1;background:#f8f9fa;border-radius:2px;padding:.9rem 1.1rem;margin:0 0 1rem;text-align:center}" +
-    ".mp-hero h1{border:none;font-size:1.7rem;margin:.1rem 0}" +
-    ".mp-hero p{margin:.25rem 0;font-size:.9rem;color:#54595d}" +
-    ".mp-hero .big{font-size:.95rem}" +
-    ".pagerow{display:flex;gap:.4rem;flex-wrap:wrap;align-items:baseline;margin:.35rem 0 .1rem}" +
-    '.pagerow .pname{font-size:1rem}' +
-    '.pagerow .pd{color:#54595d;font-size:.82rem;margin-left:.35rem}' +
-    '</style>\n</head>\n<body>\n' +
-    '<header><a class="brand" href="/">DSH 日本語Wiki</a> <small>非公式・誰でも編集できる</small>' +
+    "<style>" + css + "</style>\n</head>\n<body>\n" +
+    '<header class="site"><a class="brand" href="/">DSH 日本語Wiki</a> <small>非公式・誰でも編集できる</small>' +
     '<div class="actions">' +
     editLink +
     '<div class="searchbox"><form method="get" action="/w/%E6%A4%9C%E7%B4%A2"><input type="text" name="q" placeholder="Wiki内を検索" aria-label="検索"><button type="submit">検索</button></form></div>' +
@@ -232,7 +265,7 @@ function shell(title: string, bodyHtml: string, opts: { slug?: string } = {}): s
     '</div></header>\n<main>' +
     bodyHtml +
     "</main>\n" +
-    '<footer>このWikiはアカウント不要で誰でも編集できます（いたずら防止のため履歴と連投制限があります）。整備済みのリファレンスも将来はここへ取り込みます。対象: DeepSeek Harness（DSH）・ rustdsh — どちらも MIT。</footer>\n' +
+    '<footer>このWikiはアカウント不要で誰でも編集できます（いたずら防止のため履歴と連投制限があります）。対象: DeepSeek Harness（DSH）・ rustdsh — どちらも MIT。</footer>\n' +
     "</body>\n</html>"
   );
 }
@@ -330,17 +363,17 @@ async function doGet(req: Request, env: Env, url: URL): Promise<Response> {
     return htmlResp(body, "404 / " + slug, { slug, status: 404 });
   }
   const body =
-    "<h1>" + esc(pageTitle(slug)) + "<br><span style=\"font-size:.8rem;font-weight:400;color:#72777d\">" + esc(slug) + "</span></h1>\n" +
+    "<h1>" + esc(pageTitle(slug)) + " <small>" + esc(slug) + "</small></h1>\n" +
+    '<div class="pageactions">' +
+    '<a class="btn" href="/w/' + encodeURIComponent(slug) + '?edit">このページを編集</a>' +
+    '<a class="btn" href="/w/' + encodeURIComponent(slug) + '?history">履歴</a>' +
+    "</div>\n" +
     mdToHtml(doc.current.content) +
     '<hr><p class="revlist">最終更新: ' +
     new Date(doc.current.at).toISOString() +
     "（" +
     esc(doc.current.by || "匿名") +
-    '）　<a href="/w/' +
-    encodeURIComponent(slug) +
-    '?history">版一覧（' +
-    doc.revs.length +
-    "）</a></p>";
+    "）</p>";
   return htmlResp(body, slug, { slug });
 }
 
@@ -528,14 +561,15 @@ async function editPage(env: Env, slug: string, err: string): Promise<Response> 
     errBox +
     '<form method="post" action="/w/' +
     encodeURIComponent(slug) +
-    '">' +
-    '<p><label>署名（任意・40字まで）: <input name="by" maxlength="40" style="width:16rem"></label></p>' +
-    '<p><textarea name="content" rows="22" style="width:100%;font-family:monospace">' +
+    '" class="editform">' +
+    '<label>署名（任意・40字まで）<input name="by" maxlength="40"></label>' +
+    "<textarea name=\"content\" rows=\"22\" spellcheck=\"false\">" +
     esc(content) +
-    "</textarea></p>" +
-    '<p><button type="submit" style="padding:.4rem 1.2rem">保存して公開</button>　保存すると即公開されます（履歴に残ります）。</p>' +
+    "</textarea>" +
+    '<div class="save"><button type="submit" class="btn primary">保存して公開</button>' +
+    "<small>保存すると即公開されます（履歴に残ります）。</small></div>" +
     "</form>" +
-    '<p class="revlist">ヒント: 見出しは <code>## 見出し</code>、リンクは <code>[文字](URL)</code>、コードは <code>```</code> で囲む。</p>';
+    '<p class="edithint">ヒント: 見出しは <code>## 見出し</code>、リンクは <code>[文字](URL)</code>、コードは <code>\`\`\`</code> で囲む。</p>';
   return htmlResp(body, "編集 / " + slug, { slug });
 }
 

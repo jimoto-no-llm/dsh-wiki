@@ -51,12 +51,18 @@ const today = new Date().toISOString().slice(0, 10);
     </header>
     <nav class="tabs" aria-label="表示">
       <a class="on" href="/">閲覧</a>
+      <a href={"/w/" + encodeURIComponent(d.slug) + "?edit"}>編集</a>
+      <a href={"/w/" + encodeURIComponent(d.slug) + "?history"}>履歴</a>
       <a href="/all">全記事</a>
       <a href="https://github.com/jimoto-no-llm/dsh-wiki" rel="noopener">ソース</a>
     </nav>
 
     <article>
       <h1 class="article">{d.title}</h1>
+      <div class="pageactions">
+        <a href={"/w/" + encodeURIComponent(d.slug) + "?edit"}>このページを編集</a>
+        <a href={"/w/" + encodeURIComponent(d.slug) + "?history"}>履歴</a>
+      </div>
       <p class="meta">
         <span class="num">{fmt(d.chars)} 字</span>
         <span>·</span>
